@@ -8,6 +8,7 @@ $xpdo_meta_map['cgSetting']= array (
   array (
     'key' => '',
     'label' => '',
+    'xtype' => '',
     'description' => '0',
     'is_required' => 0,
     'value' => '',
@@ -25,6 +26,14 @@ $xpdo_meta_map['cgSetting']= array (
       'default' => '',
     ),
     'label' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '75',
+      'phptype' => 'string',
+      'null' => false,
+      'default' => '',
+    ),
+    'xtype' => 
     array (
       'dbtype' => 'varchar',
       'precision' => '75',

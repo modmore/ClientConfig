@@ -22,3 +22,7 @@
 
 $_lang['clientconfig'] = 'Configuration';
 $_lang['clientconfig.desc'] = 'Set and update site configuration.';
+$_lang['clientconfig.save_config'] = 'Save Configuration';
+$_lang['clientconfig.admin'] = 'Admin';
+$_lang['clientconfig.no_configuration_yet'] = 'No Configuration Available';
+$_lang['clientconfig.no_configuration_yet.desc'] = 'It seems there is no configuration set up yet. If you are the administrator of the site, please follow the documentation to set up configuration for your client.';

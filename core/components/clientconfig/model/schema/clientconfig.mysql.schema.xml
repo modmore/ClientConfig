@@ -5,6 +5,8 @@
                phptype="string"     null="false"        default="" />
         <field key="label"          dbtype="varchar"    precision="75"
                phptype="string"     null="false"        default="" />
+        <field key="xtype"          dbtype="varchar"    precision="75"
+               phptype="string"     null="false"        default="" />
         <field key="description"    dbtype="varchar"    precision="500"
                phptype="string"     null="false"        default="0" />
         <field key="is_required"    dbtype="tinyint"    precision="1"

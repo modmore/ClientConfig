@@ -19,7 +19,8 @@ abstract class ClientConfigManagerController extends modExtraManagerController {
         $this->clientconfig = new ClientConfig($this->modx);
 
         /* Add the main javascript class and our configuration */
-        $this->addJavascript($this->clientconfig->config['js_url'].'clientconfig.class.js');
+        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/clientconfig.class.js');
+        $this->addCss($this->clientconfig->config['cssUrl'].'mgr/clientconfig.css');
         $this->addHtml('<script type="text/javascript">
         Ext.onReady(function() {
             ClientConfig.config = '.$this->modx->toJSON($this->clientconfig->config).';

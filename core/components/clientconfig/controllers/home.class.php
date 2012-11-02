@@ -7,9 +7,33 @@
 class ClientConfigHomeManagerController extends ClientConfigManagerController {
     /**
      * Any specific processing we need on the Home controller.
+     * In this case, we get all groups and all settings in the group.
      * @param array $scriptProperties
      */
     public function process(array $scriptProperties = array()) {
+        $tabs = array();
+
+        /**
+         * Get all the Groups
+         * @var cgGroup $group
+         * @var cgSetting $setting
+         */
+        $groups = $this->modx->getCollection('cgGroup');
+        foreach ($groups as $group) {
+            $id = $group->get('id');
+            $tabs[$id] = $group->toArray();
+            $tabs[$id]['items'] = array();
+
+            foreach ($group->getMany('Settings') as $setting) {
+                $tabs[$id]['items'][] = $setting->toArray();
+            }
+        }
+
+        $this->addHtml('<script type="text/javascript">
+        Ext.onReady(function() {
+            ClientConfig.data = '.$this->modx->toJSON($tabs).';
+        });
+        </script>');
     }
 
     /**
@@ -25,13 +49,12 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
      * combine and compress them if enabled in system settings.
      */
     public function loadCustomCssJs() {
-        $this->addJavascript($this->clientconfig->config['js_url'].'mgr/widgets/panel.home.js');
-        $this->addJavascript($this->clientconfig->config['js_url'].'mgr/widgets/grid.menu.js');
-        $this->addJavascript($this->clientconfig->config['js_url'].'mgr/widgets/window.menu.js');
-        $this->addJavascript($this->clientconfig->config['js_url'].'mgr/widgets/formpanel.menu.js');
+        /*$this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/panel.home.js');
+        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/grid.menu.js');
+        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/window.menu.js');
+        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/formpanel.menu.js');*/
 
-        /* As the section instantiates the widgets, always load it last. */
-        $this->addLastJavascript($this->clientconfig->config['js_url'].'mgr/sections/index.js');
+        $this->addLastJavascript($this->clientconfig->config['jsUrl'].'mgr/sections/home.js');
     }
 
     /**
@@ -39,6 +62,6 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
      * @return string
      */
     public function getTemplateFile() {
-        return $this->clientconfig->config['templates_path'].'home.tpl';
+        return $this->clientconfig->config['templatesPath'].'home.tpl';
     }
 }
