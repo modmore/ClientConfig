@@ -22,7 +22,15 @@
 
 $_lang['clientconfig'] = 'Configuration';
 $_lang['clientconfig.desc'] = 'Set and update site configuration.';
-$_lang['clientconfig.save_config'] = 'Save Configuration';
 $_lang['clientconfig.admin'] = 'Admin';
+$_lang['clientconfig.adminpanel'] = 'Configuration Admin Panel';
+$_lang['clientconfig.description'] = 'Description';
+$_lang['clientconfig.error.noresults'] = 'No items found.';
+$_lang['clientconfig.id'] = 'ID';
+$_lang['clientconfig.groups'] = 'Groups';
+$_lang['clientconfig.label'] = 'Label';
 $_lang['clientconfig.no_configuration_yet'] = 'No Configuration Available';
 $_lang['clientconfig.no_configuration_yet.desc'] = 'It seems there is no configuration set up yet. If you are the administrator of the site, please follow the documentation to set up configuration for your client.';
+$_lang['clientconfig.save_config'] = 'Save Configuration';
+$_lang['clientconfig.settings'] = 'Settings';
+$_lang['clientconfig.settings_count'] = '# of Settings';

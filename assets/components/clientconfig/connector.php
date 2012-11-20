@@ -26,7 +26,7 @@ require_once MODX_CORE_PATH.'config/'.MODX_CONFIG_KEY.'.inc.php';
 require_once MODX_CONNECTORS_PATH.'index.php';
 
 $corePath = $modx->getOption('clientconfig.core_path',null,$modx->getOption('core_path').'components/clientconfig/');
-require_once $corePath.'model/clientconfig.class.php';
+require_once $corePath.'model/clientconfig/clientconfig.class.php';
 $modx->clientconfig = new ClientConfig($modx);
 
 $modx->lexicon->load('clientconfig:default');

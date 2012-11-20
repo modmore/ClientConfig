@@ -17,6 +17,8 @@
                phptype="string"     null="false"        default="" />
         <field key="group"          dbtype="int"        precision="11"
                phptype="int"        null="true"         default="0" />
+        <field key="options"        dbtype="varchar"    precision="500"
+               phptype="string"      null="true"         default="" />
 
         <aggregate alias="Group"    local="group"
                    class="cgGroup"  foreign="id"

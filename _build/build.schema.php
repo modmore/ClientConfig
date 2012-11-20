@@ -54,6 +54,7 @@ foreach ($objects as $object) {
     }
     $manager->createObjectContainer($object);
 }
+$manager->addField('cgSetting','options');
 
 $mtime= microtime();
 $mtime= explode(" ", $mtime);

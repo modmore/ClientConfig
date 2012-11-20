@@ -14,6 +14,7 @@ $xpdo_meta_map['cgSetting']= array (
     'value' => '',
     'default' => '',
     'group' => 0,
+    'options' => '',
   ),
   'fieldMeta' => 
   array (
@@ -80,6 +81,14 @@ $xpdo_meta_map['cgSetting']= array (
       'phptype' => 'int',
       'null' => true,
       'default' => 0,
+    ),
+    'options' => 
+    array (
+      'dbtype' => 'varchar',
+      'precision' => '500',
+      'phptype' => 'string',
+      'null' => true,
+      'default' => '',
     ),
   ),
   'aggregates' => 
