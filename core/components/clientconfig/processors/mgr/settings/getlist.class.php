@@ -1,13 +1,12 @@
 <?php
 /**
- * Gets a list of cgGroup objects.
+ * Gets a list of cgSetting objects.
  */
-class cgGroupGetListProcessor extends modObjectGetListProcessor {
-    public $classKey = 'cgGroup';
+class cgSettingGetListProcessor extends modObjectGetListProcessor {
+    public $classKey = 'cgSetting';
     public $languageTopics = array('clientconfig:default');
     public $defaultSortField = 'label';
     public $defaultSortDirection = 'ASC';
-
 
     /**
      * Transform the xPDOObject derivative to an array;
@@ -19,4 +18,4 @@ class cgGroupGetListProcessor extends modObjectGetListProcessor {
         return $row;
     }
 }
-return 'cgGroupGetListProcessor';
+return 'cgSettingGetListProcessor';

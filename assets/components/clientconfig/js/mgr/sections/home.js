@@ -5,32 +5,33 @@ Ext.onReady(function() {
 ClientConfig.page.Home = function(config) {
     config = config || {};
     Ext.applyIf(config,{
+        id: 'clientconfig-page-home',
         cls: 'container form-with-labels',
+        layout: 'form',
         border: false,
-        defaults: {
-        },
         components: [{
             xtype: 'panel',
             html: '<h2>'+_('clientconfig')+'</h2>',
             border: false,
             cls: 'modx-page-header'
         },{
-            xtype: 'modx-tabs',
-            width: '98%',
-            border: true,
-            defaults: {
-                border: false,
-                autoHeight: true,
-                defaults: {
-                    border: false
-                }
-            },
-            items: this.getTabs()
-        },{
-            xtype: 'panel',
+            xtype: 'form',
+            id: 'clientconfig-formpanel-home',
             border: false,
-            width: '98%',
-            html: '<p style="text-align:center; font-size:80%; color: #999; padding:5px;">ClientConfig is brought to you by <a style="color:inherit;" href="https://www.markhamstra.com/">Mark Hamstra</a>, Senior Developer at the <a style="color: inherit;" href="http://modx.com/complete-maintenance-and-support/">MODX Complete</a> team.</em>'
+            items: [{
+                xtype: 'modx-tabs',
+                width: '98%',
+                border: true,
+                deferredRender: false,
+                defaults: {
+                    border: false,
+                    autoHeight: true,
+                    defaults: {
+                        border: false
+                    }
+                },
+                items: this.getTabs()
+            }]
         }],
         buttons: this.getButtons()
     });
@@ -51,7 +52,6 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         Ext.iterate(ClientConfig.data, function(index, value) {
             var fields = [];
             Ext.iterate(value.items, function(value, index) {
-                console.log('index:', index,'value:',value);
                 var field = {
                     name: value.key,
                     xtype: value.xtype,
@@ -61,6 +61,38 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     allowBlank: !value.is_required,
                     width: '60%'
                 };
+                if ((field.xtype == 'checkbox') || (field.xtype == 'xcheckbox')) {
+                    field.boxLabel = field.fieldLabel;
+                    field.fieldLabel = null;
+                    field.value = 1;
+                    field.checked = (value.value);
+                }
+
+                if (field.xtype == 'modx-combo') {
+                    var options = value.options.split('||');
+                    var data = [];
+                    Ext.each(options, function(option, index) {
+                        option = option.split('==');
+                        if (option[1]) {
+                            data.push([
+                                option[1],
+                                option[0]
+                            ]);
+                        } else {
+                            data.push([option[0],option[0]]);
+                        }
+                    });
+
+                    field.store = new Ext.data.ArrayStore({
+                        mode: 'local',
+                        fields: ['value','label'],
+                        data: data
+                    });
+                    field.hiddenName = value.key;
+                    field.valueField = 'value';
+                    field.displayField = 'label';
+                    field.mode = 'local';
+                }
                 fields.push(field);
             });
             var tab = {
@@ -81,7 +113,6 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             };
             tabs.push(tab);
         });
-
         return tabs;
     },
 
@@ -92,7 +123,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             scope: this
         }];
 
-        if (true) {
+        if (true) { //@todo implement permission check
             buttons.push({
                 text: _('clientconfig.admin'),
                 handler: this.openAdminPanel,
@@ -104,7 +135,32 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     },
 
     save: function() {
-        MODx.msg.alert('Not yet implemented','The functionality you are trying to use is not yet implemented. Try again later!');
+        var fp = Ext.getCmp('clientconfig-formpanel-home');
+        if (fp && fp.getForm()) {
+            var values = fp.getForm().getValues();
+            fp.el.mask(_('saving'));
+            MODx.Ajax.request({
+                url: ClientConfig.config.connectorUrl,
+                params: {
+                    action: 'mgr/settings/save',
+                    values: Ext.encode(values)
+                },
+                listeners: {
+                    success: {fn: function(r) {
+                        fp.el.unmask();
+                        MODx.msg.status({
+                            title: _('clientconfig.saved'),
+                            message: _('clientconfig.saved.text'),
+                            delay: 4
+                        })
+                    }, scope: this},
+                    failure: {fn: function(r) {
+                        fp.el.unmask();
+                    }, scope: this},
+                    scope: this
+                }
+            });
+        }
     },
 
     openAdminPanel: function() {

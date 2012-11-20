@@ -25,7 +25,11 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
             $tabs[$id]['items'] = array();
 
             foreach ($group->getMany('Settings') as $setting) {
-                $tabs[$id]['items'][] = $setting->toArray();
+                $sa = $setting->toArray();
+                if (in_array($sa['xtype'],array('checkbox','xcheckbox'))) {
+                    $sa['value'] = (bool)$sa['value'];
+                }
+                $tabs[$id]['items'][] = $sa;
             }
         }
 
@@ -49,11 +53,6 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
      * combine and compress them if enabled in system settings.
      */
     public function loadCustomCssJs() {
-        /*$this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/panel.home.js');
-        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/grid.menu.js');
-        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/window.menu.js');
-        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/formpanel.menu.js');*/
-
         $this->addLastJavascript($this->clientconfig->config['jsUrl'].'mgr/sections/home.js');
     }
 

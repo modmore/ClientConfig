@@ -35,9 +35,74 @@ ClientConfig.grid.Groups = function(config) {
 			dataIndex: 'settings_count',
 		    sortable: true,
 			width: .1
-		}]
+		}],
+        tbar: [{
+            text: _('clientconfig.add_group'),
+            handler: this.addGroup,
+            scope: this
+        }]
     });
     ClientConfig.grid.Groups.superclass.constructor.call(this,config);
 };
-Ext.extend(ClientConfig.grid.Groups,MODx.grid.Grid);
+Ext.extend(ClientConfig.grid.Groups,MODx.grid.Grid,{
+    addGroup: function() {
+        var win = MODx.load({
+            xtype: 'clientconfig-window-group',
+            listeners: {
+                success: {fn: function(r) {
+                    this.refresh();
+                },scope: this},
+                scope: this
+            }
+        });
+        win.show();
+    },
+    updateGroup: function() {
+        var record = this.menu.record;
+        var win = MODx.load({
+            xtype: 'clientconfig-window-group',
+            listeners: {
+                success: {fn: function(r) {
+                    this.refresh();
+                },scope: this},
+                scope: this
+            },
+            isUpdate: true
+        });
+        win.setValues(record);
+        win.show();
+    },
+    removeGroup: function() {
+        var id = this.menu.record.id;
+        MODx.msg.confirm({
+            title: _('clientconfig.remove_group'),
+            text: _('clientconfig.remove_group.confirm'),
+            url: this.config.url,
+            params: {
+                action: 'mgr/groups/remove',
+                id: id
+            },
+            listeners: {
+                success: {fn: function(r) {
+                    this.refresh();
+                },scope: this},
+                scope: this
+            }
+        });
+    },
+    getMenu: function(node) {
+        var m = [];
+
+        m.push({
+            text: _('clientconfig.update_group'),
+            handler: this.updateGroup,
+            scope: this
+        },'-',{
+            text: _('clientconfig.remove_group'),
+            handler: this.removeGroup,
+            scope: this
+        });
+        return m;
+    }
+});
 Ext.reg('clientconfig-grid-groups',ClientConfig.grid.Groups);

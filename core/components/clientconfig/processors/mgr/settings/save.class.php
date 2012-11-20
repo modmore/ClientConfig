@@ -1,0 +1,38 @@
+<?php
+
+class cgSettingSaveProcessor extends modProcessor {
+
+    public function process() {
+        $values = (!empty($_REQUEST['values'])) ? $_REQUEST['values'] : '[]';
+        $values = $this->modx->fromJSON($values);
+
+        foreach ($values as $key => $value) {
+            $setting = $this->modx->getObject('cgSetting',array('key' => $key));
+            if ($setting instanceof cgSetting) {
+                if (empty($value) && $setting->get('is_required')) {
+                    $this->addFieldError($key,$this->modx->lexicon('clientconfig.field_is_required'));
+                    continue;
+                }
+                switch ($setting->get('xtype')) {
+                    case 'checkbox':
+                    case 'xcheckbox':
+                        if (!empty($value)) $value = true;
+                        else $value = false;
+                        break;
+                    default:
+                        break;
+                }
+                $setting->set('value', $value);
+                $setting->save();
+            }
+        }
+
+        if ($this->hasErrors()) {
+            return $this->failure();
+        } else {
+            return $this->success();
+        }
+    }
+
+}
+return 'cgSettingSaveProcessor';

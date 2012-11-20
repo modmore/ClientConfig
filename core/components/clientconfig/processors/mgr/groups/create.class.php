@@ -11,13 +11,13 @@ class cgGroupCreateProcessor extends modObjectCreateProcessor {
      * @return bool
      */
     public function beforeSave() {
-        $name = $this->getProperty('name');
+        $name = $this->getProperty('label');
 
         if (empty($name)) {
-            $this->addFieldError('name',$this->modx->lexicon('clientconfig.clientconfigmenu_err_ns_name'));
+            $this->addFieldError('label',$this->modx->lexicon('clientconfig.clientconfigmenu_err_ns_label'));
         } else {
-            if ($this->doesAlreadyExist(array('name' => $name))) {
-                $this->addFieldError('name',$this->modx->lexicon('clientconfig.clientconfigmenu_err_ae'));
+            if ($this->doesAlreadyExist(array('label' => $name))) {
+                $this->addFieldError('label',$this->modx->lexicon('clientconfig.clientconfigmenu_err_ae'));
             }
         }
 
