@@ -57,7 +57,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     xtype: value.xtype,
                     fieldLabel: value.label + ((value.is_required) ? '*' : ''),
                     value: (value.value != '') ? value.value : value.default,
-                    description: value.description,
+                    description: (value.description != '') ? value.description : null,
                     allowBlank: !value.is_required,
                     width: '60%'
                 };
@@ -98,19 +98,23 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             var tab = {
                 id: 'clientconfig-home-tab-'+value.id,
                 title: value.label,
-                items: [{
+                items: []
+            };
+            if (value.description != '') {
+                tab.items.push({
                     bodyCssClass: 'panel-desc',
                     cls: ' ',
                     html: '<p>'+value.description+'</p>'
-                },{
-                    cls: 'main-wrapper',
-                    items: fields,
-                    xtype: 'panel',
-                    layout: 'form',
-                    labelAlign: 'top',
-                    labelSeparator: ''
-                }]
-            };
+                });
+            }
+            tab.items.push({
+                cls: 'main-wrapper',
+                items: fields,
+                xtype: 'panel',
+                layout: 'form',
+                labelAlign: 'top',
+                labelSeparator: ''
+            });
             tabs.push(tab);
         });
         return tabs;
