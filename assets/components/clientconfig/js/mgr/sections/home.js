@@ -44,7 +44,8 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             return [{
                 title: _('clientconfig.no_configuration_yet'),
                 items: [{
-                    html: '<p>'+_('clientconfig.no_configuration_yet.desc')+'</p>'
+                    html: '<p>'+_('clientconfig.no_configuration_yet.desc')+'</p>',
+                    bodyCssClass: 'panel-desc'
                 }]
             }];
         }

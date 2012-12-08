@@ -43,7 +43,7 @@ $_lang['clientconfig.groups'] = 'Groups';
 $_lang['clientconfig.key'] = 'Key';
 $_lang['clientconfig.label'] = 'Label';
 $_lang['clientconfig.no_configuration_yet'] = 'No Configuration Available';
-$_lang['clientconfig.no_configuration_yet.desc'] = 'It seems there is no configuration set up yet. If you are the administrator of the site, please follow the documentation to set up configuration for your client.';
+$_lang['clientconfig.no_configuration_yet.desc'] = 'It seems there is no configuration set up yet. If you are the administrator of the site, please <a href="http://rtfm.modx.com/display/ADDON/ClientConfig">follow the official documentation</a> to set up configuration for your client.';
 $_lang['clientconfig.options'] = 'Field Options';
 $_lang['clientconfig.options.desc'] = 'For certain field types like select boxes, you can define options. Separate different options with two colons (||) and if you want a different value than what the client sees, use "label==value". ';
 $_lang['clientconfig.save_config'] = 'Save Configuration';
