@@ -9,6 +9,17 @@ class cgSettingGetListProcessor extends modObjectGetListProcessor {
     public $defaultSortDirection = 'ASC';
 
     /**
+     * @param xPDOQuery $c
+     * @return xPDOQuery
+     */
+    public function prepareQueryBeforeCount(xPDOQuery $c) {
+        $c->leftJoin('cgGroup','Group');
+        $c->select($this->modx->getSelectColumns('cgSetting', 'cgSetting'));
+        $c->select($this->modx->getSelectColumns('cgGroup', 'Group', 'group_', array('label')));
+        return $c;
+    }
+
+    /**
      * Transform the xPDOObject derivative to an array;
      * @param xPDOObject $object
      * @return array

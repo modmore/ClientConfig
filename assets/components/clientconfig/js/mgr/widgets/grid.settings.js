@@ -17,6 +17,7 @@ ClientConfig.grid.Settings = function(config) {
             {name: 'value', type: 'string'},
             {name: 'default', type: 'string'},
             {name: 'group', type: 'int'},
+            {name: 'group_label', type: 'string'},
             {name: 'options', type: 'object'}
         ],
         paging: true,
@@ -46,6 +47,11 @@ ClientConfig.grid.Settings = function(config) {
 			dataIndex: 'is_required',
 		    sortable: true,
 			width: .1
+		},{
+			header: _('clientconfig.group'),
+			dataIndex: 'group_label',
+		    sortable: true,
+			width: .2
 		}],
         tbar: [{
             text: _('clientconfig.add_setting'),
