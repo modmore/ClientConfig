@@ -33,7 +33,24 @@
 $eventName = $modx->event->name;
 
 switch($eventName) {
-    case 'OnDocFormPrerender':
+    case 'OnHandleRequest':
+        /* Grab the class */
+        $path = $modx->getOption('clientconfig.core_path', null, $modx->getOption('core_path') . 'components/clientconfig/');
+        $path .= 'model/clientconfig/';
+        $clientConfig = $modx->getService('clientconfig','ClientConfig', $path);
+
+        /* If we got the class (gotta be careful of failed migrations), grab settings and go! */
+        if ($clientConfig instanceof ClientConfig) {
+            $settings = $clientConfig->getSettings();
+
+            /* Make settings available as [[++tags]] */
+            $modx->setPlaceholders($settings, '+');
+
+            /* Make settings available for $modx->getOption() */
+            foreach ($settings as $key => $value) {
+                $modx->setOption($key, $value);
+            }
+        }
         break;
 }
 

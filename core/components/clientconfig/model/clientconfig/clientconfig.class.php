@@ -68,5 +68,29 @@ class ClientConfig {
         
         $this->debug = (bool)$this->modx->getOption('clientconfig.debug',null,false);
     }
+
+    /**
+     * Grab settings (from cache if possible) as key => value pairs.
+     * @return array|mixed
+     */
+    public function getSettings() {
+        /* Attempt to get from cache */
+        $cacheOptions = array(xPDO::OPT_CACHE_KEY => 'system_settings');
+        $settings = $this->modx->getCacheManager()->get('clientconfig', $cacheOptions);
+
+        if (empty($settings) && $this->modx->getCount('cgSetting') > 0) {
+            $collection = $this->modx->getCollection('cgSetting');
+            $settings = array();
+            /* @var cgSetting $setting */
+            foreach ($collection as $setting) {
+                $key = $setting->get('key');
+                $settings[$setting->get('key')] = $setting->get('value');
+            }
+            /* Write to cache again */
+            $this->modx->cacheManager->set('clientconfig', $settings, 0, $cacheOptions);
+        }
+
+        return $settings;
+    }
 }
 
