@@ -95,27 +95,31 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 }
                 fields.push(field);
             });
-            var tab = {
-                id: 'clientconfig-home-tab-'+value.id,
-                title: value.label,
-                items: []
-            };
-            if (value.description != '') {
+
+            /* Only create the tab if there are fields in it. */
+            if (fields.length >= 1) {
+                var tab = {
+                    id: 'clientconfig-home-tab-'+value.id,
+                    title: value.label,
+                    items: []
+                };
+                if (value.description != '') {
+                    tab.items.push({
+                        bodyCssClass: 'panel-desc',
+                        cls: ' ',
+                        html: '<p>'+value.description+'</p>'
+                    });
+                }
                 tab.items.push({
-                    bodyCssClass: 'panel-desc',
-                    cls: ' ',
-                    html: '<p>'+value.description+'</p>'
+                    cls: 'main-wrapper',
+                    items: fields,
+                    xtype: 'panel',
+                    layout: 'form',
+                    labelAlign: 'top',
+                    labelSeparator: ''
                 });
+                tabs.push(tab);
             }
-            tab.items.push({
-                cls: 'main-wrapper',
-                items: fields,
-                xtype: 'panel',
-                layout: 'form',
-                labelAlign: 'top',
-                labelSeparator: ''
-            });
-            tabs.push(tab);
         });
         return tabs;
     },
