@@ -41,7 +41,7 @@ ClientConfig.grid.Settings = function(config) {
 			header: _('clientconfig.xtype'),
 			dataIndex: 'xtype',
 			sortable: true,
-			width: .5
+			width: .3
 		},{
 			header: _('clientconfig.is_required'),
 			dataIndex: 'is_required',
@@ -51,7 +51,7 @@ ClientConfig.grid.Settings = function(config) {
 			header: _('clientconfig.group'),
 			dataIndex: 'group_label',
 		    sortable: true,
-			width: .2
+			width: .3
 		}],
         tbar: [{
             text: _('clientconfig.add_setting'),
