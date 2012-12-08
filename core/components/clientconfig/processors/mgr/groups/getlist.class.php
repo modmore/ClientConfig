@@ -16,6 +16,7 @@ class cgGroupGetListProcessor extends modObjectGetListProcessor {
      */
     public function prepareRow(xPDOObject $object) {
         $row = $object->toArray('', false, true);
+        $row['settings_count'] = $this->modx->getCount('cgSetting', array('group' => $row['id']));
         return $row;
     }
 }
