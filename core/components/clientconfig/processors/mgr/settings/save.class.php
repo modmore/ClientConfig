@@ -1,7 +1,14 @@
 <?php
-
+/**
+ * @package ClientConfig
+ * Used to save setting values from the client view.
+ */
 class cgSettingSaveProcessor extends modProcessor {
 
+    /**
+     * {@inheritdoc}
+     * @return array|string
+     */
     public function process() {
         $values = (!empty($_REQUEST['values'])) ? $_REQUEST['values'] : '[]';
         $values = $this->modx->fromJSON($values);
