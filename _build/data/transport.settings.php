@@ -2,6 +2,7 @@
 
 $s = array(
     'admin_groups' => 'Administrator',
+    'clear_cache' => true,
 );
 
 $settings = array();
