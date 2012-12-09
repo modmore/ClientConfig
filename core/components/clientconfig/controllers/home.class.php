@@ -18,13 +18,17 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
          * @var cgGroup $group
          * @var cgSetting $setting
          */
-        $groups = $this->modx->getCollection('cgGroup');
+        $c = $this->modx->newQuery('cgGroup');
+        $c->sortby('label','ASC');
+        $groups = $this->modx->getCollection('cgGroup', $c);
         foreach ($groups as $group) {
             $id = $group->get('id');
             $tabs[$id] = $group->toArray();
             $tabs[$id]['items'] = array();
 
-            foreach ($group->getMany('Settings') as $setting) {
+            $c = $this->modx->newQuery('cgSetting');
+            $c->sortby('label','ASC');
+            foreach ($group->getMany('Settings', $c) as $setting) {
                 $sa = $setting->toArray();
                 if (in_array($sa['xtype'],array('checkbox','xcheckbox'))) {
                     $sa['value'] = (bool)$sa['value'];
