@@ -36,6 +36,7 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
         $this->addHtml('<script type="text/javascript">
         Ext.onReady(function() {
             ClientConfig.data = '.$this->modx->toJSON($tabs).';
+            ClientConfig.isAdmin = ' . (($this->clientconfig->hasAdminPermission()) ? '1' : '0') .';
         });
         </script>');
     }

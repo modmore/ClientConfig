@@ -10,7 +10,10 @@ class ClientConfigAdminManagerController extends ClientConfigManagerController {
      * @param array $scriptProperties
      */
     public function process(array $scriptProperties = array()) {
-
+        if (!$this->clientconfig->hasAdminPermission()) {
+            $url = $this->modx->getOption('manager_url') . '?a=' . $_GET['a'];
+            $this->modx->sendRedirect($url);
+        }
     }
 
     /**

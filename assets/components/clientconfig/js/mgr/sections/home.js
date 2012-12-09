@@ -132,7 +132,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             scope: this
         }];
 
-        if (true) { //@todo implement permission check
+        if (ClientConfig.isAdmin) {
             buttons.push({
                 text: _('clientconfig.admin'),
                 handler: this.openAdminPanel,
@@ -173,7 +173,9 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     },
 
     openAdminPanel: function() {
-        location.href = MODx.config.manager_url + '?a=' + MODx.request.a + '&action=admin';
+        if (ClientConfig.isAdmin) {
+            location.href = MODx.config.manager_url + '?a=' + MODx.request.a + '&action=admin';
+        }
     }
 });
 Ext.reg('clientconfig-page-home',ClientConfig.page.Home);

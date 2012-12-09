@@ -92,5 +92,18 @@ class ClientConfig {
 
         return $settings;
     }
+
+    /**
+     * Indicates if the logged in user has admin permissions.
+     * @return bool
+     */
+    public function hasAdminPermission() {
+        if (!$this->modx->user || ($this->modx->user->get('id') < 1)) {
+            return false;
+        }
+        $usergroups = $this->modx->getOption('clientconfig.admin_groups', null, 'Administrator');
+        $usergroups = explode(',', $usergroups);
+        return $this->modx->user->isMember($usergroups, false);
+    }
 }
 
