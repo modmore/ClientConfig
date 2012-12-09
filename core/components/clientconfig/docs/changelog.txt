@@ -1,6 +1,5 @@
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.0.0-pl    ++
-++   Released on 2012-11-10   ++
+++   Released on 2012-12-09   ++
 ++++++++++++++++++++++++++++++++
-First release, as by-product of the "Developing Extras for MODX" session at MODXpo Europe 2012
-See http://modxpo.eu/schedule/sessions/developing-extras-for-modx-hands-on
+First release
