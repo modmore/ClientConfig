@@ -101,9 +101,20 @@ class ClientConfig {
         if (!$this->modx->user || ($this->modx->user->get('id') < 1)) {
             return false;
         }
+
         $usergroups = $this->modx->getOption('clientconfig.admin_groups', null, 'Administrator');
         $usergroups = explode(',', $usergroups);
-        return $this->modx->user->isMember($usergroups, false);
+
+        $isMember = $this->modx->user->isMember($usergroups, false);
+
+        /* If we're not a member of the usergroup(s), check for sudo */
+        if (!$isMember) {
+            $v = $this->modx->getVersionData();
+            if (version_compare($v['full_version'], '2.2.1-pl') == 1) {
+                $isMember = (bool)$this->modx->user->get('sudo');
+            }
+        }
+        return $isMember;
     }
 }
 
