@@ -1,3 +1,7 @@
+++++++++++++++++++++++++++++++++
+++   ClientConfig 1.1.0-pl    ++
+++   TO BE RELEASED SOONISH   ++
+++++++++++++++++++++++++++++++++
 #26  Add ability to manually sort Settings within a Group
 #25  Add ability to manually sort Groups
 #21  Add Filter on Group for settings.
