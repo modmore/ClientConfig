@@ -3,6 +3,7 @@ Ext.onReady(function() {
         xtype: 'clientconfig-page-admin',
         renderTo: 'clientconfig-wrapper-div'
     });
+    MODx.config.help_url = 'http://rtfm.modx.com/display/ADDON/ClientConfig';
 });
  
 ClientConfig.page.Admin = function(config) {
@@ -43,6 +44,10 @@ ClientConfig.page.Admin = function(config) {
         buttons: [{
             text: _('clientconfig.to_client_view'),
             handler: this.toClientView,
+            scope: this
+        },'-',{
+            text: _('help_ex'),
+            handler: MODx.loadHelpPane,
             scope: this
         }]
     });

@@ -1,3 +1,4 @@
+#22  Add "Help!" button on Admin panel linking to RTFM instructions.
      Improve checking if key exists on updating a setting.
 #30  Fix bug with incorrectly checking cgSetting.is_required checkbox
      Make controller a tad more portable.
