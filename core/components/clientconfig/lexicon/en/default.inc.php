@@ -37,6 +37,7 @@ $_lang['clientconfig.cgsetting_err_ae_key'] = 'Another key already exists with t
 $_lang['clientconfig.description'] = 'Description';
 $_lang['clientconfig.default'] = 'Default value';
 $_lang['clientconfig.error.noresults'] = 'No items found.';
+$_lang['clientconfig.filter_on_group'] = 'Filter on Group';
 $_lang['clientconfig.id'] = 'ID';
 $_lang['clientconfig.is_required'] = 'Req\'d?';
 $_lang['clientconfig.is_required.long'] = 'Setting is required';

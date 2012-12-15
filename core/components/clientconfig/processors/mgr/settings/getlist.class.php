@@ -16,6 +16,14 @@ class cgSettingGetListProcessor extends modObjectGetListProcessor {
         $c->leftJoin('cgGroup','Group');
         $c->select($this->modx->getSelectColumns('cgSetting', 'cgSetting'));
         $c->select($this->modx->getSelectColumns('cgGroup', 'Group', 'group_', array('label')));
+
+        /* Filter on Group */
+        $group = $this->getProperty('group');
+        if (!empty($group) && is_numeric($group)) {
+            $c->where(array(
+                'group' => $group
+            ));
+        }
         return $c;
     }
 

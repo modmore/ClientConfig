@@ -1,3 +1,4 @@
+#21  Add Filter on Group for settings.
 #24  Remember last visited tab in both admin and client view.
 #22  Add "Help!" button on Admin panel linking to RTFM instructions.
      Improve checking if key exists on updating a setting.

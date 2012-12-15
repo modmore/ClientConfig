@@ -57,6 +57,17 @@ ClientConfig.grid.Settings = function(config) {
             text: _('clientconfig.add_setting'),
             handler: this.addSetting,
             scope: this
+        },'->',{
+            emptyText: _('clientconfig.filter_on_group'),
+            xtype: 'clientconfig-combo-properties',
+            id: 'clientconfig-settings-filter-group',
+            listeners: {
+                select: {fn: function(combo, record) {
+                    this.getStore().baseParams['group'] = record.id;
+                    this.getBottomToolbar().changePage(1);
+                }, scope: this}
+            },
+            width: 250
         }]
     });
     ClientConfig.grid.Settings.superclass.constructor.call(this,config);
@@ -120,6 +131,12 @@ Ext.extend(ClientConfig.grid.Settings,MODx.grid.Grid,{
             scope: this
         });
         return m;
+    },
+
+    filterOnGroup: function() {
+        this.baseParams['group'] = Ext.getCmp('clientconfig-settings-filter-group').getValue();
+        this.getBottomToolbar().changePage(1);
+        this.refresh();
     }
 });
 Ext.reg('clientconfig-grid-settings',ClientConfig.grid.Settings);
