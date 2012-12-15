@@ -1,4 +1,6 @@
-Make controller a tad more portable.
+     Improve checking if key exists on updating a setting.
+#30  Fix bug with incorrectly checking cgSetting.is_required checkbox
+     Make controller a tad more portable.
 
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.0.0-pl    ++
