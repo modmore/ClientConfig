@@ -16,6 +16,9 @@ if ($object->xpdo) {
             foreach ($objects as $obj) {
                 $manager->createObjectContainer($obj);
             }
+
+            $manager->addField('cgSetting', 'sortorder');
+            $manager->addField('cgGroup', 'sortorder');
             $modx->setLogLevel($loglevel);
         break;
     }

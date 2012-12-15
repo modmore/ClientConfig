@@ -11,6 +11,7 @@ ClientConfig.grid.Groups = function(config) {
             {name: 'id', type: 'int'},
             {name: 'label', type: 'string'},
             {name: 'description', type: 'string'},
+            {name: 'sortorder', type: 'int'},
             {name: 'settings_count', type: 'int'}
         ],
         paging: true,

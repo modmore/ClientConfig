@@ -55,6 +55,8 @@ foreach ($objects as $object) {
     $manager->createObjectContainer($object);
 }
 $manager->addField('cgSetting','options');
+$manager->addField('cgSetting','sortorder');
+$manager->addField('cgGroup','sortorder');
 
 $mtime= microtime();
 $mtime= explode(" ", $mtime);

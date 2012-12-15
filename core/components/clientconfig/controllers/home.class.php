@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The name of the controller is based on the path (home) and the
  * namespace (clientconfig). This home controller is the main client view.
@@ -19,22 +18,24 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
          * @var cgSetting $setting
          */
         $c = $this->modx->newQuery('cgGroup');
+        $c->sortby('sortorder','ASC');
         $c->sortby('label','ASC');
         $groups = $this->modx->getCollection('cgGroup', $c);
         foreach ($groups as $group) {
-            $id = $group->get('id');
-            $tabs[$id] = $group->toArray();
-            $tabs[$id]['items'] = array();
+            $grp = $group->toArray();
+            $grp['items'] = array();
 
             $c = $this->modx->newQuery('cgSetting');
+            $c->sortby('sortorder','ASC');
             $c->sortby('label','ASC');
             foreach ($group->getMany('Settings', $c) as $setting) {
                 $sa = $setting->toArray();
                 if (in_array($sa['xtype'],array('checkbox','xcheckbox'))) {
                     $sa['value'] = (bool)$sa['value'];
                 }
-                $tabs[$id]['items'][] = $sa;
+                $grp['items'][] = $sa;
             }
+            $tabs[] = $grp;
         }
 
         $this->addHtml('<script type="text/javascript">

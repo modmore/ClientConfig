@@ -11,6 +11,8 @@
                phptype="string"     null="false"        default="0" />
         <field key="is_required"    dbtype="tinyint"    precision="1"
                phptype="boolean"    null="false"        default="0" />
+        <field key="sortorder"      dbtype="int"        precision="10"
+               phptype="integer"    null="false"        default="0" />
         <field key="value"          dbtype="varchar"    precision="250"
                phptype="string"     null="false"        default="" />
         <field key="default"        dbtype="varchar"    precision="250"
@@ -30,6 +32,8 @@
                phptype="string"     null="false"        default="" />
         <field key="description"    dbtype="varchar"    precision="500"
                phptype="string"     null="false"        default="0" />
+        <field key="sortorder"      dbtype="int"        precision="10"
+               phptype="integer"    null="false"        default="0" />
 
         <aggregate alias="Settings"   local="id"
                    class="cgSetting"  foreign="group"

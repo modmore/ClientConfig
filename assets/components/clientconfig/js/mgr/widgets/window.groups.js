@@ -23,6 +23,15 @@ ClientConfig.window.Group = function(config) {
             allowBlank: false,
             anchor: '100%'
         },{
+            xtype: 'numberfield',
+            name: 'sortorder',
+            fieldLabel: _('clientconfig.sortorder'),
+            allowBlank: false,
+            minValue: 0,
+            maxValue: 9999999999,
+            anchor: '100%',
+            value: 0
+        },{
             xtype: 'textarea',
             name: 'description',
             fieldLabel: _('clientconfig.description'),

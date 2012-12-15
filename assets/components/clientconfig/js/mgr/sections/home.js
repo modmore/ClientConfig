@@ -58,9 +58,9 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             }];
         }
 
-        Ext.iterate(ClientConfig.data, function(index, value) {
+        Ext.each(ClientConfig.data, function(tabData) {
             var fields = [];
-            Ext.iterate(value.items, function(value, index) {
+            Ext.iterate(tabData.items, function(value) {
                 var field = {
                     name: value.key,
                     xtype: value.xtype,
@@ -108,15 +108,15 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             /* Only create the tab if there are fields in it. */
             if (fields.length >= 1) {
                 var tab = {
-                    id: 'clientconfig-home-tab-'+value.id,
-                    title: value.label,
+                    id: 'clientconfig-home-tab-'+tabData.id,
+                    title: tabData.label,
                     items: []
                 };
-                if (value.description != '') {
+                if (tabData.description != '') {
                     tab.items.push({
                         bodyCssClass: 'panel-desc',
                         cls: ' ',
-                        html: '<p>'+value.description+'</p>'
+                        html: '<p>'+tabData.description+'</p>'
                     });
                 }
                 tab.items.push({

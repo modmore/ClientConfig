@@ -18,6 +18,7 @@ ClientConfig.grid.Settings = function(config) {
             {name: 'default', type: 'string'},
             {name: 'group', type: 'int'},
             {name: 'group_label', type: 'string'},
+            {name: 'sortorder', type: 'int'},
             {name: 'options', type: 'object'}
         ],
         paging: true,
@@ -59,7 +60,7 @@ ClientConfig.grid.Settings = function(config) {
             scope: this
         },'->',{
             emptyText: _('clientconfig.filter_on_group'),
-            xtype: 'clientconfig-combo-properties',
+            xtype: 'clientconfig-combo-groups',
             id: 'clientconfig-settings-filter-group',
             listeners: {
                 select: {fn: function(combo, record) {

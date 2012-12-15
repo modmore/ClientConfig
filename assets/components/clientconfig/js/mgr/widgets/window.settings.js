@@ -39,10 +39,19 @@ ClientConfig.window.Setting = function(config) {
                     fieldLabel: _('clientconfig.description'),
                     anchor: '100%'
                 },{
-                    xtype: 'clientconfig-combo-properties',
+                    xtype: 'clientconfig-combo-groups',
                     name: 'group',
                     fieldLabel: _('clientconfig.group'),
                     anchor: '100%'
+                },{
+                    xtype: 'numberfield',
+                    name: 'sortorder',
+                    fieldLabel: _('clientconfig.sortorder'),
+                    allowBlank: false,
+                    minValue: 0,
+                    maxValue: 9999999999,
+                    anchor: '100%',
+                    value: 0
                 }]
             },{
                 columnWidth: 0.5,

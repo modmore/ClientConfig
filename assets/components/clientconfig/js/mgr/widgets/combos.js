@@ -1,4 +1,4 @@
-ClientConfig.combo.Properties = function(config) {
+ClientConfig.combo.Groups = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         url: ClientConfig.config.connectorUrl,
@@ -12,10 +12,10 @@ ClientConfig.combo.Properties = function(config) {
         valueField: 'id',
         displayField: 'label'
     });
-    ClientConfig.combo.Properties.superclass.constructor.call(this,config);
+    ClientConfig.combo.Groups.superclass.constructor.call(this,config);
 };
-Ext.extend(ClientConfig.combo.Properties,MODx.combo.ComboBox);
-Ext.reg('clientconfig-combo-properties',ClientConfig.combo.Properties);
+Ext.extend(ClientConfig.combo.Groups,MODx.combo.ComboBox);
+Ext.reg('clientconfig-combo-groups',ClientConfig.combo.Groups);
 
 
 ClientConfig.combo.FieldTypes = function(config) {

@@ -11,6 +11,7 @@ $xpdo_meta_map['cgSetting']= array (
     'xtype' => '',
     'description' => '0',
     'is_required' => 0,
+    'sortorder' => 0,
     'value' => '',
     'default' => '',
     'group' => 0,
@@ -55,6 +56,14 @@ $xpdo_meta_map['cgSetting']= array (
       'dbtype' => 'tinyint',
       'precision' => '1',
       'phptype' => 'boolean',
+      'null' => false,
+      'default' => 0,
+    ),
+    'sortorder' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '10',
+      'phptype' => 'integer',
       'null' => false,
       'default' => 0,
     ),

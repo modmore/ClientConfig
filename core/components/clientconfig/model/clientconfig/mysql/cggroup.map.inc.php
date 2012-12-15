@@ -8,6 +8,7 @@ $xpdo_meta_map['cgGroup']= array (
   array (
     'label' => '',
     'description' => '0',
+    'sortorder' => 0,
   ),
   'fieldMeta' => 
   array (
@@ -26,6 +27,14 @@ $xpdo_meta_map['cgGroup']= array (
       'phptype' => 'string',
       'null' => false,
       'default' => '0',
+    ),
+    'sortorder' => 
+    array (
+      'dbtype' => 'int',
+      'precision' => '10',
+      'phptype' => 'integer',
+      'null' => false,
+      'default' => 0,
     ),
   ),
   'aggregates' => 

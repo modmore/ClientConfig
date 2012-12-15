@@ -50,6 +50,7 @@ $_lang['clientconfig.no_configuration_yet.desc'] = 'It seems there is no configu
 $_lang['clientconfig.options'] = 'Field Options';
 $_lang['clientconfig.options.desc'] = 'For certain field types like select boxes, you can define options. Separate different options with two colons (||) and if you want a different value than what the client sees, use "label==value". ';
 $_lang['clientconfig.save_config'] = 'Save Configuration';
+$_lang['clientconfig.sortorder'] = 'Sort Order';
 $_lang['clientconfig.settings'] = 'Settings';
 $_lang['clientconfig.settings_count'] = '# of Settings';
 $_lang['clientconfig.value'] = 'Value';
