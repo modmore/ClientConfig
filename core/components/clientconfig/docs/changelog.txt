@@ -1,3 +1,5 @@
+Make controller a tad more portable.
+
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.0.0-pl    ++
 ++   Released on 2012-12-09   ++
