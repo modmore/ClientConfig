@@ -30,7 +30,15 @@ ClientConfig.page.Home = function(config) {
                         border: false
                     }
                 },
-                items: this.getTabs()
+                items: this.getTabs(),
+                stateful: true,
+                stateId: 'clientconfig-page-home',
+                stateEvents: ['tabchange'],
+                getState: function() {
+                    return {
+                        activeTab:this.items.indexOf(this.getActiveTab())
+                    };
+                }
             }]
         }],
         buttons: this.getButtons()

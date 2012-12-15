@@ -39,7 +39,15 @@ ClientConfig.page.Admin = function(config) {
                 items: [{
                     xtype: 'clientconfig-grid-groups'
                 }]
-            }]
+            }],
+            stateful: true,
+            stateId: 'clientconfig-page-admin',
+            stateEvents: ['tabchange'],
+            getState: function() {
+                return {
+                    activeTab:this.items.indexOf(this.getActiveTab())
+                };
+            }
         }],
         buttons: [{
             text: _('clientconfig.to_client_view'),
