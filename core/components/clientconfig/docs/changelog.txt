@@ -1,6 +1,6 @@
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.1.0-pl    ++
-++   TO BE RELEASED SOONISH   ++
+++   Released on 2012-12-16   ++
 ++++++++++++++++++++++++++++++++
 #26  Add ability to manually sort Settings within a Group
 #25  Add ability to manually sort Groups
