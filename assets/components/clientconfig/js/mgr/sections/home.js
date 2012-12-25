@@ -48,15 +48,6 @@ ClientConfig.page.Home = function(config) {
 Ext.extend(ClientConfig.page.Home,MODx.Component,{
     getTabs: function() {
         var tabs = [];
-        if (ClientConfig.data.length < 1) {
-            return [{
-                title: _('clientconfig.no_configuration_yet'),
-                items: [{
-                    html: '<p>'+_('clientconfig.no_configuration_yet.desc')+'</p>',
-                    bodyCssClass: 'panel-desc'
-                }]
-            }];
-        }
 
         Ext.each(ClientConfig.data, function(tabData) {
             var fields = [];
@@ -130,6 +121,17 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 tabs.push(tab);
             }
         });
+
+        if (tabs.length < 1) {
+            return [{
+                title: _('clientconfig.no_configuration_yet'),
+                items: [{
+                    html: '<p>'+_('clientconfig.no_configuration_yet.desc')+'</p>',
+                    bodyCssClass: 'panel-desc'
+                }]
+            }];
+        }
+
         return tabs;
     },
 
