@@ -83,14 +83,13 @@ class ClientConfig {
             $settings = array();
             /* @var cgSetting $setting */
             foreach ($collection as $setting) {
-                $key = $setting->get('key');
                 $settings[$setting->get('key')] = $setting->get('value');
             }
             /* Write to cache again */
             $this->modx->cacheManager->set('clientconfig', $settings, 0, $cacheOptions);
         }
 
-        return $settings;
+        return (is_array($settings)) ? $settings : array();
     }
 
     /**
