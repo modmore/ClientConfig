@@ -10,7 +10,7 @@ class cgSettingSaveProcessor extends modProcessor {
      * @return array|string
      */
     public function process() {
-        $values = (!empty($_REQUEST['values'])) ? $_REQUEST['values'] : '[]';
+        $values = (!empty($_POST['values'])) ? $_POST['values'] : '[]';
         $values = $this->modx->fromJSON($values);
 
         foreach ($values as $key => $value) {

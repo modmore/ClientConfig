@@ -1,3 +1,4 @@
+#35  Don't strip out tags when saving values (relies on allow_tags_in_post=true in mgr context).
 #39  Increase database field max sizes for longer descriptions and values.
 #33  Make sure to show message when no tabs are to be shown.
 #34  Prevent E_WARNING when there are no settings configured.
