@@ -19,6 +19,13 @@ if ($object->xpdo) {
 
             $manager->addField('cgSetting', 'sortorder');
             $manager->addField('cgGroup', 'sortorder');
+
+            $manager->alterField('cgSetting', 'value', array());
+            $manager->alterField('cgSetting', 'default', array());
+            $manager->alterField('cgSetting', 'options', array());
+            $manager->alterField('cgSetting', 'description', array());
+            $manager->alterField('cgGroup', 'description', array());
+
             $modx->setLogLevel($loglevel);
         break;
     }

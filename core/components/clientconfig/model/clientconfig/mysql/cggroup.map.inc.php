@@ -22,8 +22,7 @@ $xpdo_meta_map['cgGroup']= array (
     ),
     'description' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '500',
+      'dbtype' => 'text',
       'phptype' => 'string',
       'null' => false,
       'default' => '0',

@@ -7,19 +7,19 @@
                phptype="string"     null="false"        default="" />
         <field key="xtype"          dbtype="varchar"    precision="75"
                phptype="string"     null="false"        default="" />
-        <field key="description"    dbtype="varchar"    precision="500"
+        <field key="description"    dbtype="text"
                phptype="string"     null="false"        default="0" />
         <field key="is_required"    dbtype="tinyint"    precision="1"
                phptype="boolean"    null="false"        default="0" />
         <field key="sortorder"      dbtype="int"        precision="10"
                phptype="integer"    null="false"        default="0" />
-        <field key="value"          dbtype="varchar"    precision="250"
+        <field key="value"          dbtype="mediumtext"
                phptype="string"     null="false"        default="" />
-        <field key="default"        dbtype="varchar"    precision="250"
+        <field key="default"        dbtype="mediumtext"
                phptype="string"     null="false"        default="" />
         <field key="group"          dbtype="int"        precision="11"
                phptype="int"        null="true"         default="0" />
-        <field key="options"        dbtype="varchar"    precision="500"
+        <field key="options"        dbtype="mediumtext"
                phptype="string"      null="true"         default="" />
 
         <aggregate alias="Group"    local="group"
@@ -30,7 +30,7 @@
     <object class="cgGroup" table="clientconfig_group" extends="xPDOSimpleObject">
         <field key="label"          dbtype="varchar"    precision="75"
                phptype="string"     null="false"        default="" />
-        <field key="description"    dbtype="varchar"    precision="500"
+        <field key="description"    dbtype="text"
                phptype="string"     null="false"        default="0" />
         <field key="sortorder"      dbtype="int"        precision="10"
                phptype="integer"    null="false"        default="0" />

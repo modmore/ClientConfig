@@ -45,8 +45,7 @@ $xpdo_meta_map['cgSetting']= array (
     ),
     'description' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '500',
+      'dbtype' => 'text',
       'phptype' => 'string',
       'null' => false,
       'default' => '0',
@@ -69,16 +68,14 @@ $xpdo_meta_map['cgSetting']= array (
     ),
     'value' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '250',
+      'dbtype' => 'mediumtext',
       'phptype' => 'string',
       'null' => false,
       'default' => '',
     ),
     'default' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '250',
+      'dbtype' => 'mediumtext',
       'phptype' => 'string',
       'null' => false,
       'default' => '',
@@ -93,8 +90,7 @@ $xpdo_meta_map['cgSetting']= array (
     ),
     'options' => 
     array (
-      'dbtype' => 'varchar',
-      'precision' => '500',
+      'dbtype' => 'mediumtext',
       'phptype' => 'string',
       'null' => true,
       'default' => '',
