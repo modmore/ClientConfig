@@ -8,7 +8,15 @@ class cgGroupGetListProcessor extends modObjectGetListProcessor {
     public $defaultSortField = 'label';
     public $defaultSortDirection = 'ASC';
 
-
+    /**
+     * @param xPDOQuery $c
+     * @return xPDOQuery
+     */
+    public function prepareQueryBeforeCount(xPDOQuery $c) {
+        $c->sortby('sortorder','ASC');
+        return $c;
+    }
+    
     /**
      * Transform the xPDOObject derivative to an array;
      * @param xPDOObject $object
