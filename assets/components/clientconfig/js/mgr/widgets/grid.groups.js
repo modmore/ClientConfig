@@ -17,11 +17,11 @@ ClientConfig.grid.Groups = function(config) {
         paging: true,
 		remoteSort: true,
 		columns: [{
-			header: _('clientconfig.id'),
-			dataIndex: 'id',
-			sortable: true,
-			width: .1
-		},{
+            		header: '#',
+            		dataIndex: 'sortorder',
+		        sortable: true,
+		        width: .1
+        	},{
 			header: _('clientconfig.label'),
 			dataIndex: 'label',
 		    sortable: true,
@@ -30,11 +30,16 @@ ClientConfig.grid.Groups = function(config) {
 			header: _('clientconfig.description'),
 			dataIndex: 'description',
 			sortable: true,
-			width: .5
+			width: .4
 		},{
 			header: _('clientconfig.settings_count'),
 			dataIndex: 'settings_count',
 		    sortable: true,
+			width: .2
+		},{
+			header: _('clientconfig.id'),
+			dataIndex: 'id',
+			sortable: true,
 			width: .1
 		}],
         tbar: [{
