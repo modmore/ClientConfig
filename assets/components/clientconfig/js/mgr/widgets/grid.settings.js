@@ -24,8 +24,8 @@ ClientConfig.grid.Settings = function(config) {
         paging: true,
 		remoteSort: true,
 		columns: [{
-			header: _('clientconfig.id'),
-			dataIndex: 'id',
+			header: '#',
+			dataIndex: 'sortorder',
 			sortable: true,
 			width: .1
 		},{
@@ -42,17 +42,22 @@ ClientConfig.grid.Settings = function(config) {
 			header: _('clientconfig.xtype'),
 			dataIndex: 'xtype',
 			sortable: true,
-			width: .3
+			width: .2
 		},{
 			header: _('clientconfig.is_required'),
 			dataIndex: 'is_required',
 		    sortable: true,
-			width: .1
+			width: .2
 		},{
 			header: _('clientconfig.group'),
 			dataIndex: 'group_label',
 		    sortable: true,
 			width: .3
+		},{
+			header: _('clientconfig.id'),
+			dataIndex: 'id',
+			sortable: true,
+			width: .1
 		}],
         tbar: [{
             text: _('clientconfig.add_setting'),
