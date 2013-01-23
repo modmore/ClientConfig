@@ -16,6 +16,8 @@ class cgSettingGetListProcessor extends modObjectGetListProcessor {
         $c->leftJoin('cgGroup','Group');
         $c->select($this->modx->getSelectColumns('cgSetting', 'cgSetting'));
         $c->select($this->modx->getSelectColumns('cgGroup', 'Group', 'group_', array('label')));
+        $c->sortby('Group.sortorder','ASC');
+        $c->sortby('cgSetting.sortorder','ASC');
 
         /* Filter on Group */
         $group = $this->getProperty('group');
