@@ -1,3 +1,4 @@
+     Add/update translations: Russian (thx @Alroniks!), German (thx @enigmatic-user!), Swedish (thx @fractalwolfe!) and Dutch.
 #47  Show field descriptions under the fields. (Thanks @fractalwolfe!)
 #40  Add placeholder tooltips with the [[++key]] for admins. (Thanks @fractalwolfe!)
 
