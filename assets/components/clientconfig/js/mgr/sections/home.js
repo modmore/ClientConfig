@@ -17,6 +17,7 @@ ClientConfig.page.Home = function(config) {
         },{
             xtype: 'form',
             id: 'clientconfig-formpanel-home',
+            cls: 'form-with-labels',
             border: false,
             items: [{
                 xtype: 'modx-tabs',
@@ -57,7 +58,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     xtype: value.xtype,
                     fieldLabel: value.label + ((value.is_required) ? '*' : ''),
                     value: (value.value != '') ? value.value : value.default,
-                    description: (value.description != '') ? value.description : null,
+                    description: '<b>' + value.key + '</b>',
                     allowBlank: !value.is_required,
                     width: '60%'
                 };
@@ -94,6 +95,13 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.mode = 'local';
                 }
                 fields.push(field);
+
+                var fielddesc = {
+                    xtype: 'label',
+                    text: value.description,
+                    cls: 'desc-under'
+                };
+                fields.push(fielddesc);
             });
 
             /* Only create the tab if there are fields in it. */
