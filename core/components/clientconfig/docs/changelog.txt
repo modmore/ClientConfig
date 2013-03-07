@@ -1,3 +1,6 @@
+#47  Show field descriptions under the fields. (Thanks @fractalwolfe!)
+#40  Add placeholder tooltips with the [[++key]] for admins. (Thanks @fractalwolfe!)
+
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.1.1-pl    ++
 ++   Released on 2012-12-31   ++
