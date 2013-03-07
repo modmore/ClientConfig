@@ -36,6 +36,13 @@ class ClientConfigAdminManagerController extends ClientConfigManagerController {
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/combos.js');
 
         $this->addLastJavascript($this->clientconfig->config['jsUrl'].'mgr/sections/admin.js');
+
+        $this->addHtml('<script type="text/javascript">
+        Ext.onReady(function() {
+            MODx.config.help_url = "http://rtfm.modx.com/display/ADDON/ClientConfig";
+            MODx.load({ xtype: "clientconfig-page-admin" });
+        });
+        </script>');
     }
 
     /**

@@ -1,12 +1,9 @@
-Ext.onReady(function() {
-    MODx.load({ xtype: 'clientconfig-page-home', renderTo: 'clientconfig-wrapper-div'});
-});
- 
 ClientConfig.page.Home = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         id: 'clientconfig-page-home',
         cls: 'container form-with-labels',
+        renderTo: 'clientconfig-wrapper-div',
         layout: 'form',
         border: false,
         components: [{
@@ -194,7 +191,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
 
     openAdminPanel: function() {
         if (ClientConfig.isAdmin) {
-            location.href = MODx.config.manager_url + '?a=' + MODx.request.a + '&action=admin';
+            MODx.loadPage(MODx.request.a, 'action=admin');
         }
     }
 });

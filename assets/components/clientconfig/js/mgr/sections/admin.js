@@ -1,15 +1,8 @@
-Ext.onReady(function() {
-    MODx.load({
-        xtype: 'clientconfig-page-admin',
-        renderTo: 'clientconfig-wrapper-div'
-    });
-    MODx.config.help_url = 'http://rtfm.modx.com/display/ADDON/ClientConfig';
-});
- 
 ClientConfig.page.Admin = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         cls: 'container form-with-labels',
+        renderTo: 'clientconfig-wrapper-div',
         border: false,
         components: [{
             xtype: 'panel',
@@ -63,7 +56,7 @@ ClientConfig.page.Admin = function(config) {
 };
 Ext.extend(ClientConfig.page.Admin,MODx.Component,{
     toClientView: function() {
-        location.href = MODx.config.manager_url + '?a=' + MODx.request.a;
+        MODx.loadPage(MODx.request.a);
     }
 });
 Ext.reg('clientconfig-page-admin',ClientConfig.page.Admin);
