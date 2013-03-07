@@ -58,7 +58,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     xtype: value.xtype,
                     fieldLabel: value.label + ((value.is_required) ? '*' : ''),
                     value: (value.value != '') ? value.value : value.default,
-                    description: '<b>' + value.key + '</b>',
+                    description: (ClientConfig.isAdmin) ? '<b>[[++' + value.key + ']]</b>' : undefined,
                     allowBlank: !value.is_required,
                     width: '60%'
                 };
@@ -96,12 +96,14 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 }
                 fields.push(field);
 
-                var fielddesc = {
-                    xtype: 'label',
-                    text: value.description,
-                    cls: 'desc-under'
-                };
-                fields.push(fielddesc);
+                if (value.description && value.description.length > 0) {
+                    var fieldDescription = {
+                        xtype: 'label',
+                        text: value.description,
+                        cls: 'desc-under'
+                    };
+                    fields.push(fieldDescription);
+                }
             });
 
             /* Only create the tab if there are fields in it. */
