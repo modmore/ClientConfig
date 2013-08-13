@@ -27,8 +27,9 @@ ClientConfig.combo.FieldTypes = function(config) {
             data: [
                 ['textfield', _('clientconfig.xtype.textfield')],
                 ['textarea', _('clientconfig.xtype.textarea')],
+                ['modx-panel-tv-image', _('clientconfig.xtype.image')],
                 ['numberfield', _('clientconfig.xtype.numberfield')],
-                /* ['colorpalette', _('clientconfig.xtype.colorpalette')], @todo these are broken; does not give value in getValues() */
+                ['colorpalette', _('clientconfig.xtype.colorpalette')],
                 ['xcheckbox', _('clientconfig.xtype.xcheckbox')],
                 ['datefield', _('clientconfig.xtype.datefield')],
                 ['timefield', _('clientconfig.xtype.timefield')],

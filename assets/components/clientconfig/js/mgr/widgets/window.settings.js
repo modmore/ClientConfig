@@ -64,7 +64,7 @@ ClientConfig.window.Setting = function(config) {
                     anchor: '100%',
                     listeners: {
                         select: {fn: function(field, record) {
-                            console.log(field, record, record.data.xtype);
+//                            console.log(field, record, record.data.xtype);
                             if (record.data.xtype == 'modx-combo') {
                                 Ext.getCmp(config.id + '-options').show();
                             } else {
