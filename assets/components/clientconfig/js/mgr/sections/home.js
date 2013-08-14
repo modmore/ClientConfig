@@ -66,6 +66,15 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.checked = (value.value);
                 }
 
+                if (field.xtype == 'modx-panel-tv-image') {
+                    field.tv = value.key;
+                    field.relativeValue = (value.value != '') ? value.value : value.default;
+                }
+                if (field.xtype == 'colorpickerfield') {
+                    field.cls = 'x-colorpicker';
+                }
+
+
                 if (field.xtype == 'modx-combo') {
                     var options = value.options.split('||');
                     var data = [];
@@ -92,7 +101,6 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.mode = 'local';
                 }
                 fields.push(field);
-
                 if (value.description && value.description.length > 0) {
                     var fieldDescription = {
                         xtype: 'label',
@@ -164,6 +172,13 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         var fp = Ext.getCmp('clientconfig-formpanel-home');
         if (fp && fp.getForm()) {
             var values = fp.getForm().getValues();
+
+            // Fix name of image tv
+            var imagePickers = fp.find('xtype', 'modx-panel-tv-image');
+            Ext.each(imagePickers, function(imagePicker){
+                values[imagePicker.name] = values['tv' + imagePicker.name];
+            }, this);
+
             fp.el.mask(_('saving'));
             MODx.Ajax.request({
                 url: ClientConfig.config.connectorUrl,

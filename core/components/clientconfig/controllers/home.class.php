@@ -60,6 +60,14 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
      * combine and compress them if enabled in system settings.
      */
     public function loadCustomCssJs() {
+        $this->addCss($this->clientconfig->config['jsUrl'] . 'mgr/extras/colorpicker/colorpicker.css');
+
+
+        $mgrUrl = $this->modx->getOption('manager_url',null,MODX_MANAGER_URL);
+        $this->addJavascript($mgrUrl.'assets/modext/widgets/element/modx.panel.tv.renders.js');
+
+        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/extras/colorpicker/colorpicker.js');
+        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/extras/colorpicker/colorpickerfield.js');
         $this->addLastJavascript($this->clientconfig->config['jsUrl'].'mgr/sections/home.js');
     }
 
