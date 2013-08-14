@@ -32,7 +32,8 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['xcheckbox', _('clientconfig.xtype.xcheckbox')],
                 ['datefield', _('clientconfig.xtype.datefield')],
                 ['timefield', _('clientconfig.xtype.timefield')],
-                ['modx-combo', _('clientconfig.xtype.combobox')]
+                ['modx-combo', _('clientconfig.xtype.combobox')],
+                ['googlefontlist', _('clientconfig.xtype.googlefonts')]
             ]
         }),
         hiddenName: config.name || 'xtype',
@@ -41,7 +42,27 @@ ClientConfig.combo.FieldTypes = function(config) {
         mode: 'local',
         value: 'textfield'
     });
+
+    if (MODx.config['clientconfig.google_fonts_api_key'] == '')  config.store.removeAt(config.store.find('xtype','googlefontlist'));
     ClientConfig.combo.FieldTypes.superclass.constructor.call(this,config);
 };
 Ext.extend(ClientConfig.combo.FieldTypes,MODx.combo.ComboBox);
 Ext.reg('clientconfig-combo-fieldtypes',ClientConfig.combo.FieldTypes);
+
+ClientConfig.combo.GoogleFontList = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        url: ClientConfig.config.connectorUrl,
+        baseParams: {
+            action: 'mgr/fonts/google/getList',
+            combo: true
+        },
+        fields: ['family','name'],
+        hiddenName: config.name || 'font',
+        valueField: 'family',
+        displayField: 'name'
+    });
+    ClientConfig.combo.GoogleFontList.superclass.constructor.call(this,config);
+};
+Ext.extend(ClientConfig.combo.GoogleFontList, MODx.combo.ComboBox);
+Ext.reg('googlefontlist',ClientConfig.combo.GoogleFontList);

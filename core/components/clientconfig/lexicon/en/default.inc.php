@@ -63,6 +63,7 @@ $_lang['clientconfig.xtype.xcheckbox'] = 'Checkbox';
 $_lang['clientconfig.xtype.datefield'] = 'Date';
 $_lang['clientconfig.xtype.timefield'] = 'Time';
 $_lang['clientconfig.xtype.combobox'] = 'Selectbox';
+$_lang['clientconfig.xtype.googlefonts'] = 'Google Font List';
 $_lang['clientconfig.to_client_view'] = 'To Client View';
 $_lang['clientconfig.saved'] = 'Saved';
 $_lang['clientconfig.saved.text'] = 'The settings have been saved.';

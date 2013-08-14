@@ -3,6 +3,7 @@
 $s = array(
     'admin_groups' => 'Administrator',
     'clear_cache' => true,
+    'google_fonts_api_key' => ''
 );
 
 $settings = array();
