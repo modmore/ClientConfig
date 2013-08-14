@@ -70,6 +70,10 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.tv = value.key;
                     field.relativeValue = (value.value != '') ? value.value : value.default;
                 }
+                if (field.xtype == 'colorpickerfield') {
+                    field.cls = 'x-colorpicker';
+                }
+
 
                 if (field.xtype == 'modx-combo') {
                     var options = value.options.split('||');
@@ -169,12 +173,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         if (fp && fp.getForm()) {
             var values = fp.getForm().getValues();
 
-            // Get values from color pickers and inject them into form values
-            var colorPickers = fp.find('xtype', 'colorpalette');
-            Ext.each(colorPickers, function(colorPicker){
-                values[colorPicker.name] = colorPicker.value;
-            }, this);
-
+            // Fix name of image tv
             var imagePickers = fp.find('xtype', 'modx-panel-tv-image');
             Ext.each(imagePickers, function(imagePicker){
                 values[imagePicker.name] = values['tv' + imagePicker.name];
