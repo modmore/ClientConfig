@@ -164,7 +164,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         }];
 
         if (ClientConfig.isAdmin) {
-            buttons.push({
+            buttons.push('-',{
                 text: _('clientconfig.admin'),
                 handler: this.openAdminPanel,
                 scope: this
