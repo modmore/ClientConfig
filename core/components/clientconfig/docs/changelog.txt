@@ -2,6 +2,7 @@
 ++   ClientConfig 1.2.0-pl    ++
 ++   Released on 2013-08-16   ++
 ++++++++++++++++++++++++++++++++
+#45  Show field options field when editing a select box setting.
 #54  Add Rich Text input type.
      Improved width consistency of input items.
 #37  Added input type Image (thanks COEX!)

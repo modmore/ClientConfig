@@ -84,7 +84,7 @@ ClientConfig.window.Setting = function(config) {
                     fieldLabel: _('clientconfig.options'),
                     description: _('clientconfig.options.desc'),
                     anchor: '100%',
-                    hidden: true
+                    hidden: (config.record && (config.record.xtype == 'modx-combo')) ? false : true
                 },{
                     xtype: 'checkbox',
                     name: 'is_required',

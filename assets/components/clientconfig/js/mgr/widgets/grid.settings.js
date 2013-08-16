@@ -90,6 +90,7 @@ Ext.extend(ClientConfig.grid.Settings,MODx.grid.Grid,{
         var record = this.menu.record;
         var win = MODx.load({
             xtype: 'clientconfig-window-setting',
+            record: record,
             listeners: {
                 success: {fn: function(r) {
                     this.refresh();
