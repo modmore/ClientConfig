@@ -15,10 +15,10 @@ ClientConfig.page.Home = function(config) {
             xtype: 'form',
             id: 'clientconfig-formpanel-home',
             cls: 'form-with-labels',
-            border: false,
+            border: ClientConfig.config.verticalTabs,
             items: [{
-                xtype: 'modx-tabs',
-                width: '98%',
+                xtype: (ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
+                width: '97%',
                 border: true,
                 deferredRender: false,
                 defaults: {
@@ -36,7 +36,13 @@ ClientConfig.page.Home = function(config) {
                     return {
                         activeTab:this.items.indexOf(this.getActiveTab())
                     };
-                }
+                },
+                headerCfg: (ClientConfig.config.verticalTabs) ? {
+                    tag: 'div'
+                    ,cls: 'x-tab-panel-header vertical-tabs-header'
+                    ,id: 'modx-resource-vtabs-header'
+                    ,html: MODx.config.show_tv_categories_header == true ? '<h4 id="modx-resource-vtabs-header-title">'+_('categories')+'</h4>' : ''
+                } : {}
             }]
         }],
         buttons: this.getButtons(),
@@ -141,7 +147,8 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 var tab = {
                     id: 'clientconfig-home-tab-'+tabData.id,
                     title: tabData.label,
-                    items: []
+                    items: [],
+                    cls: 'tvs-wrapper'
                 };
                 if (tabData.description != '') {
                     tab.items.push({

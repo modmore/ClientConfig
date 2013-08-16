@@ -60,6 +60,8 @@ class ClientConfig {
             'cssUrl' => $assetsUrl.'css/',
             'assetsUrl' => $assetsUrl,
             'connectorUrl' => $assetsUrl.'connector.php',
+
+            'verticalTabs' => $this->modx->getOption('clientconfig.vertical_tabs', null, true),
         ),$config);
 
         $modelPath = $this->config['modelPath'];

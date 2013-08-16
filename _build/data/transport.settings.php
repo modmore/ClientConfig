@@ -3,6 +3,7 @@
 $s = array(
     'admin_groups' => 'Administrator',
     'clear_cache' => true,
+    'vertical_tabs' => false,
 );
 
 $settings = array();
