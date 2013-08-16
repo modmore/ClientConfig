@@ -57,6 +57,7 @@ $_lang['clientconfig.value'] = 'Value';
 $_lang['clientconfig.xtype'] = 'Field type';
 $_lang['clientconfig.xtype.textfield'] = 'Text';
 $_lang['clientconfig.xtype.textarea'] = 'Textarea';
+$_lang['clientconfig.xtype.richtext'] = 'Rich Text';
 $_lang['clientconfig.xtype.numberfield'] = 'Number';
 $_lang['clientconfig.xtype.colorpalette'] = 'Colorpicker';
 $_lang['clientconfig.xtype.xcheckbox'] = 'Checkbox';

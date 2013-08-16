@@ -2,6 +2,7 @@
 ++   ClientConfig 1.2.0-pl    ++
 ++   Released on 2013-08-16   ++
 ++++++++++++++++++++++++++++++++
+#54  Add Rich Text input type.
      Improved width consistency of input items.
 #37  Added input type Image (thanks COEX!)
 #3   Fix/add colorpicker input type (thanks COEX!)

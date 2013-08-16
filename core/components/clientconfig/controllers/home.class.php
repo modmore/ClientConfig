@@ -45,6 +45,8 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
             MODx.load({ xtype: "clientconfig-page-home" });
         });
         </script>');
+
+        $this->loadRichTextEditor();
     }
 
     /**

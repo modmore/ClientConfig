@@ -39,13 +39,27 @@ ClientConfig.page.Home = function(config) {
                 }
             }]
         }],
-        buttons: this.getButtons()
+        buttons: this.getButtons(),
+        listeners: {
+            afterrender: this.setup
+        }
     });
     ClientConfig.page.Home.superclass.constructor.call(this,config);
 };
 Ext.extend(ClientConfig.page.Home,MODx.Component,{
+    rtes: [],
+    setup: function() {
+        var rtes = this.rtes;
+        setTimeout(function() {
+            if (rtes.length > 0 && MODx.loadRTE) {
+                if (rtes.length == 1) rtes = rtes.join('');
+                MODx.loadRTE(rtes);
+            }
+        }, 250)
+    },
     getTabs: function() {
-        var tabs = [];
+        var tabs = [],
+            rtes = [];
 
         Ext.each(ClientConfig.data, function(tabData) {
             var fields = [];
@@ -62,6 +76,12 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
 
                 if (['textarea'].indexOf(field.xtype) !== -1) {
                     field.anchor = '100%';
+                }
+
+                if (field.xtype == 'richtext') {
+                    field.xtype = 'textarea';
+                    field.id = 'clientconfig-' + field.name;
+                    rtes.push('clientconfig-' + field.name);
                 }
 
                 if ((field.xtype == 'checkbox') || (field.xtype == 'xcheckbox')) {
@@ -142,6 +162,8 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 tabs.push(tab);
             }
         });
+
+        this.rtes = rtes;
 
         if (tabs.length < 1) {
             return [{

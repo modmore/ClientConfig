@@ -43,6 +43,25 @@ abstract class ClientConfigManagerController extends modExtraManagerController {
     public function checkPermissions() {
         return true;
     }
+
+    public function loadRichTextEditor()
+    {
+        $useEditor = $this->modx->getOption('use_editor');
+        $whichEditor = $this->modx->getOption('which_editor');
+        if ($useEditor && !empty($whichEditor))
+        {
+            /* invoke OnRichTextEditorInit event */
+            $onRichTextEditorInit = $this->modx->invokeEvent('OnRichTextEditorInit',array(
+                'editor' => $whichEditor,
+                'elements' => array('foo'),
+            ));
+            if (is_array($onRichTextEditorInit))
+            {
+                $onRichTextEditorInit = implode('', $onRichTextEditorInit);
+            }
+            $this->addHtml($onRichTextEditorInit);
+        }
+    }
 }
 
 /**
