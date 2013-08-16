@@ -1,4 +1,12 @@
 ++++++++++++++++++++++++++++++++
+++   ClientConfig 1.2.0-pl    ++
+++   Released on 2013-08-16   ++
+++++++++++++++++++++++++++++++++
+     Improved width consistency of input items.
+#37  Added input type Image (thanks COEX!)
+#3   Fix/add colorpicker input type (thanks COEX!)
+
+++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.1.2-pl    ++
 ++   Released on 2012-03-07   ++
 ++++++++++++++++++++++++++++++++
