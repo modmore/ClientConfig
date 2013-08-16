@@ -102,6 +102,24 @@ Ext.extend(ClientConfig.grid.Settings,MODx.grid.Grid,{
         win.setValues(record);
         win.show();
     },
+    duplicateSetting: function() {
+        var record = this.menu.record;
+        record.id = 0;
+        record.key = record.key + '_duplicate';
+        var win = MODx.load({
+            xtype: 'clientconfig-window-setting',
+            record: record,
+            listeners: {
+                success: {fn: function(r) {
+                    this.refresh();
+                },scope: this},
+                scope: this
+            },
+            isDuplicate: true
+        });
+        win.setValues(record);
+        win.show();
+    },
     removeSetting: function() {
         var id = this.menu.record.id;
         MODx.msg.confirm({
@@ -126,6 +144,10 @@ Ext.extend(ClientConfig.grid.Settings,MODx.grid.Grid,{
         m.push({
             text: _('clientconfig.update_setting'),
             handler: this.updateSetting,
+            scope: this
+        },{
+            text: _('clientconfig.duplicate_setting'),
+            handler: this.duplicateSetting,
             scope: this
         },'-',{
             text: _('clientconfig.remove_setting'),

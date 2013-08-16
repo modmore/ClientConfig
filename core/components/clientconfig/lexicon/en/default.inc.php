@@ -24,6 +24,7 @@ $_lang['clientconfig'] = 'Configuration';
 $_lang['clientconfig.desc'] = 'Set and update site configuration.';
 $_lang['clientconfig.add_setting'] = 'Add Setting';
 $_lang['clientconfig.update_setting'] = 'Update Setting';
+$_lang['clientconfig.duplicate_setting'] = 'Duplicate Setting';
 $_lang['clientconfig.remove_setting'] = 'Remove Setting';
 $_lang['clientconfig.remove_setting.confirm'] = 'Are you sure you want to remove this setting?';
 $_lang['clientconfig.add_group'] = 'Add Group';

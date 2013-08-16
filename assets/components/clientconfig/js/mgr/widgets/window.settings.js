@@ -4,7 +4,7 @@ ClientConfig.window.Setting = function(config) {
     Ext.applyIf(config,{
         title: (config.isUpdate) ?
             _('clientconfig.update_setting') :
-            _('clientconfig.add_setting'),
+            (config.isDuplicate) ? _('clientconfig.duplicate_setting') : _('clientconfig.add_setting'),
         autoHeight: true,
         url: ClientConfig.config.connectorUrl,
         baseParams: {
