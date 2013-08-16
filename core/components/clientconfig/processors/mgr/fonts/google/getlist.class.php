@@ -23,8 +23,8 @@ class cgGoogleFontListGetListProcessor extends modObjectGetListProcessor {
 
         foreach ($fonts as $font) {
             $item = array();
-            $item['family'] = $font['family'];
-            $item['name'] = str_replace(' ','+',$font['family']);
+            $item['family'] = str_replace(' ','+',$font['family']);
+            $item['name'] = $font['family'];
             $list[] = $item;
         }
 
