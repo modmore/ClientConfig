@@ -61,7 +61,7 @@ class ClientConfig {
             'assetsUrl' => $assetsUrl,
             'connectorUrl' => $assetsUrl.'connector.php',
 
-            'verticalTabs' => $this->modx->getOption('clientconfig.vertical_tabs', null, true),
+            'verticalTabs' => $this->modx->getOption('clientconfig.vertical_tabs', null, false),
         ),$config);
 
         $modelPath = $this->config['modelPath'];
