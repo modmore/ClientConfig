@@ -57,8 +57,13 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     value: (value.value != '') ? value.value : value.default,
                     description: (ClientConfig.isAdmin) ? '<b>[[++' + value.key + ']]</b>' : undefined,
                     allowBlank: !value.is_required,
-                    width: '60%'
+                    anchor: '60%'
                 };
+
+                if (['textarea'].indexOf(field.xtype) !== -1) {
+                    field.anchor = '100%';
+                }
+
                 if ((field.xtype == 'checkbox') || (field.xtype == 'xcheckbox')) {
                     field.boxLabel = field.fieldLabel;
                     field.fieldLabel = null;
@@ -131,7 +136,8 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     xtype: 'panel',
                     layout: 'form',
                     labelAlign: 'top',
-                    labelSeparator: ''
+                    labelSeparator: '',
+                    width: '85%'
                 });
                 tabs.push(tab);
             }
