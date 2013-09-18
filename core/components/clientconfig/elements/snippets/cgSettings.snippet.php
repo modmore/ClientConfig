@@ -1,7 +1,11 @@
-/* cgSettings
+/* 
+ * cgSettings
+ *
  * Returns ClientConfig settings. 
  * Option to filter by group. 
  * Output can be formatted with a tpl chunk, otherwise an array of results is printed.
+ * Example usage: [[cgSettings?group=`2`&tpl=`myTpl`]]
+ * 
  */
  
 /* Set defaults */
@@ -11,12 +15,11 @@ $tpl = $modx->getOption('tpl',$scriptProperties,'');
 
 /* Attempt to get settings from cache if no group filter */
 if (!$group) {
-    /* Attempt to get from cache */
     $cacheOptions = array(xPDO::OPT_CACHE_KEY => 'system_settings');
     $settings = $modx->getCacheManager()->get('clientconfig', $cacheOptions);
 }
 
-/* Otherwise query the database */
+/* Otherwise query the database with optional filter */
 if (empty($settings) && $modx->getCount('cgSetting') > 0) {
     $collection = $modx->getCollection('cgSetting', $groupSet);
     $settings = array();
