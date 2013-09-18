@@ -1,4 +1,5 @@
-/* 
+<?php
+/** 
  * cgSettings
  *
  * Returns ClientConfig settings. 
@@ -6,7 +7,7 @@
  * Output can be formatted with a tpl chunk, otherwise an array of results is printed.
  * Example usage: [[cgSettings?group=`2`&tpl=`myTpl`]]
  * 
- */
+**/
  
 /* Set defaults */
 $group = $modx->getOption('group',$scriptProperties,'');
