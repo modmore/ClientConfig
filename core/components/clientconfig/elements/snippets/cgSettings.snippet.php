@@ -7,6 +7,7 @@
  * Output can be formatted with a tpl chunk, otherwise an array of results is printed.
  * Example usage: [[cgSettings?group=`2`&tpl=`myTpl`]]
  * 
+ * TODO: require the class file and call ClientConfig.getSettings() instead of duplicating function here.
 **/
  
 /* Set defaults */
