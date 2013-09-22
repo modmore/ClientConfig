@@ -1,4 +1,3 @@
-<?php
 /* 
  * cgSettings
  *
@@ -29,8 +28,12 @@ $cacheId = 'clientconfig';
 if ($group) $cacheId = 'clientconfig.group.' . $group;
 if ($key) $cacheId = 'clientconfig.key.' . $key;
 
+/* Set cache key */
+$contextKey = $modx->context->key;
+$resourceCache = $modx->getOption('cache_resource_key', null, 'resource/' . $contextKey);
+
 /* If we got the class (gotta be careful of failed migrations), grab settings and go! */
-if ($clientConfig instanceof ClientConfig) $settings = $clientConfig->getSettings($where, $cacheId);
+if ($clientConfig instanceof ClientConfig) $settings = $clientConfig->getSettings($where, $cacheId, $resourceCache);
 
 /* Format the output */
 if (!$tpl) return print_r($settings);
