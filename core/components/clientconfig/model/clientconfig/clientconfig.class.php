@@ -75,9 +75,9 @@ class ClientConfig {
      * Grab settings (from cache if possible) as key => value pairs.
      * @return array|mixed
      */
-    public function getSettings($criteria = NULL, $cacheId = 'clientconfig') {
+    public function getSettings($criteria = NULL, $cacheId = 'clientconfig', $cacheKey = 'system_settings') {
         /* Attempt to get from cache */
-        $cacheOptions = array(xPDO::OPT_CACHE_KEY => 'system_settings');
+        $cacheOptions = array(xPDO::OPT_CACHE_KEY => $cacheKey);
         $settings = $this->modx->getCacheManager()->get($cacheId, $cacheOptions);
 
         if (empty($settings) && $this->modx->getCount('cgSetting') > 0) {
