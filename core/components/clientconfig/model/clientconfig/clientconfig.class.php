@@ -81,7 +81,7 @@ class ClientConfig {
         $settings = $this->modx->getCacheManager()->get($cacheId, $cacheOptions);
 
         if (empty($settings) && $this->modx->getCount('cgSetting') > 0) {
-            $collection = $this->modx->getCollection('cgSetting',$criteria);
+            $collection = $this->modx->getCollection('cgSetting', $criteria);
             $settings = array();
             /* @var cgSetting $setting */
             foreach ($collection as $setting) {
