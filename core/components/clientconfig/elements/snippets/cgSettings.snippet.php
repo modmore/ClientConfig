@@ -42,4 +42,11 @@ foreach ($settings as $key => $value) {
      $output .= $modx->getChunk($tpl,array('key' => $key, 'value' => $value));
 }
 
+/* toPlaceholder support is handy too */
+$toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,false);
+if (!empty($toPlaceholder)) {
+    $modx->setPlaceholder($toPlaceholder,$output);
+    return '';
+}
+
 return $output;
