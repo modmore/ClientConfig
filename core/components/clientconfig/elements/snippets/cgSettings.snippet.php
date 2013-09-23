@@ -36,9 +36,10 @@ $resourceCache = $modx->getOption('cache_resource_key', null, 'resource/' . $con
 /* If we got the class (gotta be careful of failed migrations), grab settings and go! */
 if ($clientConfig instanceof ClientConfig) $settings = $clientConfig->getSettings($where, $cacheId, $resourceCache);
 
-/* Format the output */
+/* Format the output - upgraded to getChunk for output modifiers */
 if (!$tpl) return print_r($settings);
 foreach ($settings as $key => $value) {
-     $output .= $modx->parseChunk($tpl,array('key' => $key, 'value' => $value));
+     $output .= $modx->getChunk($tpl,array('key' => $key, 'value' => $value));
 }
+
 return $output;
