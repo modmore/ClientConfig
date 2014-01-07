@@ -2,6 +2,7 @@
 ++   ClientConfig 1.2.1-pl    ++
 ++   Released on 2014-01-07   ++
 ++++++++++++++++++++++++++++++++
+#57  Add Google Font input type (Thanks @garryn)
 #63  Fix issue loading more than one rich text field
 
 ++++++++++++++++++++++++++++++++
