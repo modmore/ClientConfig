@@ -58,8 +58,9 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         var rtes = this.rtes;
         setTimeout(function() {
             if (rtes.length > 0 && MODx.loadRTE) {
-                if (rtes.length == 1) rtes = rtes.join('');
-                MODx.loadRTE(rtes);
+                Ext.each(rtes, function(id, index) {
+                    MODx.loadRTE(id);
+                });
             }
         }, 250)
     },

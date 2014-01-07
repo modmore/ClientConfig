@@ -1,4 +1,10 @@
 ++++++++++++++++++++++++++++++++
+++   ClientConfig 1.2.1-pl    ++
+++   Released on 2014-01-07   ++
+++++++++++++++++++++++++++++++++
+#63  Fix issue loading more than one rich text field
+
+++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.2.0-pl    ++
 ++   Released on 2013-08-16   ++
 ++++++++++++++++++++++++++++++++
