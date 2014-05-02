@@ -46,8 +46,9 @@ ClientConfig.grid.Settings = function(config) {
 		},{
 			header: _('clientconfig.is_required'),
 			dataIndex: 'is_required',
-		    sortable: true,
-			width: .1
+		    	sortable: true,
+			width: .1,
+			renderer: this.rendYesNo
 		},{
 			header: _('clientconfig.group'),
 			dataIndex: 'group_label',
