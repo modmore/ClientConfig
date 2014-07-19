@@ -71,3 +71,7 @@ $_lang['clientconfig.to_client_view'] = 'To Client View';
 $_lang['clientconfig.saved'] = 'Saved';
 $_lang['clientconfig.saved.text'] = 'The settings have been saved.';
 $_lang['clientconfig.field_is_required'] = 'This option cannot be left empty.';
+
+// New 2014/07/20
+$_lang['clientconfig.create_groups_first'] = 'Create a Group first';
+$_lang['clientconfig.create_groups_first.desc'] = 'Sorry, but before you can add a setting you\'ll need to have at least one group. Without groups, settings cannot be displayed to the Client.';

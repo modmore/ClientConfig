@@ -76,6 +76,19 @@ ClientConfig.grid.Settings = function(config) {
 };
 Ext.extend(ClientConfig.grid.Settings,MODx.grid.Grid,{
     addSetting: function() {
+        var groups = Ext.getCmp('clientconfig-grid-groups');
+        if (groups.store.data.items.length < 1) {
+            MODx.msg.alert(
+                _('clientconfig.create_groups_first'),
+                _('clientconfig.create_groups_first.desc'),
+                function() {
+                    groups.addGroup();
+                },
+                groups
+            );
+            return;
+        }
+
         var win = MODx.load({
             xtype: 'clientconfig-window-setting',
             listeners: {

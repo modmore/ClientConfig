@@ -1,3 +1,4 @@
+#15  Force admins to create a group before creating a setting, as settings need groups
 #76  Fix issue where unchecking a checkbox would fail if the setting was required
 #78  Make the is_required column show Yes/No instead of true/false
 #60  Get rid of an extra border
