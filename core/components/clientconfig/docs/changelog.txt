@@ -1,3 +1,4 @@
+#76  Fix issue where unchecking a checkbox would fail if the setting was required
 #78  Make the is_required column show Yes/No instead of true/false
 #60  Get rid of an extra border
 #75  Update help link to point to modmore.com

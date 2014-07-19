@@ -16,7 +16,7 @@ class cgSettingSaveProcessor extends modProcessor {
         foreach ($values as $key => $value) {
             $setting = $this->modx->getObject('cgSetting',array('key' => $key));
             if ($setting instanceof cgSetting) {
-                if (empty($value) && $setting->get('is_required')) {
+                if (empty($value) && $setting->get('is_required') && !in_array($setting->get('xtype'), array('checkbox', 'xcheckbox'))) {
                     $this->addFieldError($key,$this->modx->lexicon('clientconfig.field_is_required'));
                     continue;
                 }
