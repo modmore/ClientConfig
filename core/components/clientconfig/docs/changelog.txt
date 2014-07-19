@@ -1,3 +1,7 @@
+++++++++++++++++++++++++++++++++
+++   ClientConfig 1.3.0-pl    ++
+++   Released on 2014-07-20   ++
+++++++++++++++++++++++++++++++++
 #27  Ability to import/export groups and settings
 #16  Auto-select first group when adding a setting
 #15  Force admins to create a group before creating a setting, as settings need groups
