@@ -41,6 +41,14 @@ ClientConfig.grid.Groups = function(config) {
             text: _('clientconfig.add_group'),
             handler: this.addGroup,
             scope: this
+        }, '->', {
+            text: _('clientconfig.export_groups'),
+            handler: this.exportGroups,
+            scope: this
+        }, '-', {
+            text: _('clientconfig.import_groups'),
+            handler: this.importGroups,
+            scope: this
         }]
     });
     ClientConfig.grid.Groups.superclass.constructor.call(this,config);
@@ -104,6 +112,33 @@ Ext.extend(ClientConfig.grid.Groups,MODx.grid.Grid,{
             scope: this
         });
         return m;
+    },
+
+    exportGroups: function() {
+        Ext.Msg.confirm(_('clientconfig.export_groups'), _('clientconfig.export_groups.confirm'), function(e) {
+            if (e == 'yes') {
+                window.location = ClientConfig.config.connectorUrl + '?action=mgr/groups/export&HTTP_MODAUTH=' + MODx.siteId;
+            }
+        });
+    },
+
+    importGroups: function() {
+        var win = MODx.load({
+            xtype: 'clientconfig-window-import',
+            title: _('clientconfig.import_groups'),
+            introduction: _('clientconfig.import_groups.desc'),
+            what: _('clientconfig.groups'),
+            baseParams: {
+                action: 'mgr/groups/import'
+            },
+            listeners: {
+                success: {fn: function(r) {
+                    this.refresh();
+                },scope: this},
+                scope: this
+            }
+        });
+        win.show();
     }
 });
 Ext.reg('clientconfig-grid-groups',ClientConfig.grid.Groups);

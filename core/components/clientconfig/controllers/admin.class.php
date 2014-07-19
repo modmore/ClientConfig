@@ -33,6 +33,7 @@ class ClientConfigAdminManagerController extends ClientConfigManagerController {
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/grid.settings.js');
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/window.groups.js');
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/window.settings.js');
+        $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/window.import.js');
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/combos.js');
 
         $this->addLastJavascript($this->clientconfig->config['jsUrl'].'mgr/sections/admin.js');

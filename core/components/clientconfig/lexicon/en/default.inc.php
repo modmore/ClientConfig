@@ -75,3 +75,24 @@ $_lang['clientconfig.field_is_required'] = 'This option cannot be left empty.';
 // New 2014/07/20
 $_lang['clientconfig.create_groups_first'] = 'Create a Group first';
 $_lang['clientconfig.create_groups_first.desc'] = 'Sorry, but before you can add a setting you\'ll need to have at least one group. Without groups, settings cannot be displayed to the Client.';
+
+$_lang['clientconfig.export_settings'] = 'Export Settings';
+$_lang['clientconfig.export_settings.confirm'] = 'When you click Yes below an XML file will be generated and downloaded holding all ClientConfig settings. Are you sure you want to continue?';
+$_lang['clientconfig.import_settings'] = 'Import Settings';
+$_lang['clientconfig.import_settings.desc'] = 'By uploading an XML file and choosing the right import mode, you can import Settings you exported before or from a different site. <b>Note:</b> Settings contain references to Groups by their ID; if you are importing Settings, you will probably need to import Groups as well.';
+
+$_lang['clientconfig.export_groups'] = 'Export Groups';
+$_lang['clientconfig.export_groups.confirm'] = 'When you click Yes below an XML file will be generated and downloaded holding all ClientConfig groups. Are you sure you want to continue?';
+$_lang['clientconfig.import_groups'] = 'Import Groups';
+$_lang['clientconfig.import_groups.desc'] = 'By uploading an XML file and choosing the right import mode, you can import Groups you exported before or from a different site. ';
+
+$_lang['clientconfig.import_file'] = 'File to Import';
+$_lang['clientconfig.import_mode'] = 'Import Mode';
+$_lang['clientconfig.import_mode.insert'] = "Insert: leave existing [[+what]] and add the imported data";
+$_lang['clientconfig.import_mode.overwrite'] = "Overwrite: leave existing [[+what]], but overwrite them if they have the same ID";
+$_lang['clientconfig.import_mode.replace'] = "Replace: first remove all current [[+what]], and then import the new rows.";
+$_lang['clientconfig.start_import'] = 'Start Import';
+$_lang['clientconfig.error.xml_not_loaded'] = 'No valid XML file uploaded.';
+$_lang['clientconfig.error.not_an_export'] = 'The uploaded file is not a valid export file for ClientConfig.';
+$_lang['clientconfig.error.importing_row'] = 'Something went wrong saving a row of the export: ';
+

@@ -70,6 +70,14 @@ ClientConfig.grid.Settings = function(config) {
                 }, scope: this}
             },
             width: 250
+        }, '-', {
+            text: _('clientconfig.export_settings'),
+            handler: this.exportSettings,
+            scope: this
+        }, '-', {
+            text: _('clientconfig.import_settings'),
+            handler: this.importSettings,
+            scope: this
         }]
     });
     ClientConfig.grid.Settings.superclass.constructor.call(this,config);
@@ -175,6 +183,33 @@ Ext.extend(ClientConfig.grid.Settings,MODx.grid.Grid,{
         this.baseParams['group'] = Ext.getCmp('clientconfig-settings-filter-group').getValue();
         this.getBottomToolbar().changePage(1);
         this.refresh();
+    },
+    
+    exportSettings: function() {
+        Ext.Msg.confirm(_('clientconfig.export_settings'), _('clientconfig.export_settings.confirm'), function(e) {
+            if (e == 'yes') {
+                window.location = ClientConfig.config.connectorUrl + '?action=mgr/settings/export&HTTP_MODAUTH=' + MODx.siteId;
+            }
+        });
+    },
+    
+    importSettings: function() {
+        var win = MODx.load({
+            xtype: 'clientconfig-window-import',
+            title: _('clientconfig.import_settings'),
+            introduction: _('clientconfig.import_settings.desc'),
+            what: _('clientconfig.settings'),
+            baseParams: {
+                action: 'mgr/settings/import'
+            },
+            listeners: {
+                success: {fn: function(r) {
+                    this.refresh();
+                },scope: this},
+                scope: this
+            }
+        });
+        win.show();
     }
 });
 Ext.reg('clientconfig-grid-settings',ClientConfig.grid.Settings);
