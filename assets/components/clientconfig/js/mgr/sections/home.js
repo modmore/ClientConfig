@@ -2,7 +2,7 @@ ClientConfig.page.Home = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         id: 'clientconfig-page-home',
-        cls: 'container form-with-labels',
+        cls: 'container',
         renderTo: 'clientconfig-wrapper-div',
         layout: 'form',
         border: false,
@@ -15,10 +15,10 @@ ClientConfig.page.Home = function(config) {
             xtype: 'form',
             id: 'clientconfig-formpanel-home',
             cls: 'form-with-labels',
-            border: ClientConfig.config.verticalTabs,
+            border: !!ClientConfig.config.verticalTabs,
+            width: '98%',
             items: [{
-                xtype: (ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
-                width: '97%',
+                xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
                 border: true,
                 deferredRender: false,
                 defaults: {

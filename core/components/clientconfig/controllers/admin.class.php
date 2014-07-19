@@ -39,7 +39,7 @@ class ClientConfigAdminManagerController extends ClientConfigManagerController {
 
         $this->addHtml('<script type="text/javascript">
         Ext.onReady(function() {
-            MODx.config.help_url = "http://rtfm.modx.com/display/ADDON/ClientConfig";
+            MODx.config.help_url = "https://www.modmore.com/extras/clientconfig/documentation/?embed=1";
             MODx.load({ xtype: "clientconfig-page-admin" });
         });
         </script>');

@@ -1,3 +1,6 @@
+#60  Get rid of an extra border
+     Update help link to point to modmore.com
+
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.2.1-pl    ++
 ++   Released on 2014-01-07   ++
