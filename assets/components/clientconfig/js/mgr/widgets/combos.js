@@ -13,6 +13,15 @@ ClientConfig.combo.Groups = function(config) {
         displayField: 'label'
     });
     ClientConfig.combo.Groups.superclass.constructor.call(this,config);
+
+    if (config.storeLoadListener) {
+        this.store.on('load', config.storeLoadListener, this);
+        this.on('render', function() {
+            if (!this.getValue()) {
+                this.store.load();
+            }
+        });
+    }
 };
 Ext.extend(ClientConfig.combo.Groups,MODx.combo.ComboBox);
 Ext.reg('clientconfig-combo-groups',ClientConfig.combo.Groups);

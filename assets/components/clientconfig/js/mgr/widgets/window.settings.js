@@ -42,7 +42,14 @@ ClientConfig.window.Setting = function(config) {
                     xtype: 'clientconfig-combo-groups',
                     name: 'group',
                     fieldLabel: _('clientconfig.group'),
-                    anchor: '100%'
+                    anchor: '100%',
+                    autoLoad: true,
+                    storeLoadListener: function(store, data, request) {
+                        if (this.getValue() < 1) {
+                            this.setValue(store.getAt(0).get(this.valueField));
+                        }
+                        return true;
+                    }
                 },{
                     xtype: 'numberfield',
                     name: 'sortorder',
@@ -64,7 +71,6 @@ ClientConfig.window.Setting = function(config) {
                     anchor: '100%',
                     listeners: {
                         select: {fn: function(field, record) {
-//                            console.log(field, record, record.data.xtype);
                             if (record.data.xtype == 'modx-combo') {
                                 Ext.getCmp(config.id + '-options').show();
                             } else {
