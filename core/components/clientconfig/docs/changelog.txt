@@ -1,5 +1,6 @@
+#78  Make the is_required column show Yes/No instead of true/false
 #60  Get rid of an extra border
-     Update help link to point to modmore.com
+#75  Update help link to point to modmore.com
 
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.2.1-pl    ++

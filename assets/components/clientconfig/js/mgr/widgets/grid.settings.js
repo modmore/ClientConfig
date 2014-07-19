@@ -47,7 +47,8 @@ ClientConfig.grid.Settings = function(config) {
 			header: _('clientconfig.is_required'),
 			dataIndex: 'is_required',
 		    sortable: true,
-			width: .1
+			width: .1,
+            renderer: MODx.grid.Grid.prototype.rendYesNo
 		},{
 			header: _('clientconfig.group'),
 			dataIndex: 'group_label',
