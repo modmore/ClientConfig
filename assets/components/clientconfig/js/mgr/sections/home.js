@@ -15,11 +15,11 @@ ClientConfig.page.Home = function(config) {
             xtype: 'form',
             id: 'clientconfig-formpanel-home',
             cls: 'form-with-labels',
-            border: !!ClientConfig.config.verticalTabs,
+            border: !!ClientConfig.config.verticalTabs && !MODx.config.connector_url,
             width: '98%',
             items: [{
                 xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
-                border: true,
+                border: false,
                 deferredRender: false,
                 defaults: {
                     border: false,
