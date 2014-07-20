@@ -1,5 +1,6 @@
-    More weird border fixes
-    Minor fix to when borders are added, specifically for 2.2.
+- Update Dutch translation
+- More weird border fixes
+- Minor fix to when borders are added, specifically for 2.2.
 
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.3.0-pl    ++

@@ -72,3 +72,28 @@ $_lang['clientconfig.to_client_view'] = 'Terug naar Configuratie';
 $_lang['clientconfig.saved'] = 'Opgeslagen';
 $_lang['clientconfig.saved.text'] = 'De instellingen zijn opgeslagen.';
 $_lang['clientconfig.field_is_required'] = 'Dit veld is verplicht en kan niet leeg blijven.';
+
+// New 2014/07/20
+$_lang['clientconfig.create_groups_first'] = 'Maak eerst een Groep aan';
+$_lang['clientconfig.create_groups_first.desc'] = 'Sorry, maar voordat je een instelling aan kunt maken is het nodig om een Groep te maken. Zonder een groep kunnen instellingen niet aan de eindgebruikter worden getoond.';
+
+$_lang['clientconfig.export_settings'] = 'Exporteer Instellingen';
+$_lang['clientconfig.export_settings.confirm'] = 'Zodra je hieronder op Ja klikt zal een XML bestand aangemaakt en gedownload worden met alle ClientConfig instellingen. Weet je zeker dat je door wilt gaan?';
+$_lang['clientconfig.import_settings'] = 'Importeer Instellingen';
+$_lang['clientconfig.import_settings.desc'] = 'Door een XML bestand te uploaden en de juiste import modus te kiezen kun je Instellingen importeren die eerder zijn geexporteerd of uit een andere site komen. <b>Let op:</b> instellingen bevatten een referentie naar een groep op basis van een ID; waarschijnlijk zul je de groepen ook moeten importeren.';
+
+$_lang['clientconfig.export_groups'] = 'Exporteer Groepen';
+$_lang['clientconfig.export_groups.confirm'] = 'Zodra je hieronder op Ja klikt zal een XML bestand aangemaakt en gedownload worden met alle ClientConfig groepen. Weet je zeker dat je door wilt gaan';
+$_lang['clientconfig.import_groups'] = 'Importeer Groepen';
+$_lang['clientconfig.import_groups.desc'] = 'Door een XML bestand te uploaden en de juiste import modus te kiezen kun je Instellingen importeren die eerder zijn geexporteerd of uit een andere site komen. ';
+
+$_lang['clientconfig.import_file'] = 'Bestand';
+$_lang['clientconfig.import_mode'] = 'Import Modus';
+$_lang['clientconfig.import_mode.insert'] = "Invoegen: bestaande [[+what]] laten staan en voeg geïmporteerde data toe";
+$_lang['clientconfig.import_mode.overwrite'] = "Overschrijven: bestaande [[+what]] laten staan, maar overschrijf ze dezelfde ID hebben";
+$_lang['clientconfig.import_mode.replace'] = "Vervangen: eerst worden alle [[+what]] verwijderd, en daarna worden nieuwe rijen geïmporteerd.";
+$_lang['clientconfig.start_import'] = 'Start Importeren';
+$_lang['clientconfig.error.xml_not_loaded'] = 'Geen geschikt XML bestand geupload.';
+$_lang['clientconfig.error.not_an_export'] = 'Het geuploade bestand is geen geschikte ClientConfig export.';
+$_lang['clientconfig.error.importing_row'] = 'Er ging iets mis met het importeren van de rij: ';
+
