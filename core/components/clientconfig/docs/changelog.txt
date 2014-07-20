@@ -1,3 +1,5 @@
+    Minor fix to when borders are added, specifically for 2.2.
+
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.3.0-pl    ++
 ++   Released on 2014-07-20   ++
@@ -31,7 +33,7 @@
 
 ++++++++++++++++++++++++++++++++
 ++   ClientConfig 1.1.2-pl    ++
-++   Released on 2012-03-07   ++
+++   Released on 2013-03-07   ++
 ++++++++++++++++++++++++++++++++
      Add/update translations: Russian (thx @Alroniks!), German (thx @enigmatic-user!), Swedish (thx @fractalwolfe!) and Dutch.
 #47  Show field descriptions under the fields. (Thanks @fractalwolfe!)

@@ -19,7 +19,7 @@ ClientConfig.page.Home = function(config) {
             width: '98%',
             items: [{
                 xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
-                border: false,
+                border: !MODx.config.connector_url,
                 deferredRender: false,
                 defaults: {
                     border: false,
