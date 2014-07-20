@@ -1,3 +1,4 @@
+    More weird border fixes
     Minor fix to when borders are added, specifically for 2.2.
 
 ++++++++++++++++++++++++++++++++

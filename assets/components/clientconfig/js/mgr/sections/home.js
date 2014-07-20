@@ -12,14 +12,14 @@ ClientConfig.page.Home = function(config) {
             border: false,
             cls: 'modx-page-header'
         },{
-            xtype: 'form',
+            xtype: 'modx-formpanel',
             id: 'clientconfig-formpanel-home',
             cls: 'form-with-labels',
             border: !!ClientConfig.config.verticalTabs && !MODx.config.connector_url,
             width: '98%',
             items: [{
                 xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
-                border: !MODx.config.connector_url,
+                border: false,
                 deferredRender: false,
                 defaults: {
                     border: false,
@@ -42,7 +42,7 @@ ClientConfig.page.Home = function(config) {
                     ,cls: 'x-tab-panel-header vertical-tabs-header'
                     ,id: 'modx-resource-vtabs-header'
                     ,html: MODx.config.show_tv_categories_header == true ? '<h4 id="modx-resource-vtabs-header-title">'+_('categories')+'</h4>' : ''
-                } : {}
+                } : undefined
             }]
         }],
         buttons: this.getButtons(),
