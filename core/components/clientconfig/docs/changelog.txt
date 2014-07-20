@@ -2,69 +2,62 @@
 - More weird border fixes
 - Minor fix to when borders are added, specifically for 2.2.
 
-++++++++++++++++++++++++++++++++
-++   ClientConfig 1.3.0-pl    ++
-++   Released on 2014-07-20   ++
-++++++++++++++++++++++++++++++++
-#27  Ability to import/export groups and settings
-#16  Auto-select first group when adding a setting
-#15  Force admins to create a group before creating a setting, as settings need groups
-#76  Fix issue where unchecking a checkbox would fail if the setting was required
-#78  Make the is_required column show Yes/No instead of true/false
-#60  Get rid of an extra border
-#75  Update help link to point to modmore.com
+++ ClientConfig 1.3.0-pl
+++ Released on 2014-07-20
++++++++++++++++++++++++++
+- #27 Ability to import/export groups and settings
+- #16 Auto-select first group when adding a setting
+- #15 Force admins to create a group before creating a setting, as settings need groups
+- #76 Fix issue where unchecking a checkbox would fail if the setting was required
+- #78 Make the is_required column show Yes/No instead of true/false
+- #60 Get rid of an extra border
+- #75 Update help link to point to modmore.com
 
-++++++++++++++++++++++++++++++++
-++   ClientConfig 1.2.1-pl    ++
-++   Released on 2014-01-07   ++
-++++++++++++++++++++++++++++++++
-#57  Add Google Font input type (Thanks @garryn)
-#63  Fix issue loading more than one rich text field
+++ ClientConfig 1.2.1-pl
+++ Released on 2014-01-07
++++++++++++++++++++++++++
+- #57 Add Google Font input type (Thanks @garryn)
+- #63 Fix issue loading more than one rich text field
 
-++++++++++++++++++++++++++++++++
-++   ClientConfig 1.2.0-pl    ++
-++   Released on 2013-08-16   ++
-++++++++++++++++++++++++++++++++
-#38  Add setting (vertical_tabs) to allow stacking groups vertically instead of horizontal tabs
-#46  Add ability to duplicate a setting
-#45  Show field options field when editing a select box setting.
-#54  Add Rich Text input type.
-     Improved width consistency of input items.
-#37  Added input type Image (thanks COEX!)
-#3   Fix/add colorpicker input type (thanks COEX!)
+++ ClientConfig 1.2.0-pl
+++ Released on 2013-08-16
++++++++++++++++++++++++++
+- #38 Add setting (vertical_tabs) to allow stacking groups vertically instead of horizontal tabs
+- #46 Add ability to duplicate a setting
+- #45 Show field options field when editing a select box setting.
+- #54 Add Rich Text input type.
+- Improved width consistency of input items.
+- #37 Added input type Image (thanks COEX!)
+- #3 Fix/add colorpicker input type (thanks COEX!)
 
-++++++++++++++++++++++++++++++++
-++   ClientConfig 1.1.2-pl    ++
-++   Released on 2013-03-07   ++
-++++++++++++++++++++++++++++++++
-     Add/update translations: Russian (thx @Alroniks!), German (thx @enigmatic-user!), Swedish (thx @fractalwolfe!) and Dutch.
-#47  Show field descriptions under the fields. (Thanks @fractalwolfe!)
-#40  Add placeholder tooltips with the [[++key]] for admins. (Thanks @fractalwolfe!)
+++ ClientConfig 1.1.2-pl
+++ Released on 2013-03-07
++++++++++++++++++++++++++
+- Add/update translations: Russian (thx @Alroniks!), German (thx @enigmatic-user!), Swedish (thx @fractalwolfe!) and Dutch.
+- #47 Show field descriptions under the fields. (Thanks @fractalwolfe!)
+- #40 Add placeholder tooltips with the [[++key]] for admins. (Thanks @fractalwolfe!)
 
-++++++++++++++++++++++++++++++++
-++   ClientConfig 1.1.1-pl    ++
-++   Released on 2012-12-31   ++
-++++++++++++++++++++++++++++++++
-#35  Don't strip out tags when saving values (relies on allow_tags_in_post=true in mgr context).
-#39  Increase database field max sizes for longer descriptions and values.
-#33  Make sure to show message when no tabs are to be shown.
-#34  Prevent E_WARNING when there are no settings configured.
+++ ClientConfig 1.1.1-pl
+++ Released on 2012-12-31
++++++++++++++++++++++++++
+- #35 Don't strip out tags when saving values (relies on allow_tags_in_post=true in mgr context).
+- #39 Increase database field max sizes for longer descriptions and values.
+- #33 Make sure to show message when no tabs are to be shown.
+- #34 Prevent E_WARNING when there are no settings configured.
 
-++++++++++++++++++++++++++++++++
-++   ClientConfig 1.1.0-pl    ++
-++   Released on 2012-12-16   ++
-++++++++++++++++++++++++++++++++
-#26  Add ability to manually sort Settings within a Group
-#25  Add ability to manually sort Groups
-#21  Add Filter on Group for settings.
-#24  Remember last visited tab in both admin and client view.
-#22  Add "Help!" button on Admin panel linking to RTFM instructions.
-     Improve checking if key exists on updating a setting.
-#30  Fix bug with incorrectly checking cgSetting.is_required checkbox
-     Make controller a tad more portable.
+++ ClientConfig 1.1.0-pl
+++ Released on 2012-12-16
++++++++++++++++++++++++++
+- #26 Add ability to manually sort Settings within a Group
+- #25 Add ability to manually sort Groups
+- #21 Add Filter on Group for settings.
+- #24 Remember last visited tab in both admin and client view.
+- #22 Add "Help!" button on Admin panel linking to RTFM instructions.
+- Improve checking if key exists on updating a setting.
+- #30 Fix bug with incorrectly checking cgSetting.is_required checkbox
+- Make controller a tad more portable.
 
-++++++++++++++++++++++++++++++++
-++   ClientConfig 1.0.0-pl    ++
-++   Released on 2012-12-09   ++
-++++++++++++++++++++++++++++++++
+++ ClientConfig 1.0.0-pl
+++ Released on 2012-12-09
++++++++++++++++++++++++++
 First release
