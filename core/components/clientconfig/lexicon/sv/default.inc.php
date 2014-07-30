@@ -2,7 +2,7 @@
 /**
  * ClientConfig
  *
- * Copyright 2011 by Mark Hamstra <hello@markhamstra.com>
+ * Copyright 2011-2014 by Mark Hamstra <hello@markhamstra.com>
  *
  * ClientConfig is free software; you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
