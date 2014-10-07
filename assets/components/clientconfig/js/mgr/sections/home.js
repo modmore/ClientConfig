@@ -98,6 +98,14 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.checked = (value.value);
                 }
 
+                if (field.xtype == 'datefield') {
+                    field.format = MODx.config.manager_date_format;
+                }
+
+                if (field.xtype == 'timefield') {
+                    field.format = MODx.config.manager_time_format;
+                }
+
                 if (field.xtype == 'modx-panel-tv-image') {
                     field.tv = value.key;
                     field.relativeValue = (value.value != '') ? value.value : value.default;
