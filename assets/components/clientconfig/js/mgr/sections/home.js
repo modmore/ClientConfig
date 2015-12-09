@@ -108,6 +108,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
 
                 if (field.xtype == 'modx-panel-tv-image') {
                     field.tv = value.key;
+                    field.source = MODx.config.default_media_source;
                     field.relativeValue = (value.value != '') ? value.value : value.default;
                 }
                 if (field.xtype == 'colorpickerfield') {
