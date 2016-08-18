@@ -31,31 +31,36 @@ ClientConfig.grid.Settings = function(config) {
 		},{
 			header: _('clientconfig.key'),
 			dataIndex: 'key',
-		    sortable: true,
+			sortable: true,
 			width: .3
 		},{
 			header: _('clientconfig.label'),
 			dataIndex: 'label',
-		    sortable: true,
+			sortable: true,
 			width: .3
 		},{
 			header: _('clientconfig.xtype'),
 			dataIndex: 'xtype',
 			sortable: true,
-			width: .3
+			width: .15
 		},{
 			header: _('clientconfig.is_required'),
 			dataIndex: 'is_required',
-            sortable: true,
-			width: .1,
+			sortable: true,
+			width: .15,
 			renderer: this.rendYesNo
 		},{
 			header: _('clientconfig.group'),
 			dataIndex: 'group_label',
-		    sortable: true,
+			sortable: true,
 			width: .3
+		},{
+			header: _('clientconfig.sortorder'),
+			dataIndex: 'sortorder',
+			sortable: true,
+			width: .2
 		}],
-        tbar: [{
+	tbar: [{
             text: _('clientconfig.add_setting'),
             handler: this.addSetting,
             scope: this
