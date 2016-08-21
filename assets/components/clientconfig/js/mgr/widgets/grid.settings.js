@@ -6,6 +6,8 @@ ClientConfig.grid.Settings = function(config) {
 		baseParams: {
             action: 'mgr/settings/getlist'
         },
+        save_action: 'mgr/settings/updatefromgrid',
+        autosave: true,
         emptyText: _('clientconfig.error.noresults'),
 		fields: [
             {name: 'id', type: 'int'},
