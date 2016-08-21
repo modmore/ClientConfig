@@ -6,6 +6,8 @@ ClientConfig.grid.Groups = function(config) {
 		baseParams: {
             action: 'mgr/groups/getlist'
         },
+        save_action: 'mgr/groups/updatefromgrid',
+        autosave: true,
         emptyText: _('clientconfig.error.noresults'),
 		fields: [
             {name: 'id', type: 'int'},
@@ -24,17 +26,29 @@ ClientConfig.grid.Groups = function(config) {
 		},{
 			header: _('clientconfig.label'),
 			dataIndex: 'label',
+			editor: { xtype: 'textfield' },
 		    sortable: true,
 			width: .3
 		},{
 			header: _('clientconfig.description'),
 			dataIndex: 'description',
+			editor: { xtype: 'textfield' },
 			sortable: true,
 			width: .5
 		},{
 			header: _('clientconfig.settings_count'),
 			dataIndex: 'settings_count',
 		    sortable: true,
+			width: .1
+		},{
+			header: _('clientconfig.sortorder'),
+			dataIndex: 'sortorder',
+			editor: { 
+			    xtype: 'numberfield', 
+			    allowDecimal: false, 
+			    allowNegative: false 
+			},
+			sortable: true,
 			width: .1
 		}],
         tbar: [{
