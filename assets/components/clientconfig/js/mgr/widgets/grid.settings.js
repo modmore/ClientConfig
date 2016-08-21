@@ -1,6 +1,8 @@
 ClientConfig.grid.Settings = function(config) {
     config = config || {};
-    Ext.applyIf(config,{
+    Ext.applyIf(config, {
+        
+        // Basic Grid Configuration
 		url: ClientConfig.config.connectorUrl,
 		id: 'clientconfig-grid-settings',
 		baseParams: {
@@ -9,6 +11,10 @@ ClientConfig.grid.Settings = function(config) {
         save_action: 'mgr/settings/updatefromgrid',
         autosave: true,
         emptyText: _('clientconfig.error.noresults'),
+        paging: true,
+		remoteSort: true,
+        
+        // Available Fields
 		fields: [
             {name: 'id', type: 'int'},
             {name: 'key', type: 'string'},
@@ -23,8 +29,8 @@ ClientConfig.grid.Settings = function(config) {
             {name: 'sortorder', type: 'int'},
             {name: 'options', type: 'object'}
         ],
-        paging: true,
-		remoteSort: true,
+		
+		// Visible Columns
 		columns: [{
 			header: _('clientconfig.id'),
 			dataIndex: 'id',
@@ -45,17 +51,29 @@ ClientConfig.grid.Settings = function(config) {
 		},{
 			header: _('clientconfig.xtype'),
 			dataIndex: 'xtype',
+			editor: { 
+			    xtype: 'clientconfig-combo-fieldtypes',
+			    renderer: true
+			},
 			sortable: true,
 			width: .15
 		},{
 			header: _('clientconfig.is_required'),
 			dataIndex: 'is_required',
+			editor: { 
+			    xtype: 'combo-boolean',
+			    renderer: 'boolean'
+			},
 			sortable: true,
 			width: .15,
 			renderer: this.rendYesNo
 		},{
 			header: _('clientconfig.group'),
-			dataIndex: 'group_label',
+			dataIndex: 'group',
+			editor: { 
+			    xtype: 'clientconfig-combo-groups',
+			    renderer: true
+			},
 			sortable: true,
 			width: .3
 		},{
@@ -69,7 +87,9 @@ ClientConfig.grid.Settings = function(config) {
 			sortable: true,
 			width: .2
 		}],
-	tbar: [{
+		
+		// Top-Bar
+        tbar: [{
             text: _('clientconfig.add_setting'),
             handler: this.addSetting,
             scope: this
