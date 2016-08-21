@@ -61,6 +61,11 @@ ClientConfig.grid.Settings = function(config) {
 		},{
 			header: _('clientconfig.sortorder'),
 			dataIndex: 'sortorder',
+			editor: { 
+			    xtype: 'numberfield', 
+			    allowDecimal: false, 
+			    allowNegative: false 
+			},
 			sortable: true,
 			width: .2
 		}],
