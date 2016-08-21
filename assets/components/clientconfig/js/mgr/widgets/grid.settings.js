@@ -33,11 +33,13 @@ ClientConfig.grid.Settings = function(config) {
 		},{
 			header: _('clientconfig.key'),
 			dataIndex: 'key',
+			editor: { xtype: 'textfield' },
 			sortable: true,
 			width: .3
 		},{
 			header: _('clientconfig.label'),
 			dataIndex: 'label',
+			editor: { xtype: 'textfield' },
 			sortable: true,
 			width: .3
 		},{
