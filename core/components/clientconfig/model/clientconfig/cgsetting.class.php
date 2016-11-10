@@ -19,6 +19,7 @@ class cgSetting extends xPDOSimpleObject {
      */
     public function save($cacheFlag = null) {
         $result = parent::save($cacheFlag);
+        $this->xpdo->invokeEvent('OnConfigChange');
         $this->clearCache();
         return $result;
     }
