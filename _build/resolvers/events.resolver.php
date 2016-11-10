@@ -6,7 +6,7 @@ if ($object->xpdo) {
         case xPDOTransport::ACTION_UPGRADE:
         case xPDOTransport::ACTION_INSTALL:
             $modx =& $object->xpdo;
-            /* Create Event*/
+            /* Create Event OnConfigChange*/
             $Event = $modx->newObject('modEvent');
             $Event->set('name', 'OnConfigChange');
             $Event->set('service',1); 
