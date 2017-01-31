@@ -5,6 +5,7 @@
 - Fix field-required errors not being shown by adding a popup
 - Accept 0 as valid required value on the number input [#119]
 - Add a Password input type [#105]
+- Don't show "Error adding field" errors during installation/upgrade [#92]
 
 ++ ClientConfig 1.3.2-pl
 ++ Released on 2015-12-09

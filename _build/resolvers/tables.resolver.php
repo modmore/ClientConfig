@@ -17,6 +17,9 @@ if ($object->xpdo) {
                 $manager->createObjectContainer($obj);
             }
 
+            // Don't show errors for adding/altering either
+            $modx->setLogLevel(modX::LOG_LEVEL_FATAL);
+
             $manager->addField('cgSetting', 'sortorder');
             $manager->addField('cgGroup', 'sortorder');
 
