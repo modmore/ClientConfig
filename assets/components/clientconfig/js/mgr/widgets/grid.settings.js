@@ -1,12 +1,20 @@
 ClientConfig.grid.Settings = function(config) {
     config = config || {};
-    Ext.applyIf(config,{
+    Ext.applyIf(config, {
+        
+        // Basic Grid Configuration
 		url: ClientConfig.config.connectorUrl,
 		id: 'clientconfig-grid-settings',
 		baseParams: {
             action: 'mgr/settings/getlist'
         },
+        save_action: 'mgr/settings/updatefromgrid',
+        autosave: true,
         emptyText: _('clientconfig.error.noresults'),
+        paging: true,
+		remoteSort: true,
+        
+        // Available Fields
 		fields: [
             {name: 'id', type: 'int'},
             {name: 'key', type: 'string'},
@@ -21,8 +29,8 @@ ClientConfig.grid.Settings = function(config) {
             {name: 'sortorder', type: 'int'},
             {name: 'options', type: 'object'}
         ],
-        paging: true,
-		remoteSort: true,
+		
+		// Visible Columns
 		columns: [{
 			header: _('clientconfig.id'),
 			dataIndex: 'id',
@@ -31,30 +39,56 @@ ClientConfig.grid.Settings = function(config) {
 		},{
 			header: _('clientconfig.key'),
 			dataIndex: 'key',
-		    sortable: true,
+			editor: { xtype: 'textfield' },
+			sortable: true,
 			width: .3
 		},{
 			header: _('clientconfig.label'),
 			dataIndex: 'label',
-		    sortable: true,
+			editor: { xtype: 'textfield' },
+			sortable: true,
 			width: .3
 		},{
 			header: _('clientconfig.xtype'),
 			dataIndex: 'xtype',
+			editor: { 
+			    xtype: 'clientconfig-combo-fieldtypes',
+			    renderer: true
+			},
 			sortable: true,
-			width: .3
+			width: .15
 		},{
 			header: _('clientconfig.is_required'),
 			dataIndex: 'is_required',
-            sortable: true,
-			width: .1,
+			editor: { 
+			    xtype: 'combo-boolean',
+			    renderer: 'boolean'
+			},
+			sortable: true,
+			width: .15,
 			renderer: this.rendYesNo
 		},{
 			header: _('clientconfig.group'),
-			dataIndex: 'group_label',
-		    sortable: true,
+			dataIndex: 'group',
+			editor: { 
+			    xtype: 'clientconfig-combo-groups',
+			    renderer: true
+			},
+			sortable: true,
 			width: .3
+		},{
+			header: _('clientconfig.sortorder'),
+			dataIndex: 'sortorder',
+			editor: { 
+			    xtype: 'numberfield', 
+			    allowDecimal: false, 
+			    allowNegative: false 
+			},
+			sortable: true,
+			width: .2
 		}],
+		
+		// Top-Bar
         tbar: [{
             text: _('clientconfig.add_setting'),
             handler: this.addSetting,
