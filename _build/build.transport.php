@@ -141,6 +141,10 @@ $vehicle->resolve('php',array(
     'source' => $sources['resolvers'] . 'tables.resolver.php',
 ));
 
+$vehicle->resolve('php',array(
+    'source' => $sources['resolvers'] . 'events.resolver.php',
+));
+
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in resolvers.'); flush();
 $builder->putVehicle($vehicle);
 
