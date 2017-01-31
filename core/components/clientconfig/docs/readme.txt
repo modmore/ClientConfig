@@ -1,10 +1,9 @@
-----------------------
+-------------------------
 ClientConfig
-----------------------
-Version: 1.0.0
+-------------------------
 Author: Mark Hamstra
-Contact: mark@modx.com
-----------------------
+Contact: mark@modmore.com
+-------------------------
 
 ClientConfig is the by product of a workshop at MODXpo Europe 2012,
 the "Developing Extras in MODX" one. See the session page at modxpo.eu
@@ -20,3 +19,5 @@ Possible uses include:
 - Change call-to-action button colors based on the season
 - Keep contact details updated in one central location
 - Update the email-address a form sends notifications to.
+
+Licensed under the MIT.
