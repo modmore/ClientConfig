@@ -43,6 +43,7 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['xcheckbox', _('clientconfig.xtype.xcheckbox')],
                 ['datefield', _('clientconfig.xtype.datefield')],
                 ['timefield', _('clientconfig.xtype.timefield')],
+                ['password', _('clientconfig.xtype.password')],
                 ['modx-combo', _('clientconfig.xtype.combobox')],
                 ['googlefontlist', _('clientconfig.xtype.googlefonts')]
             ]

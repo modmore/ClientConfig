@@ -111,10 +111,15 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.source = MODx.config.default_media_source;
                     field.relativeValue = (value.value != '') ? value.value : value.default;
                 }
+
                 if (field.xtype == 'colorpickerfield') {
                     field.cls = 'x-colorpicker';
                 }
 
+                if (field.xtype == 'password') {
+                    field.xtype = 'textfield';
+                    field.inputType = 'password';
+                }
 
                 if (field.xtype == 'modx-combo') {
                     var options = value.options.split('||');
@@ -141,7 +146,10 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.displayField = 'label';
                     field.mode = 'local';
                 }
+
+
                 fields.push(field);
+
                 if (value.description && value.description.length > 0) {
                     var fieldDescription = {
                         xtype: 'label',

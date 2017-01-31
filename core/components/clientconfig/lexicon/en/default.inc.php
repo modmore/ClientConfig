@@ -96,3 +96,6 @@ $_lang['clientconfig.error.xml_not_loaded'] = 'No valid XML file uploaded.';
 $_lang['clientconfig.error.not_an_export'] = 'The uploaded file is not a valid export file for ClientConfig.';
 $_lang['clientconfig.error.importing_row'] = 'Something went wrong saving a row of the export: ';
 
+// New 2017-01-31
+$_lang['clientconfig.xtype.password'] = 'Password';
+
