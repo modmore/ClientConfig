@@ -79,7 +79,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     description: (ClientConfig.isAdmin) ? '<b>[[++' + value.key + ']]</b>' : undefined,
                     allowBlank: !value.is_required,
                     anchor: '60%',
-                    id: 'clientconfig-' + value.key
+                    id: 'clientconfig-' + value.key.replace('.','-')
                 };
 
                 if (['textarea'].indexOf(field.xtype) !== -1) {
