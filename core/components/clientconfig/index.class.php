@@ -14,8 +14,8 @@ abstract class ClientConfigManagerController extends modExtraManagerController {
      */
     public function initialize() {
         /* Instantiate the ClientConfig class in the controller */
-        $this->modx->loadClass('ClientConfig', $this->modx->getOption('clientconfig.core_path',null,$this->modx->getOption('core_path').'components/clientconfig/'));
-        $this->clientconfig = new ClientConfig($this->modx);
+        $path = $this->modx->getOption('clientconfig.core_path', null, $this->modx->getOption('core_path') . 'components/clientconfig/') . 'model/clientconfig/';
+        $this->clientconfig =& $this->modx->getService('clientconfig', 'ClientConfig', $path);
 
         /* Add the main javascript class and our configuration */
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/clientconfig.class.js');

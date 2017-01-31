@@ -39,7 +39,7 @@ class ClientConfig {
      * @param \modX $modx
      * @param array $config
      */
-    function __construct(modX &$modx,array $config = array()) {
+    public function __construct(modX &$modx,array $config = array()) {
         $this->modx =& $modx;
 
         $corePath = $this->modx->getOption('clientconfig.core_path',$config,$this->modx->getOption('core_path').'components/clientconfig/');
