@@ -59,7 +59,7 @@ abstract class ClientConfigManagerController extends modExtraManagerController {
             {
                 $onRichTextEditorInit = implode('', $onRichTextEditorInit);
             }
-            $this->addHtml($onRichTextEditorInit);
+            $this->setPlaceholder('onRichTextEditorInit', $onRichTextEditorInit);
         }
     }
 }
