@@ -19,6 +19,11 @@ class cgSettingCreateProcessor extends modObjectCreateProcessor {
                 $this->addFieldError('key',$this->modx->lexicon('clientconfig.cgsetting_err_ae_key'));
             }
         }
+        $order = (int)$this->getProperty('sortorder', 0);
+        if ($order < 1) {
+            $order = $this->modx->getCount('cgSetting', ['group', (int)$this->getProperty('group', 0)]);
+            $this->setProperty('sortorder', $order);
+        }
 
         /* Set is_required checkbox */
         $this->setCheckbox('is_required', true);

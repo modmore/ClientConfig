@@ -24,6 +24,7 @@ ClientConfig.grid.Settings = function(config) {
             {name: 'is_required', type: 'bool'},
             {name: 'value', type: 'string'},
             {name: 'default', type: 'string'},
+            {name: 'source', type: 'int'},
             {name: 'group', type: 'int'},
             {name: 'group_label', type: 'string'},
             {name: 'sortorder', type: 'int'},

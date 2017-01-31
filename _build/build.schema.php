@@ -62,6 +62,7 @@ $manager->alterField('cgSetting', 'default', array());
 $manager->alterField('cgSetting', 'options', array());
 $manager->alterField('cgSetting', 'description', array());
 $manager->alterField('cgGroup', 'description', array());
+$manager->addField('cgSetting', 'source');
 
 $mtime= microtime();
 $mtime= explode(" ", $mtime);

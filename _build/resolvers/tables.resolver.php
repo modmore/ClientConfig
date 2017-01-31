@@ -29,6 +29,8 @@ if ($object->xpdo) {
             $manager->alterField('cgSetting', 'description', array());
             $manager->alterField('cgGroup', 'description', array());
 
+            $manager->addField('cgSetting', 'source');
+
             $modx->setLogLevel($loglevel);
         break;
     }

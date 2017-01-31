@@ -20,7 +20,9 @@
         <field key="group"          dbtype="int"        precision="11"
                phptype="int"        null="true"         default="0" />
         <field key="options"        dbtype="mediumtext"
-               phptype="string"      null="true"         default="" />
+               phptype="string"     null="true"         default="" />
+        <field key="source"         dbtype="int"        precision="11"
+               phptype="int"        null="true"         default="0" />
 
         <aggregate alias="Group"    local="group"
                    class="cgGroup"  foreign="id"

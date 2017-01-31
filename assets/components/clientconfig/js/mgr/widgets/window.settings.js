@@ -76,6 +76,11 @@ ClientConfig.window.Setting = function(config) {
                             } else {
                                 Ext.getCmp(config.id + '-options').hide();
                             }
+                            if (record.data.xtype == 'modx-panel-tv-image') {
+                                Ext.getCmp(config.id + '-source').show();
+                            } else {
+                                Ext.getCmp(config.id + '-source').hide();
+                            }
                         }, scope: this}
                     }
                 },{
@@ -90,7 +95,16 @@ ClientConfig.window.Setting = function(config) {
                     fieldLabel: _('clientconfig.options'),
                     description: _('clientconfig.options.desc'),
                     anchor: '100%',
-                    hidden: (config.record && (config.record.xtype == 'modx-combo')) ? false : true
+                    hidden: (config.record && (config.record.xtype === 'modx-combo')) ? false : true
+                },{
+                    xtype: 'modx-combo-source',
+                    id: config.id + '-source',
+                    name: 'source',
+                    fieldLabel: _('clientconfig.source'),
+                    description: _('clientconfig.source.desc'),
+                    anchor: '100%',
+                    hidden: (config.record && (config.record.xtype === 'modx-panel-tv-image')) ? false : true,
+                    hideMode: 'offsets'
                 },{
                     xtype: 'checkbox',
                     name: 'is_required',
