@@ -105,15 +105,26 @@ $xpdo_meta_map['cgSetting']= array (
       'default' => 0,
     ),
   ),
+  'composites' => 
+  array (
+    'ContextValues' => 
+    array (
+      'class' => 'cgContextValue',
+      'cardinality' => 'many',
+      'local' => 'id',
+      'foreign' => 'setting',
+      'owner' => 'local',
+    ),
+  ),
   'aggregates' => 
   array (
     'Group' => 
     array (
-      'local' => 'group',
       'class' => 'cgGroup',
+      'cardinality' => 'one',
+      'local' => 'group',
       'foreign' => 'id',
       'owner' => 'foreign',
-      'cardinality' => 'one',
     ),
   ),
 );

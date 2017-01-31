@@ -5,5 +5,6 @@ $xpdo_meta_map = array (
   array (
     0 => 'cgSetting',
     1 => 'cgGroup',
+    2 => 'cgContextValue',
   ),
 );

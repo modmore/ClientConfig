@@ -12,7 +12,11 @@ if ($object->xpdo) {
             $manager = $modx->getManager();
             $loglevel = $modx->setLogLevel(modX::LOG_LEVEL_ERROR);
 
-            $objects = array('cgSetting', 'cgGroup');
+            $objects = array(
+                'cgSetting',
+                'cgGroup',
+                'cgContextValue',
+            );
             foreach ($objects as $obj) {
                 $manager->createObjectContainer($obj);
             }

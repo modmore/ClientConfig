@@ -40,11 +40,11 @@ $xpdo_meta_map['cgGroup']= array (
   array (
     'Settings' => 
     array (
-      'local' => 'id',
       'class' => 'cgSetting',
+      'cardinality' => 'many',
+      'local' => 'id',
       'foreign' => 'group',
       'owner' => 'local',
-      'cardinality' => 'many',
     ),
   ),
 );
