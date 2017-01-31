@@ -33,7 +33,7 @@
 $eventName = $modx->event->name;
 
 switch($eventName) {
-    case 'OnHandleRequest':
+    case 'OnMODXInit':
         /* Grab the class */
         $path = $modx->getOption('clientconfig.core_path', null, $modx->getOption('core_path') . 'components/clientconfig/');
         $path .= 'model/clientconfig/';

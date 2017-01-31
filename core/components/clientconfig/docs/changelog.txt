@@ -1,5 +1,6 @@
 - Fix loading of TinyMCE RTE, causing it to be initialised without configuration [#122]
 - Add ClientConfig_ConfigChange event to be able of hooking into configuration changes [#117]
+- Change plugin event from OnHandleRequest to OnMODXInit [#87, #109, #115]
 
 ++ ClientConfig 1.3.2-pl
 ++ Released on 2015-12-09

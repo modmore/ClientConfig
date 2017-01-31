@@ -3,7 +3,7 @@
 $events = array();
 
 $e = array(
-    'OnHandleRequest',
+    'OnMODXInit',
 );
 
 foreach ($e as $ev) {
