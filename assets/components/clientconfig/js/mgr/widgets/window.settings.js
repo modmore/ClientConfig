@@ -76,7 +76,7 @@ ClientConfig.window.Setting = function(config) {
                             } else {
                                 Ext.getCmp(config.id + '-options').hide();
                             }
-                            if (record.data.xtype == 'modx-panel-tv-image') {
+                            if (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(record.data.xtype)) {
                                 Ext.getCmp(config.id + '-source').show();
                             } else {
                                 Ext.getCmp(config.id + '-source').hide();
@@ -103,7 +103,7 @@ ClientConfig.window.Setting = function(config) {
                     fieldLabel: _('clientconfig.source'),
                     description: _('clientconfig.source.desc'),
                     anchor: '100%',
-                    hidden: (config.record && (config.record.xtype === 'modx-panel-tv-image')) ? false : true,
+                    hidden: (config.record && (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(config.record.xtype))) ? false : true,
                     hideMode: 'offsets'
                 },{
                     xtype: 'checkbox',

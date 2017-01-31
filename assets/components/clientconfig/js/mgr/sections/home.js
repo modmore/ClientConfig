@@ -106,7 +106,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.format = MODx.config.manager_time_format;
                 }
 
-                if (field.xtype == 'modx-panel-tv-image') {
+                if (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(field.xtype) !== -1) {
                     field.tv = value.key;
                     field.source = value.source || MODx.config.default_media_source;
                     field.relativeValue = (value.value != '') ? value.value : value.default;
@@ -235,6 +235,10 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             var imagePickers = fp.find('xtype', 'modx-panel-tv-image');
             Ext.each(imagePickers, function(imagePicker){
                 values[imagePicker.name] = values['tv' + imagePicker.name];
+            }, this);
+            var filePickers = fp.find('xtype', 'modx-panel-tv-file');
+            Ext.each(filePickers, function(filePicker){
+                values[filePicker.name] = values['tv' + filePicker.name];
             }, this);
 
             fp.el.mask(_('saving'));

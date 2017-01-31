@@ -98,6 +98,7 @@ $_lang['clientconfig.error.importing_row'] = 'Something went wrong saving a row 
 
 // New 2017-01-31
 $_lang['clientconfig.xtype.password'] = 'Password';
+$_lang['clientconfig.xtype.file'] = 'File';
 $_lang['clientconfig.source'] = 'Media Source';
 $_lang['clientconfig.source.desc'] = 'The media source to use for the file browser.';
 

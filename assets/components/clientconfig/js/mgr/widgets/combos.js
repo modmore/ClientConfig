@@ -38,6 +38,7 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['textarea', _('clientconfig.xtype.textarea')],
                 ['richtext', _('clientconfig.xtype.richtext')],
                 ['modx-panel-tv-image', _('clientconfig.xtype.image')],
+                ['modx-panel-tv-file', _('clientconfig.xtype.file')],
                 ['numberfield', _('clientconfig.xtype.numberfield')],
                 ['colorpickerfield', _('clientconfig.xtype.colorpalette')],
                 ['xcheckbox', _('clientconfig.xtype.xcheckbox')],
