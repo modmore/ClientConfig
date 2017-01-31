@@ -8,6 +8,7 @@
 - Don't show "Error adding field" errors during installation/upgrade [#92]
 - Fix loading RTE if the field key contains a dot [#89]
 - Add CMD/CTRL + S shortcut for saving the configuration [#80]
+- Preserve linebreaks when editing a setting in the admin section by using a textarea for the value [#69]
 
 ++ ClientConfig 1.3.2-pl
 ++ Released on 2015-12-09

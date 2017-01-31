@@ -79,7 +79,7 @@ ClientConfig.window.Setting = function(config) {
                         }, scope: this}
                     }
                 },{
-                    xtype: 'textfield',
+                    xtype: (config.record && config.record.xtype && ['textarea', 'richtext'].indexOf(config.record.xtype) !== -1) ? 'textarea' : 'textfield',
                     name: 'value',
                     fieldLabel: _('clientconfig.value'),
                     anchor: '100%'
