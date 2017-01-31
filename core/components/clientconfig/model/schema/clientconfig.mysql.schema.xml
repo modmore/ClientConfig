@@ -1,45 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model package="clientconfig" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
     <object class="cgSetting" table="clientconfig_setting" extends="xPDOSimpleObject">
-        <field key="key"            dbtype="varchar"    precision="75"
-               phptype="string"     null="false"        default="" />
-        <field key="label"          dbtype="varchar"    precision="75"
-               phptype="string"     null="false"        default="" />
-        <field key="xtype"          dbtype="varchar"    precision="75"
-               phptype="string"     null="false"        default="" />
-        <field key="description"    dbtype="text"
-               phptype="string"     null="false"        default="0" />
-        <field key="is_required"    dbtype="tinyint"    precision="1"
-               phptype="boolean"    null="false"        default="0" />
-        <field key="sortorder"      dbtype="int"        precision="10"
-               phptype="integer"    null="false"        default="0" />
-        <field key="value"          dbtype="mediumtext"
-               phptype="string"     null="false"        default="" />
-        <field key="default"        dbtype="mediumtext"
-               phptype="string"     null="false"        default="" />
-        <field key="group"          dbtype="int"        precision="11"
-               phptype="int"        null="true"         default="0" />
-        <field key="options"        dbtype="mediumtext"
-               phptype="string"     null="true"         default="" />
-        <field key="source"         dbtype="int"        precision="11"
-               phptype="int"        null="true"         default="0" />
+        <field key="key" dbtype="varchar" precision="75" phptype="string" null="false" default="" />
+        <field key="label" dbtype="varchar" precision="75" phptype="string" null="false" default="" />
+        <field key="xtype" dbtype="varchar" precision="75" phptype="string" null="false" default="" />
+        <field key="description" dbtype="text" phptype="string" null="false" default="0" />
+        <field key="is_required" dbtype="tinyint" precision="1" phptype="boolean" null="false" default="0" />
+        <field key="sortorder" dbtype="int" precision="10" phptype="integer" null="false" default="0" />
+        <field key="value" dbtype="mediumtext" phptype="string" null="false" default="" />
+        <field key="default" dbtype="mediumtext" phptype="string" null="false" default="" />
+        <field key="group" dbtype="int" precision="11" phptype="int" null="true" default="0" />
+        <field key="options" dbtype="mediumtext" phptype="string" null="true" default="" />
+        <field key="source" dbtype="int" precision="11" phptype="int" null="true" default="0" />
 
-        <aggregate alias="Group"    local="group"
-                   class="cgGroup"  foreign="id"
-                   owner="foreign"  cardinality="one" />
+        <aggregate alias="Group" local="group" class="cgGroup" foreign="id" owner="foreign" cardinality="one" />
     </object>
 
     <object class="cgGroup" table="clientconfig_group" extends="xPDOSimpleObject">
-        <field key="label"          dbtype="varchar"    precision="75"
-               phptype="string"     null="false"        default="" />
-        <field key="description"    dbtype="text"
-               phptype="string"     null="false"        default="0" />
-        <field key="sortorder"      dbtype="int"        precision="10"
-               phptype="integer"    null="false"        default="0" />
+        <field key="label" dbtype="varchar" precision="75" phptype="string" null="false" default="" />
+        <field key="description" dbtype="text" phptype="string" null="false" default="0" />
+        <field key="sortorder" dbtype="int" precision="10" phptype="integer" null="false" default="0" />
 
-        <aggregate alias="Settings"   local="id"
-                   class="cgSetting"  foreign="group"
-                   owner="local"      cardinality="many" />
+        <aggregate alias="Settings" local="id" class="cgSetting" foreign="group" owner="local" cardinality="many" />
     </object>
 </model>
 
