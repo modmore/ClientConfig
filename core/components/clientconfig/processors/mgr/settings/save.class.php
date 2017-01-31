@@ -16,15 +16,15 @@ class cgSettingSaveProcessor extends modProcessor {
         foreach ($values as $key => $value) {
             $setting = $this->modx->getObject('cgSetting',array('key' => $key));
             if ($setting instanceof cgSetting) {
-                if (empty($value) && $setting->get('is_required') && !in_array($setting->get('xtype'), array('checkbox', 'xcheckbox'))) {
-                    $this->addFieldError($key,$this->modx->lexicon('clientconfig.field_is_required'));
+                if (trim($value) === '' && $setting->get('is_required') &&
+                    !in_array($setting->get('xtype'), array('checkbox', 'xcheckbox'), true)) {
+                    $this->addFieldError($key, $setting->get('label') . ': ' . $this->modx->lexicon('clientconfig.field_is_required'));
                     continue;
                 }
                 switch ($setting->get('xtype')) {
                     case 'checkbox':
                     case 'xcheckbox':
-                        if (!empty($value)) $value = true;
-                        else $value = false;
+                        $value = !empty($value) ? true : false;
                         break;
                     default:
                         break;
@@ -35,7 +35,8 @@ class cgSettingSaveProcessor extends modProcessor {
         }
 
         if ($this->hasErrors()) {
-            return $this->failure();
+            $errors = $this->modx->error->getFields();
+            return $this->failure(implode('<br>', $errors));
         } else {
             return $this->success();
         }

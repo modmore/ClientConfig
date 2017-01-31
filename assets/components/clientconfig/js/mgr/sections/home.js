@@ -78,7 +78,8 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     value: (value.value != '') ? value.value : value.default,
                     description: (ClientConfig.isAdmin) ? '<b>[[++' + value.key + ']]</b>' : undefined,
                     allowBlank: !value.is_required,
-                    anchor: '60%'
+                    anchor: '60%',
+                    id: 'clientconfig-' + value.key
                 };
 
                 if (['textarea'].indexOf(field.xtype) !== -1) {
@@ -87,8 +88,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
 
                 if (field.xtype == 'richtext') {
                     field.xtype = 'textarea';
-                    field.id = 'clientconfig-' + field.name;
-                    rtes.push('clientconfig-' + field.name);
+                    rtes.push(field.id);
                 }
 
                 if ((field.xtype == 'checkbox') || (field.xtype == 'xcheckbox')) {
