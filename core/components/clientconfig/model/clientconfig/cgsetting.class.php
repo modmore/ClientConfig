@@ -19,7 +19,7 @@ class cgSetting extends xPDOSimpleObject {
      */
     public function save($cacheFlag = null) {
         $result = parent::save($cacheFlag);
-        $this->xpdo->invokeEvent('OnConfigChange');
+        $this->xpdo->invokeEvent('ClientConfig_ConfigChange');
         $this->clearCache();
         return $result;
     }
@@ -32,6 +32,7 @@ class cgSetting extends xPDOSimpleObject {
      */
     public function remove(array $ancestors = array()) {
         $result = parent::remove($ancestors);
+        $this->xpdo->invokeEvent('ClientConfig_ConfigChange');
         $this->clearCache();
         return $result;
     }

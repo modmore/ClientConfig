@@ -87,6 +87,18 @@ foreach ($settings as $setting) {
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($settings).' system settings.'); flush();
 unset($settings,$setting,$attributes);
 
+/* Events */
+$events = include $sources['data'] . 'transport.events.php';
+$attr =  array(
+    xPDOTransport::UNIQUE_KEY => 'name',
+    xPDOTransport::PRESERVE_KEYS => true,
+    xPDOTransport::UPDATE_OBJECT => false,
+);
+foreach ($events as $e) {
+    $vehicle = $builder->createVehicle($e, $attr);
+    $builder->putVehicle($vehicle);
+}
+
 /* add plugins */
 $plugins = include $sources['data'].'transport.plugins.php';
 if (!is_array($plugins)) { $modx->log(modX::LOG_LEVEL_FATAL,'Adding plugins failed.'); }
@@ -139,10 +151,6 @@ $vehicle->resolve('file',array(
 
 $vehicle->resolve('php',array(
     'source' => $sources['resolvers'] . 'tables.resolver.php',
-));
-
-$vehicle->resolve('php',array(
-    'source' => $sources['resolvers'] . 'events.resolver.php',
 ));
 
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in resolvers.'); flush();
