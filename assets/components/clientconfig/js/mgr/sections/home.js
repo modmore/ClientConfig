@@ -207,7 +207,12 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         var buttons = [{
             text: _('clientconfig.save_config'),
             handler: this.save,
-            scope: this
+            scope: this,
+            keys: [{
+                key: MODx.config.keymap_save || 's',
+                ctrl: true,
+                fn: this.save
+            }]
         }];
 
         if (ClientConfig.isAdmin) {
