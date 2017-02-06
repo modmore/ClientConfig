@@ -1,3 +1,5 @@
+- Restore PHP 5.3 compatibility in creating settings
+
 ++ ClientConfig 1.4.1-pl
 ++ Released on 2017-02-02
 +++++++++++++++++++++++++
