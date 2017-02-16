@@ -97,7 +97,7 @@ ClientConfig.window.Setting = function(config) {
                     anchor: '100%',
                     hidden: (config.record && (config.record.xtype === 'modx-combo')) ? false : true
                 }
-                ,this.getSourceField()
+                ,this.getSourceField(config)
                 ,{
                     xtype: 'checkbox',
                     name: 'is_required',
@@ -111,7 +111,7 @@ ClientConfig.window.Setting = function(config) {
     ClientConfig.window.Setting.superclass.constructor.call(this,config);
 };
 Ext.extend(ClientConfig.window.Setting,MODx.Window,{
-    getSourceField: function(){
+    getSourceField: function(config){
         var isImageTV = (config.record && (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(config.record.xtype) !== -1)) ? true : false;
         var sourcefield = {
             xtype: 'modx-combo-source',
@@ -122,8 +122,9 @@ Ext.extend(ClientConfig.window.Setting,MODx.Window,{
             anchor: '100%',
             hidden: !isImageTV,
             hideMode: 'offsets'
-        }
-        if(!isImageTv) sourcefield.value = 0
+        };
+        if(!isImageTV) sourcefield.value = 0;
         return sourcefield;
+    }
 });
 Ext.reg('clientconfig-window-setting',ClientConfig.window.Setting);
