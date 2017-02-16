@@ -96,16 +96,9 @@ ClientConfig.window.Setting = function(config) {
                     description: _('clientconfig.options.desc'),
                     anchor: '100%',
                     hidden: (config.record && (config.record.xtype === 'modx-combo')) ? false : true
-                },{
-                    xtype: 'modx-combo-source',
-                    id: config.id + '-source',
-                    name: 'source',
-                    fieldLabel: _('clientconfig.source'),
-                    description: _('clientconfig.source.desc'),
-                    anchor: '100%',
-                    hidden: (config.record && (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(config.record.xtype) !== -1)) ? false : true,
-                    hideMode: 'offsets'
-                },{
+                }
+                ,this.getSourceField()
+                ,{
                     xtype: 'checkbox',
                     name: 'is_required',
                     boxLabel: _('clientconfig.is_required.long'),
@@ -117,5 +110,20 @@ ClientConfig.window.Setting = function(config) {
     });
     ClientConfig.window.Setting.superclass.constructor.call(this,config);
 };
-Ext.extend(ClientConfig.window.Setting,MODx.Window);
+Ext.extend(ClientConfig.window.Setting,MODx.Window,{
+    getSourceField: function(){
+        var isImageTV = (config.record && (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(config.record.xtype) !== -1)) ? true : false;
+        var sourcefield = {
+            xtype: 'modx-combo-source',
+            id: config.id + '-source',
+            name: 'source',
+            fieldLabel: _('clientconfig.source'),
+            description: _('clientconfig.source.desc'),
+            anchor: '100%',
+            hidden: !isImageTV,
+            hideMode: 'offsets'
+        }
+        if(!isImageTv) sourcefield.value = 0
+        return sourcefield;
+});
 Ext.reg('clientconfig-window-setting',ClientConfig.window.Setting);
