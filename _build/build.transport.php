@@ -122,6 +122,21 @@ foreach ($plugins as $plugin) {
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($plugins).' plugins.'); flush();
 unset($plugins,$plugin,$attributes);
 
+/* add snippets */
+$snippets = include $sources['data'].'transport.snippets.php';
+if (!is_array($snippets)) { $modx->log(modX::LOG_LEVEL_FATAL,'Adding snippets failed.'); }
+$attributes= array(
+    xPDOTransport::UNIQUE_KEY => 'name',
+    xPDOTransport::PRESERVE_KEYS => false,
+    xPDOTransport::UPDATE_OBJECT => true,
+);
+foreach ($snippets as $snippet) {
+    $vehicle = $builder->createVehicle($snippet, $attributes);
+    $builder->putVehicle($vehicle);
+}
+$modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($snippets).' snippets.'); flush();
+unset($snippets,$snippet,$attributes);
+
 /* Add actions */
 require_once ($sources['data'].'transport.actions.php');
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in actions');
