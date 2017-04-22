@@ -104,7 +104,8 @@ ClientConfig.window.Setting = function(config) {
                     description: _('clientconfig.source.desc'),
                     anchor: '100%',
                     hidden: (config.record && (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(config.record.xtype) !== -1)) ? false : true,
-                    hideMode: 'offsets'
+                    hideMode: 'offsets',
+                    value: 0
                 },{
                     xtype: 'checkbox',
                     name: 'is_required',
