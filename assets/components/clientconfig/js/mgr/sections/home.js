@@ -2,47 +2,49 @@ ClientConfig.page.Home = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         id: 'clientconfig-page-home',
-        cls: 'container',
         renderTo: 'clientconfig-wrapper-div',
-        layout: 'form',
         border: false,
         components: [{
+            cls: 'container',
             xtype: 'panel',
-            html: '<h2>'+_('clientconfig')+'</h2>',
-            border: false,
-            cls: 'modx-page-header'
-        },{
-            xtype: 'modx-formpanel',
-            id: 'clientconfig-formpanel-home',
-            cls: 'form-with-labels',
-            border: !!ClientConfig.config.verticalTabs && !MODx.config.connector_url,
-            width: '98%',
             items: [{
-                xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
+                html: '<h2>' + _('clientconfig') + '</h2>',
                 border: false,
-                deferredRender: false,
-                defaults: {
+                cls: 'modx-page-header'
+            }, {
+                xtype: 'modx-formpanel',
+                id: 'clientconfig-formpanel-home',
+                cls: 'form-with-labels',
+                layout: 'form',
+                border: !!ClientConfig.config.verticalTabs && !MODx.config.connector_url,
+                anchor: '100%',
+                items: [{
+                    xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
                     border: false,
-                    autoHeight: true,
+                    deferredRender: false,
                     defaults: {
-                        border: false
-                    }
-                },
-                items: this.getTabs(),
-                stateful: true,
-                stateId: 'clientconfig-page-home',
-                stateEvents: ['tabchange'],
-                getState: function() {
-                    return {
-                        activeTab:this.items.indexOf(this.getActiveTab())
-                    };
-                },
-                headerCfg: (ClientConfig.config.verticalTabs) ? {
-                    tag: 'div'
-                    ,cls: 'x-tab-panel-header vertical-tabs-header'
-                    ,id: 'modx-resource-vtabs-header'
-                    ,html: MODx.config.show_tv_categories_header == true ? '<h4 id="modx-resource-vtabs-header-title">'+_('categories')+'</h4>' : ''
-                } : undefined
+                        border: false,
+                        autoHeight: true,
+                        defaults: {
+                            border: false
+                        }
+                    },
+                    items: this.getTabs(),
+                    stateful: true,
+                    stateId: 'clientconfig-page-home',
+                    stateEvents: ['tabchange'],
+                    getState: function () {
+                        return {
+                            activeTab: this.items.indexOf(this.getActiveTab())
+                        };
+                    },
+                    headerCfg: (ClientConfig.config.verticalTabs) ? {
+                        tag: 'div',
+                        cls: 'x-tab-panel-header vertical-tabs-header',
+                        id: 'modx-resource-vtabs-header',
+                        html: MODx.config.show_tv_categories_header == true ? '<h4 id="modx-resource-vtabs-header-title">' + _('categories') + '</h4>' : ''
+                    } : undefined
+                }]
             }]
         }],
         buttons: this.getButtons(),
