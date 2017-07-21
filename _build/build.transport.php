@@ -23,7 +23,7 @@ if (!defined('MOREPROVIDER_BUILD')) {
     /* define version */
     define('PKG_NAME','ClientConfig');
     define('PKG_NAME_LOWER',strtolower(PKG_NAME));
-    define('PKG_VERSION','1.4.1');
+    define('PKG_VERSION','1.4.2');
     define('PKG_RELEASE','pl');
 
     /* load modx */
