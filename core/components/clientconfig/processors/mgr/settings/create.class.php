@@ -21,7 +21,7 @@ class cgSettingCreateProcessor extends modObjectCreateProcessor {
         }
         $order = (int)$this->getProperty('sortorder', 0);
         if ($order < 1) {
-            $order = $this->modx->getCount('cgSetting', ['group', (int)$this->getProperty('group', 0)]);
+            $order = $this->modx->getCount('cgSetting', array('group', (int)$this->getProperty('group', 0)));
             $this->setProperty('sortorder', $order);
         }
 
