@@ -49,6 +49,7 @@ $sources= array (
     'build' => $root .'_build/',
     'events' => $root . '_build/events/',
     'resolvers' => $root . '_build/resolvers/',
+    'validators' => $root . '_build/validators/',
     'data' => $root . '_build/data/',
     'source_core' => $root.'core/components/'.PKG_NAME_LOWER,
     'source_assets' => $root.'assets/components/'.PKG_NAME_LOWER,
@@ -140,6 +141,9 @@ $attr = array(
     ),*/
 );
 $vehicle = $builder->createVehicle($category,$attr);
+// Add the validator to check server requirements
+$vehicle->validate('php', array('source' => $sources['validators'] . 'requirements.validator.php'));
+// Add other resolves
 $vehicle->resolve('file',array(
     'source' => $sources['source_core'],
     'target' => "return MODX_CORE_PATH . 'components/';",

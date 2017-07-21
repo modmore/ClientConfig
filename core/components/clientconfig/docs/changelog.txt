@@ -1,3 +1,8 @@
+++ ClientConfig 2.0.0-rc1
+++ Released on 2017-
++++++++++++++++++++++++++
+- Updated minimum requirements to PHP 5.5.0 and MODX 2.5.2.
+
 ++ ClientConfig 1.4.2-pl
 ++ Released on 2017-07-22
 +++++++++++++++++++++++++
