@@ -231,10 +231,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 emptyText: 'Choose Context',
                 xtype: 'modx-combo-context',
                 listeners: {
-                    select: {fn: function(field) {
-                        var ctx = field.getValue();
-                        console.log('Context set to ', ctx);
-                    }, scope: this}
+                    select: {fn: this.switchContext, scope: this}
                 },
                 baseParams: {
                     action: 'context/getlist',
@@ -244,6 +241,35 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         }
 
         return buttons;
+    },
+
+    switchContext: function(field) {
+        var ctx = field.getValue(),
+            fp = Ext.getCmp('clientconfig-formpanel-home');
+        fp.el.mask(_('loading'));
+
+        MODx.Ajax.request({
+            url: ClientConfig.config.connectorUrl,
+            params: {
+                action: 'mgr/contextaware/getsettings',
+                context: ctx
+            },
+            listeners: {
+                success: {fn: function(r) {
+                    var form = fp.getForm();
+                    if (form) {
+                        form.reset();
+                        form.setValues(r.object);
+                        // @todo maybe reinit all rich text editors (this.rtes) to make sure they're fresh
+                    }
+                    fp.el.unmask();
+                }, scope: this},
+                failure: {fn: function() {
+                    fp.el.unmask();
+                }, scope: this},
+                scope: this
+            }
+        });
     },
 
     save: function() {
