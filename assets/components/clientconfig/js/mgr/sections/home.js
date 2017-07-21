@@ -16,7 +16,7 @@ ClientConfig.page.Home = function(config) {
             id: 'clientconfig-formpanel-home',
             cls: 'form-with-labels',
             border: !!ClientConfig.config.verticalTabs && !MODx.config.connector_url,
-            width: '98%',
+            anchor: '98%',
             items: [{
                 xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
                 border: false,
@@ -204,23 +204,43 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     },
 
     getButtons: function() {
-        var buttons = [{
+        var buttons = [];
+
+        buttons.push({
             text: _('clientconfig.save_config'),
             handler: this.save,
+            cls: 'primary-button',
             scope: this,
             keys: [{
                 key: MODx.config.keymap_save || 's',
                 ctrl: true,
                 fn: this.save
             }]
-        }];
+        });
 
         if (ClientConfig.isAdmin) {
             buttons.push('-',{
-                text: _('clientconfig.admin'),
+                text: '<i class="icon icon-cog"></i> ' + _('clientconfig.admin'),
                 handler: this.openAdminPanel,
                 scope: this
             })
+        }
+
+        if (true) { // @todo add some sort of condition for context awareness
+            buttons.push('-',{
+                emptyText: 'Choose Context',
+                xtype: 'modx-combo-context',
+                listeners: {
+                    select: {fn: function(field) {
+                        var ctx = field.getValue();
+                        console.log('Context set to ', ctx);
+                    }, scope: this}
+                },
+                baseParams: {
+                    action: 'context/getlist',
+                    exclude: 'mgr'
+                }
+            });
         }
 
         return buttons;
