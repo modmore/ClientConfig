@@ -1,4 +1,10 @@
-- Restore PHP 5.3 compatibility in creating settings
+++ ClientConfig 1.4.2-pl
+++ Released on 2017-07-22
++++++++++++++++++++++++++
+- Restore PHP 5.3 compatibility in creating settings. Note: next release will require 5.5+!
+- Fix issue saving settings on certain environments due to missing value for source [#129]
+- Fix incorrect header/container alignment in both manager pages [#128]
+- Fix (unused) namespace assets path (on new installs) [#126]
 
 ++ ClientConfig 1.4.1-pl
 ++ Released on 2017-02-02

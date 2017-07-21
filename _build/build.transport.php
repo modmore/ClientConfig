@@ -23,7 +23,7 @@ if (!defined('MOREPROVIDER_BUILD')) {
     /* define version */
     define('PKG_NAME','ClientConfig');
     define('PKG_NAME_LOWER',strtolower(PKG_NAME));
-    define('PKG_VERSION','1.4.1');
+    define('PKG_VERSION','1.4.2');
     define('PKG_RELEASE','pl');
 
     /* load modx */
@@ -63,7 +63,7 @@ $modx->loadClass('transport.modPackageBuilder','',false, true);
 $builder = new modPackageBuilder($modx);
 $builder->directory = $targetDirectory;
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
-$builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
+$builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/','{assets_path}components/'.PKG_NAME_LOWER.'/');
 $modx->getService('lexicon','modLexicon');
 
 /* create category */
