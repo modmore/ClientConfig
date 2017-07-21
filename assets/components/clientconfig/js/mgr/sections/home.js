@@ -18,6 +18,9 @@ ClientConfig.page.Home = function(config) {
             border: !!ClientConfig.config.verticalTabs && !MODx.config.connector_url,
             anchor: '98%',
             items: [{
+                xtype: 'hidden',
+                name: 'context'
+            },{
                 xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
                 border: false,
                 deferredRender: false,
