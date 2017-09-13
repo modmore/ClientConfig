@@ -10,7 +10,8 @@ ClientConfig.page.Home = function(config) {
             items: [{
                 html: '<h2>' + _('clientconfig') + '</h2>',
                 border: false,
-                cls: 'modx-page-header'
+                cls: 'modx-page-header',
+                id: 'clientconfig-header'
             }, {
                 xtype: 'modx-formpanel',
                 id: 'clientconfig-formpanel-home',
@@ -66,6 +67,12 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 Ext.each(rtes, function(id, index) {
                     MODx.loadRTE(id);
                 });
+            }
+
+            if (ClientConfig.initialContext && ClientConfig.initialContext.key) {
+                var contextSelector = Ext.getCmp('clientconfig-combo-contexts');
+                contextSelector.setValue(ClientConfig.initialContext.key);
+                contextSelector.fireEvent('select', contextSelector);
             }
         }, 250)
     },
@@ -234,13 +241,11 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         if (true) { // @todo add some sort of condition for context awareness
             buttons.push('-',{
                 emptyText: 'Choose Context',
-                xtype: 'modx-combo-context',
+                xtype: 'clientconfig-combo-contexts',
+                id: 'clientconfig-combo-contexts',
                 listeners: {
+                    change: {fn: this.switchContext, scope: this},
                     select: {fn: this.switchContext, scope: this}
-                },
-                baseParams: {
-                    action: 'context/getlist',
-                    exclude: 'mgr'
                 }
             });
         }
@@ -249,8 +254,10 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     },
 
     switchContext: function(field) {
+        console.log(field);
         var ctx = field.getValue(),
-            fp = Ext.getCmp('clientconfig-formpanel-home');
+            fp = Ext.getCmp('clientconfig-formpanel-home'),
+            heading = Ext.getCmp('clientconfig-header');
         fp.el.mask(_('loading'));
 
         MODx.Ajax.request({
@@ -266,8 +273,10 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                         form.reset();
                         form.setValues(r.object);
                         // @todo maybe reinit all rich text editors (this.rtes) to make sure they're fresh
+
                     }
                     fp.el.unmask();
+                    heading.update('<h2>' + _('clientconfig.config_for_context', {context: r.object.context_name}) + '</h2>');
                 }, scope: this},
                 failure: {fn: function() {
                     fp.el.unmask();

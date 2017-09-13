@@ -102,3 +102,6 @@ $_lang['clientconfig.xtype.file'] = 'File';
 $_lang['clientconfig.source'] = 'Media Source';
 $_lang['clientconfig.source.desc'] = 'The media source to use for the file browser.';
 
+// New 2017-09-13
+$_lang['clientconfig.choose_context'] = 'Choose Context';
+$_lang['clientconfig.config_for_context'] = 'Configuration for [[+context]]';

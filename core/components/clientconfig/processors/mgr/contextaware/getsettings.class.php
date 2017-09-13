@@ -26,7 +26,8 @@ class cgContextAwareGetSettingsProcessor extends modProcessor {
         ]);
 
         $values = [
-            'context' => $this->context->get('key')
+            'context' => $this->context->get('key'),
+            'context_name' => $this->context->get('name'),
         ];
         foreach ($this->modx->getIterator('cgContextValue', $c) as $cv) {
             /** @var cgContextValue $cg */

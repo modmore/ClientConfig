@@ -46,6 +46,19 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
         }
         $this->loadRichTextEditor();
         $this->tabs = $tabs;
+
+        if (array_key_exists('context', $scriptProperties)) {
+            $key = $scriptProperties['context'];
+            $context = $this->modx->getObject('modContext', ['key' => $key]);
+            if ($context instanceof modContext) {
+
+                $this->addHtml('<script type="text/javascript">
+                    Ext.onReady(function() {
+                        ClientConfig.initialContext = ' . $context->toJSON() . ';
+                    });
+                </script>');
+            }
+        }
     }
 
     /**

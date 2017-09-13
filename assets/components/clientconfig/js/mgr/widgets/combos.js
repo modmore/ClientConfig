@@ -79,3 +79,28 @@ ClientConfig.combo.GoogleFontList = function(config) {
 };
 Ext.extend(ClientConfig.combo.GoogleFontList, MODx.combo.ComboBox);
 Ext.reg('googlefontlist',ClientConfig.combo.GoogleFontList);
+
+ClientConfig.combo.ContextList = function(config) {
+    config = config || {};
+    Ext.applyIf(config,{
+        url: ClientConfig.config.connectorUrl,
+        baseParams: {
+            action: 'mgr/contexts/getlist',
+            exclude: 'mgr',
+            combo: true
+        },
+        fields: ['key','name'],
+        hiddenName: config.name || 'context',
+        valueField: 'key',
+        displayField: 'name',
+        pageSize: 20
+        // Typeahead prevents the dropdown from opening on click, needs a solution first
+        // editable: true,
+        // typeahead: true,
+        // forceSelection: true,
+        // queryParam: 'search',
+    });
+    ClientConfig.combo.ContextList.superclass.constructor.call(this,config);
+};
+Ext.extend(ClientConfig.combo.ContextList, MODx.combo.ComboBox);
+Ext.reg('clientconfig-combo-contexts',ClientConfig.combo.ContextList);
