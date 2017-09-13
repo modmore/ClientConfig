@@ -23,5 +23,17 @@ class cgSettingUpdateProcessor extends modObjectUpdateProcessor {
         $this->setCheckbox('is_required', true);
         return parent::beforeSet();
     }
+
+    public function afterSave()
+    {
+        // Invoke events and clear the cache
+        $this->modx->invokeEvent('ClientConfig_ConfigChange');
+        $this->modx->getCacheManager()->delete('clientconfig',array(xPDO::OPT_CACHE_KEY => 'system_settings'));
+        if ($this->modx->getOption('clientconfig.clear_cache', null, true)) {
+            $this->modx->getCacheManager()->delete('',array(xPDO::OPT_CACHE_KEY => 'resource'));
+        }
+
+        return parent::afterSave();
+    }
 }
 return 'cgSettingUpdateProcessor';
