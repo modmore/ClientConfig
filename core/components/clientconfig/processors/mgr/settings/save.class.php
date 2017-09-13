@@ -16,10 +16,13 @@ class cgSettingSaveProcessor extends modProcessor {
             return $this->failure('Invalid JSON provided');
         }
 
-        $contextKey = array_key_exists('context', $values) && !empty($values['context']) ? $values['context'] : false;
-        $context = $this->modx->getObject('modContext', ['key' => $contextKey]);
-        if (!$context) {
-            return $this->failure($this->modx->lexicon('context_err_nf'));
+        $context = false;
+        $contextKey = array_key_exists('context', $values) ? $values['context'] : '';
+        if ($contextKey !== '') {
+            $context = $this->modx->getObject('modContext', ['key' => $contextKey]);
+            if (!$context) {
+                return $this->failure($this->modx->lexicon('context_err_nf'));
+            }
         }
 
         // Loop over each of the provided values, to update them in the database.
@@ -46,7 +49,7 @@ class cgSettingSaveProcessor extends modProcessor {
             }
 
             // If we have a context key, update the context value
-            if ($contextKey) {
+            if ($context) {
                 $contextValue = $this->modx->getObject('cgContextValue', ['setting' => $setting->get('id'), 'context' => $contextKey]);
                 if (!($contextValue instanceof cgContextValue)) {
                     $contextValue = $this->modx->newObject('cgContextValue');

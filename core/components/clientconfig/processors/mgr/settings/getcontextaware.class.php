@@ -1,6 +1,6 @@
 <?php
 
-class cgContextAwareGetSettingsProcessor extends modProcessor {
+class cgSettingsGetContextAwareProcessor extends modProcessor {
     /** @var modContext */
     protected $context;
 
@@ -41,7 +41,7 @@ class cgContextAwareGetSettingsProcessor extends modProcessor {
             }
 
             if ($value === '') {
-                $value = $cv->get('setting_value');
+                $value = $cv->get('setting_default');
             }
 
             $values[$key] = $value;
@@ -51,4 +51,4 @@ class cgContextAwareGetSettingsProcessor extends modProcessor {
     }
 }
 
-return 'cgContextAwareGetSettingsProcessor';
+return 'cgSettingsGetContextAwareProcessor';

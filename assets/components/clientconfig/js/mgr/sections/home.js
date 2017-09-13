@@ -74,7 +74,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 contextSelector.setValue(ClientConfig.initialContext.key);
                 contextSelector.fireEvent('select', contextSelector);
             }
-        }, 250)
+        }, 150)
     },
     getTabs: function() {
         var tabs = [],
@@ -218,6 +218,21 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     getButtons: function() {
         var buttons = [];
 
+        if (true) { // @todo add some sort of condition for context awareness
+            buttons.push('-',{
+                xtype: 'panel',
+                html: '<span style="padding-left: 1em; padding-right: 1em;">' + _('clientconfig.choose_context') + ': </span>'
+            },{
+                emptyText: _('clientconfig.choose_context'),
+                xtype: 'clientconfig-combo-contexts',
+                id: 'clientconfig-combo-contexts',
+                listeners: {
+                    change: {fn: this.switchContext, scope: this},
+                    select: {fn: this.switchContext, scope: this}
+                }
+            });
+        }
+
         buttons.push({
             text: _('clientconfig.save_config'),
             handler: this.save,
@@ -238,23 +253,10 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             })
         }
 
-        if (true) { // @todo add some sort of condition for context awareness
-            buttons.push('-',{
-                emptyText: 'Choose Context',
-                xtype: 'clientconfig-combo-contexts',
-                id: 'clientconfig-combo-contexts',
-                listeners: {
-                    change: {fn: this.switchContext, scope: this},
-                    select: {fn: this.switchContext, scope: this}
-                }
-            });
-        }
-
         return buttons;
     },
 
     switchContext: function(field) {
-        console.log(field);
         var ctx = field.getValue(),
             fp = Ext.getCmp('clientconfig-formpanel-home'),
             heading = Ext.getCmp('clientconfig-header');
@@ -263,7 +265,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         MODx.Ajax.request({
             url: ClientConfig.config.connectorUrl,
             params: {
-                action: 'mgr/contextaware/getsettings',
+                action: ctx.length > 0 ? 'mgr/settings/getcontextaware' : 'mgr/settings/getglobal',
                 context: ctx
             },
             listeners: {
@@ -272,11 +274,13 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     if (form) {
                         form.reset();
                         form.setValues(r.object);
-                        // @todo maybe reinit all rich text editors (this.rtes) to make sure they're fresh
-
+                        // @todo reinit all rich text editors (this.rtes) to make sure they're fresh and showing the right content
                     }
                     fp.el.unmask();
-                    heading.update('<h2>' + _('clientconfig.config_for_context', {context: r.object.context_name}) + '</h2>');
+                    var headingText = r.object.context_name.length > 0
+                        ? _('clientconfig.config_for_context', {context: r.object.context_name})
+                        : _('clientconfig');
+                    heading.update('<h2>' + headingText + '</h2>');
                 }, scope: this},
                 failure: {fn: function() {
                     fp.el.unmask();
