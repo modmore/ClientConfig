@@ -20,7 +20,7 @@ class cgContextAwareGetSettingsProcessor extends modProcessor {
         $c = $this->modx->newQuery('cgContextValue');
         $c->rightJoin('cgSetting', 'Setting');
         $c->select($this->modx->getSelectColumns('cgContextValue', 'cgContextValue'));
-        $c->select($this->modx->getSelectColumns('cgSetting', 'Setting', 'setting_', ['id', 'key', 'value', 'default']));
+        $c->select($this->modx->getSelectColumns('cgSetting', 'Setting', 'setting_', ['id', 'key', 'value', 'default', 'xtype']));
         $c->where([
             'context' => $this->context->get('key')
         ]);
@@ -32,6 +32,13 @@ class cgContextAwareGetSettingsProcessor extends modProcessor {
             /** @var cgContextValue $cg */
             $key = $cv->get('setting_key');
             $value = $cv->get('value');
+            switch ($cv->get('setting_xtype')) {
+                case 'checkbox':
+                case 'xcheckbox':
+                    $value = (bool)$value;
+                    break;
+            }
+
             if ($value === '') {
                 $value = $cv->get('setting_value');
             }
