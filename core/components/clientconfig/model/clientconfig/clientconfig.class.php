@@ -87,7 +87,14 @@ class ClientConfig {
             $collection = $this->modx->getCollection('cgSetting');
             /* @var cgSetting[] $collection */
             foreach ($collection as $setting) {
-                $settings['global'][$setting->get('key')] = $setting->get('value');
+                $isMedia = in_array($setting->get('xtype'), ['modx-panel-tv-image', 'modx-panel-tv-file'], true);
+
+                $value = $setting->get('value');
+                if ($isMedia) {
+                    $value = $setting->prefixSourceUrl($value);
+                }
+
+                $settings['global'][$setting->get('key')] = $value;
 
                 /** @var cgContextValue[] $contextValues */
                 $contextValues = $setting->getMany('ContextValues');
@@ -98,7 +105,11 @@ class ClientConfig {
                             $settings['contexts'][$cKey] = array();
                         }
 
-                        $settings['contexts'][$cKey][$setting->get('key')] = $cVal->get('value');
+                        $value = $cVal->get('value');
+                        if ($isMedia) {
+                            $value = $setting->prefixSourceUrl($value);
+                        }
+                        $settings['contexts'][$cKey][$setting->get('key')] = $value;
                     }
                 }
             }
