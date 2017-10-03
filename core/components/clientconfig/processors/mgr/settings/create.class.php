@@ -27,6 +27,7 @@ class cgSettingCreateProcessor extends modObjectCreateProcessor {
 
         /* Set is_required checkbox */
         $this->setCheckbox('is_required', true);
+        $this->setCheckbox('process_options', true);
         return parent::beforeSet();
     }
 

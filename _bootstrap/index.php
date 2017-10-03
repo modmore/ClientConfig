@@ -148,6 +148,7 @@ $manager = $modx->getManager();
 foreach ($objectContainers as $oC) {
     $manager->createObjectContainer($oC);
 }
+$manager->addField('cgSetting', 'process_options');
 echo "Done.";
 
 // Refresh the cache

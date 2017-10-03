@@ -107,3 +107,4 @@ $_lang['clientconfig.choose_context'] = 'Choose Context';
 $_lang['clientconfig.global_values'] = 'Global';
 $_lang['clientconfig.config_for_context'] = 'Configuration for [[+context]]';
 $_lang['clientconfig.categories'] = 'Categories';
+$_lang['clientconfig.process_options'] = 'Process tags in options';

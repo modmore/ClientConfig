@@ -11,6 +11,7 @@
         <field key="default" dbtype="mediumtext" phptype="string" null="false" default="" />
         <field key="group" dbtype="int" precision="11" phptype="int" null="true" default="0" />
         <field key="options" dbtype="mediumtext" phptype="string" null="true" default="" />
+        <field key="process_options" dbtype="tinyint" precision="1" phptype="boolean" null="false" default="0" />
         <field key="source" dbtype="int" precision="11" phptype="int" null="true" default="0" />
 
         <aggregate alias="Group" class="cgGroup" cardinality="one" local="group" foreign="id" owner="foreign" />

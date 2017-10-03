@@ -21,6 +21,7 @@ class cgSettingUpdateProcessor extends modObjectUpdateProcessor {
         }
 
         $this->setCheckbox('is_required', true);
+        $this->setCheckbox('process_options', true);
         return parent::beforeSet();
     }
 

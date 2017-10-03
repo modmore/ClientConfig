@@ -73,8 +73,10 @@ ClientConfig.window.Setting = function(config) {
                         select: {fn: function(field, record) {
                             if (record.data.xtype == 'modx-combo') {
                                 Ext.getCmp(config.id + '-options').show();
+                                Ext.getCmp(config.id + '-process_options').show();
                             } else {
                                 Ext.getCmp(config.id + '-options').hide();
+                                Ext.getCmp(config.id + '-process_options').hide();
                             }
                             if (['modx-panel-tv-image', 'modx-panel-tv-file'].indexOf(record.data.xtype) !== -1) {
                                 Ext.getCmp(config.id + '-source').show();
@@ -96,6 +98,12 @@ ClientConfig.window.Setting = function(config) {
                     description: _('clientconfig.options.desc'),
                     anchor: '100%',
                     hidden: (config.record && (config.record.xtype === 'modx-combo')) ? false : true
+                },{
+                    xtype: 'checkbox',
+                    id: config.id + '-process_options',
+                    name: 'process_options',
+                    boxLabel: _('clientconfig.process_options'),
+                    anchor: '100%'
                 },{
                     xtype: 'modx-combo-source',
                     id: config.id + '-source',

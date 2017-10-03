@@ -34,6 +34,7 @@ if ($object->xpdo) {
             $manager->alterField('cgGroup', 'description', array());
 
             $manager->addField('cgSetting', 'source');
+            $manager->addField('cgSetting', 'process_options');
 
             $modx->setLogLevel($loglevel);
         break;

@@ -3,6 +3,7 @@
 +++++++++++++++++++++++++
 - ClientConfig can now (optionally) manage settings for different contexts [#4/#112]
 - Media fields (image/file) now prefix the media source url [#124]
+- Allow snippet/chunk tags in options for the dropdown field [#104]
 - Updated minimum requirements to PHP 5.5.0 and MODX 2.5.2.
 - Added separate clientconfig.categories lexicon for the vertical tabs interface [#91]
 

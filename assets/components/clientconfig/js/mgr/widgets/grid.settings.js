@@ -28,7 +28,8 @@ ClientConfig.grid.Settings = function(config) {
             {name: 'group', type: 'int'},
             {name: 'group_label', type: 'string'},
             {name: 'sortorder', type: 'int'},
-            {name: 'options', type: 'object'}
+            {name: 'options', type: 'object'},
+            {name: 'process_options', type: 'bool'}
         ],
 		
 		// Visible Columns
