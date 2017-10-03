@@ -32,11 +32,11 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
             $c->sortby('label','ASC');
             foreach ($group->getMany('Settings', $c) as $setting) {
                 $sa = $setting->toArray();
-                if (in_array($sa['xtype'],array('checkbox','xcheckbox'))) {
+                if (in_array($sa['xtype'], array('checkbox','xcheckbox'), true)) {
                     $sa['value'] = (bool)$sa['value'];
                 }
 
-                if ($sa['xtype'] == 'googlefontlist') {
+                if ($sa['xtype'] === 'googlefontlist') {
                     $googleFontsApiKey = $this->modx->getOption('clientconfig.google_fonts_api_key', null, '');
                     $sa['xtype'] = empty($googleFontsApiKey) ? 'textfield' : $sa['xtype'];
                 }
@@ -47,7 +47,7 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
         $this->loadRichTextEditor();
         $this->tabs = $tabs;
 
-        if (array_key_exists('context', $scriptProperties)) {
+        if (array_key_exists('context', $scriptProperties) && $this->modx->getOption('clientconfig.context_aware')) {
             $key = $scriptProperties['context'];
             $context = $this->modx->getObject('modContext', ['key' => $key]);
             if ($context instanceof modContext) {
@@ -85,9 +85,11 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/widgets/combos.js');
         $this->addLastJavascript($this->clientconfig->config['jsUrl'].'mgr/sections/home.js');
 
+        $contextAware = $this->modx->getOption('clientconfig.context_aware') ? 'true' : 'false';
         $this->addHtml('<script type="text/javascript">
         Ext.onReady(function() {
             ClientConfig.data = '.$this->modx->toJSON($this->tabs).';
+            ClientConfig.contextAware = ' . $contextAware . ';
             ClientConfig.isAdmin = ' . (($this->clientconfig->hasAdminPermission()) ? '1' : '0') .';
             MODx.load({ xtype: "clientconfig-page-home" });
         });

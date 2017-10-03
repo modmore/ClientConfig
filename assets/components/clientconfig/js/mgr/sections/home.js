@@ -69,7 +69,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 });
             }
 
-            if (ClientConfig.initialContext && ClientConfig.initialContext.key) {
+            if (ClientConfig.contextAware && ClientConfig.initialContext && ClientConfig.initialContext.key) {
                 var contextSelector = Ext.getCmp('clientconfig-combo-contexts');
                 contextSelector.setValue(ClientConfig.initialContext.key);
                 contextSelector.fireEvent('select', contextSelector);
@@ -218,7 +218,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     getButtons: function() {
         var buttons = [];
 
-        if (true) { // @todo add some sort of condition for context awareness
+        if (ClientConfig.contextAware) {
             buttons.push('-',{
                 xtype: 'panel',
                 html: '<span style="padding-left: 1em; padding-right: 1em;">' + _('clientconfig.choose_context') + ': </span>'

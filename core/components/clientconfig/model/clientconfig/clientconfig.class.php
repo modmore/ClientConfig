@@ -70,6 +70,7 @@ class ClientConfig {
 
     /**
      * Grab settings (from cache if possible) as key => value pairs.
+     * @param string $context
      * @return array|mixed
      */
     public function getSettings($context = '') {
@@ -111,7 +112,11 @@ class ClientConfig {
 
         $return = array_key_exists('global', $settings) ? $settings['global'] : array();
 
-        if ($context !== '' && array_key_exists('contexts', $settings) && array_key_exists($context, $settings['contexts'])) {
+        if ($context !== ''
+            && array_key_exists('contexts', $settings)
+            && array_key_exists($context, $settings['contexts'])
+            && $this->modx->getOption('clientconfig.context_aware')
+        ) {
             $return = array_merge($return, $settings['contexts'][$context]);
         }
 
