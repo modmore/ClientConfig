@@ -106,3 +106,4 @@ $_lang['clientconfig.source.desc'] = 'The media source to use for the file brows
 $_lang['clientconfig.choose_context'] = 'Choose Context';
 $_lang['clientconfig.global_values'] = 'Global';
 $_lang['clientconfig.config_for_context'] = 'Configuration for [[+context]]';
+$_lang['clientconfig.categories'] = 'Categories';

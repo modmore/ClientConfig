@@ -46,7 +46,7 @@ ClientConfig.page.Home = function(config) {
                         tag: 'div',
                         cls: 'x-tab-panel-header vertical-tabs-header',
                         id: 'modx-resource-vtabs-header',
-                        html: MODx.config.show_tv_categories_header == true ? '<h4 id="modx-resource-vtabs-header-title">' + _('categories') + '</h4>' : ''
+                        html: MODx.config.show_tv_categories_header == true ? '<h4 id="modx-resource-vtabs-header-title">' + _('clientconfig.categories') + '</h4>' : ''
                     } : undefined
                 }]
             }]
