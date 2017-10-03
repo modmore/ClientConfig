@@ -46,6 +46,7 @@ $modx->addPackage(PKG_NAME_LOWER, $sources['model']);
 $objects = array(
     'cgSetting',
     'cgGroup',
+    'cgContextValue',
 );
 
 foreach ($objects as $object) {

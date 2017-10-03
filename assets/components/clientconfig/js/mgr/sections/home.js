@@ -10,7 +10,8 @@ ClientConfig.page.Home = function(config) {
             items: [{
                 html: '<h2>' + _('clientconfig') + '</h2>',
                 border: false,
-                cls: 'modx-page-header'
+                cls: 'modx-page-header',
+                id: 'clientconfig-header'
             }, {
                 xtype: 'modx-formpanel',
                 id: 'clientconfig-formpanel-home',
@@ -19,6 +20,9 @@ ClientConfig.page.Home = function(config) {
                 border: !!ClientConfig.config.verticalTabs && !MODx.config.connector_url,
                 anchor: '100%',
                 items: [{
+                    xtype: 'hidden',
+                    name: 'context'
+                },{
                     xtype: (!!ClientConfig.config.verticalTabs) ? 'modx-vtabs' : 'modx-tabs',
                     border: false,
                     deferredRender: false,
@@ -64,7 +68,13 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     MODx.loadRTE(id);
                 });
             }
-        }, 250)
+
+            if (ClientConfig.contextAware && ClientConfig.initialContext && ClientConfig.initialContext.key) {
+                var contextSelector = Ext.getCmp('clientconfig-combo-contexts');
+                contextSelector.setValue(ClientConfig.initialContext.key);
+                contextSelector.fireEvent('select', contextSelector);
+            }
+        }, 150)
     },
     getTabs: function() {
         var tabs = [],
@@ -206,26 +216,89 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     },
 
     getButtons: function() {
-        var buttons = [{
+        var buttons = [];
+
+        if (ClientConfig.contextAware) {
+            buttons.push('-',{
+                xtype: 'panel',
+                html: '<span style="padding-left: 1em; padding-right: 1em;">' + _('clientconfig.choose_context') + ': </span>'
+            },{
+                emptyText: _('clientconfig.choose_context'),
+                xtype: 'clientconfig-combo-contexts',
+                id: 'clientconfig-combo-contexts',
+                listeners: {
+                    change: {fn: this.switchContext, scope: this},
+                    select: {fn: this.switchContext, scope: this}
+                }
+            });
+        }
+
+        buttons.push({
             text: _('clientconfig.save_config'),
             handler: this.save,
+            cls: 'primary-button',
             scope: this,
             keys: [{
                 key: MODx.config.keymap_save || 's',
                 ctrl: true,
                 fn: this.save
             }]
-        }];
+        });
 
         if (ClientConfig.isAdmin) {
             buttons.push('-',{
-                text: _('clientconfig.admin'),
+                text: '<i class="icon icon-cog"></i> ' + _('clientconfig.admin'),
                 handler: this.openAdminPanel,
                 scope: this
             })
         }
 
         return buttons;
+    },
+
+    switchContext: function(field) {
+        var ctx = field.getValue(),
+            fp = Ext.getCmp('clientconfig-formpanel-home'),
+            heading = Ext.getCmp('clientconfig-header'),
+            rtes = this.rtes;
+        fp.el.mask(_('loading'));
+
+        MODx.Ajax.request({
+            url: ClientConfig.config.connectorUrl,
+            params: {
+                action: ctx.length > 0 ? 'mgr/settings/getcontextaware' : 'mgr/settings/getglobal',
+                context: ctx
+            },
+            listeners: {
+                success: {fn: function(r) {
+                    var form = fp.getForm();
+                    if (form) {
+                        // Destroy RTEs before resetting and updating the form
+                        ClientConfig.destroyRTEs(rtes);
+
+                        // Set the new context-specific values
+                        form.reset();
+                        form.setValues(r.object);
+
+                        // Re-initialize editors
+                        if (MODx.loadRTE) {
+                            Ext.each(rtes, function(id, index) {
+                                MODx.loadRTE(id);
+                            });
+                        }
+                    }
+                    fp.el.unmask();
+                    var headingText = r.object.context_name.length > 0
+                        ? _('clientconfig.config_for_context', {context: r.object.context_name})
+                        : _('clientconfig');
+                    heading.update('<h2>' + headingText + '</h2>');
+                }, scope: this},
+                failure: {fn: function() {
+                    fp.el.unmask();
+                }, scope: this},
+                scope: this
+            }
+        });
     },
 
     save: function() {

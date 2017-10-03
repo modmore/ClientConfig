@@ -88,7 +88,7 @@ $vcPlugin = $modx->getObject('modPlugin', array('name' => 'ClientConfig'));
 if ($vcPlugin) {
     if (!createObject('modPluginEvent', array(
         'pluginid' => $vcPlugin->get('id'),
-        'event' => 'OnHandleRequest',
+        'event' => 'OnMODXInit',
         'priority' => 0,
     ), array('pluginid','event'), false)) {
         echo "Error creating modPluginEvent.\n";
@@ -140,7 +140,8 @@ if ($action) {
 /* Create the tables */
 $objectContainers = array(
     'cgGroup',
-    'cgSetting'
+    'cgSetting',
+    'cgContextValue',
 );
 echo "Creating tables...\n";
 $manager = $modx->getManager();

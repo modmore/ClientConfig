@@ -70,25 +70,57 @@ class ClientConfig {
 
     /**
      * Grab settings (from cache if possible) as key => value pairs.
+     * @param string $context
      * @return array|mixed
      */
-    public function getSettings() {
+    public function getSettings($context = '') {
         /* Attempt to get from cache */
         $cacheOptions = array(xPDO::OPT_CACHE_KEY => 'system_settings');
         $settings = $this->modx->getCacheManager()->get('clientconfig', $cacheOptions);
 
-        if (empty($settings) && $this->modx->getCount('cgSetting') > 0) {
+        if (!is_array($settings) || !array_key_exists('global', $settings)) {
+            $settings = array(
+                'global' => array(),
+                'contexts' => array(),
+            );
+
             $collection = $this->modx->getCollection('cgSetting');
-            $settings = array();
-            /* @var cgSetting $setting */
+            /* @var cgSetting[] $collection */
             foreach ($collection as $setting) {
-                $settings[$setting->get('key')] = $setting->get('value');
+                $settings['global'][$setting->get('key')] = $setting->get('value');
+
+                /** @var cgContextValue[] $contextValues */
+                $contextValues = $setting->getMany('ContextValues');
+                if (is_array($contextValues)) {
+                    foreach ($contextValues as $cVal) {
+                        $cKey = $cVal->get('context');
+                        if (!array_key_exists($cKey, $settings['contexts'])) {
+                            $settings['contexts'][$cKey] = array();
+                        }
+
+                        $settings['contexts'][$cKey][$setting->get('key')] = $cVal->get('value');
+                    }
+                }
             }
             /* Write to cache again */
             $this->modx->cacheManager->set('clientconfig', $settings, 0, $cacheOptions);
         }
 
-        return (is_array($settings)) ? $settings : array();
+        if (!is_array($settings)) {
+            return array();
+        }
+
+        $return = array_key_exists('global', $settings) ? $settings['global'] : array();
+
+        if ($context !== ''
+            && array_key_exists('contexts', $settings)
+            && array_key_exists($context, $settings['contexts'])
+            && $this->modx->getOption('clientconfig.context_aware')
+        ) {
+            $return = array_merge($return, $settings['contexts'][$context]);
+        }
+
+        return $return;
     }
 
     /**

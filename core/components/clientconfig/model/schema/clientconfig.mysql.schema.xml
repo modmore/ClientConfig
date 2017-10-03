@@ -13,7 +13,8 @@
         <field key="options" dbtype="mediumtext" phptype="string" null="true" default="" />
         <field key="source" dbtype="int" precision="11" phptype="int" null="true" default="0" />
 
-        <aggregate alias="Group" local="group" class="cgGroup" foreign="id" owner="foreign" cardinality="one" />
+        <aggregate alias="Group" class="cgGroup" cardinality="one" local="group" foreign="id" owner="foreign" />
+        <composite alias="ContextValues" class="cgContextValue" cardinality="many" local="id" foreign="setting" owner="local"  />
     </object>
 
     <object class="cgGroup" table="clientconfig_group" extends="xPDOSimpleObject">
@@ -21,7 +22,15 @@
         <field key="description" dbtype="text" phptype="string" null="false" default="0" />
         <field key="sortorder" dbtype="int" precision="10" phptype="integer" null="false" default="0" />
 
-        <aggregate alias="Settings" local="id" class="cgSetting" foreign="group" owner="local" cardinality="many" />
+        <aggregate alias="Settings" class="cgSetting" cardinality="many" local="id" foreign="group" owner="local"  />
+    </object>
+
+    <object class="cgContextValue" table="clientconfig_context_value" extends="xPDOSimpleObject">
+        <field key="setting" dbtype="int" precision="10" phptype="integer" null="false" default="0" />
+        <field key="context" dbtype="varchar" precision="75" phptype="string" null="false" default="web" />
+        <field key="value" dbtype="mediumtext" phptype="string" null="false" default="" />
+
+        <aggregate alias="Setting" local="setting" class="cgSetting" foreign="id" owner="setting" cardinality="one" />
     </object>
 </model>
 
