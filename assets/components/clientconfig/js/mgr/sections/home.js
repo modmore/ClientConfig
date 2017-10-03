@@ -259,7 +259,8 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
     switchContext: function(field) {
         var ctx = field.getValue(),
             fp = Ext.getCmp('clientconfig-formpanel-home'),
-            heading = Ext.getCmp('clientconfig-header');
+            heading = Ext.getCmp('clientconfig-header'),
+            rtes = this.rtes;
         fp.el.mask(_('loading'));
 
         MODx.Ajax.request({
@@ -272,9 +273,19 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 success: {fn: function(r) {
                     var form = fp.getForm();
                     if (form) {
+                        // Destroy RTEs before resetting and updating the form
+                        ClientConfig.destroyRTEs(rtes);
+
+                        // Set the new context-specific values
                         form.reset();
                         form.setValues(r.object);
-                        // @todo reinit all rich text editors (this.rtes) to make sure they're fresh and showing the right content
+
+                        // Re-initialize editors
+                        if (MODx.loadRTE) {
+                            Ext.each(rtes, function(id, index) {
+                                MODx.loadRTE(id);
+                            });
+                        }
                     }
                     fp.el.unmask();
                     var headingText = r.object.context_name.length > 0

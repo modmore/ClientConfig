@@ -7,7 +7,31 @@ Ext.extend(ClientConfig,Ext.Component,{
     config: {
         connector_url: ''
     },
-    inVersion: false
+    inVersion: false,
+
+    destroyRTEs: function(rtes) {
+        for (var i = 0; i < rtes.length; i++) {
+            var rte = rtes[i];
+            if (window.tinymce
+                && window.tinymce.editors
+                && window.tinymce.editors[rte])
+            {
+                window.tinymce.editors[rte].remove();
+            }
+            else if (window.CKEDITOR
+                && window.CKEDITOR.instances
+                && window.CKEDITOR.instances[rte]
+            ) {
+                CKEDITOR.instances[rte].destroy()
+            }
+            else if (window.$red) {
+                var editor = $red('#' + rte);
+                if (editor && editor.redactor) {
+                    editor.redactor('core.destroy');
+                }
+            }
+        }
+    }
 });
 Ext.reg('clientconfig',ClientConfig);
 ClientConfig = new ClientConfig();
