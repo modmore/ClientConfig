@@ -21,7 +21,7 @@
  */
 
 $_lang['clientconfig'] = 'Konfiguration';
-$_lang['clientconfig.desc'] = 'Erstellen und Bearbeiten Sie die Site-Konfiguration.';
+$_lang['clientconfig.desc'] = 'Erstellen und bearbeiten Sie die Site-Konfiguration.';
 $_lang['clientconfig.add_setting'] = 'Einstellung hinzufügen';
 $_lang['clientconfig.update_setting'] = 'Einstellung bearbeiten';
 $_lang['clientconfig.duplicate_setting'] = 'Einstellung duplizieren';
@@ -47,7 +47,7 @@ $_lang['clientconfig.groups'] = 'Gruppen';
 $_lang['clientconfig.key'] = 'Schlüssel';
 $_lang['clientconfig.label'] = 'Bezeichnung';  // Label - Name?
 $_lang['clientconfig.no_configuration_yet'] = 'Keine Konfiguration vorhanden';
-$_lang['clientconfig.no_configuration_yet.desc'] = 'Offenbar wurde noch keine Konfiguration eingerichtet. Wenn Sie der Administrator dieser Site sind, folgen Sie bitte der <a href="http://rtfm.modx.com/display/ADDON/ClientConfig">offiziellen Dokumentation</a>, um eine Konfiguration für Ihren Kunden zu einzurichten.';
+$_lang['clientconfig.no_configuration_yet.desc'] = 'Offenbar wurde noch keine Konfiguration eingerichtet. Wenn Sie der Administrator dieser Site sind, folgen Sie bitte der <a href="http://rtfm.modx.com/display/ADDON/ClientConfig">offiziellen Dokumentation</a>, um eine Konfiguration für Ihren Kunden einzurichten.';
 $_lang['clientconfig.options'] = 'Feld-Optionen';
 $_lang['clientconfig.options.desc'] = 'Für bestimmte Feldtypen wie Selectboxen können Sie Optionen definieren. Trennen Sie die verschiedenen Optionen mit zwei senkrechten Strichen (||), auch Pipe-Symbol genannt, und wenn Sie möchten, dass dem Kunden etwas anderes angezeigt wird als der Wert, verwenden Sie die Schreibweise "Bezeichnung==Wert". ';  // Label - Name?
 $_lang['clientconfig.save_config'] = 'Konfiguration speichern';
@@ -71,3 +71,40 @@ $_lang['clientconfig.to_client_view'] = 'Zur Kunden-Ansicht';
 $_lang['clientconfig.saved'] = 'Gespeichert';
 $_lang['clientconfig.saved.text'] = 'Die Einstellungen wurden gespeichert.';
 $_lang['clientconfig.field_is_required'] = 'Diese Option kann nicht leer gelassen werden.';
+
+// New 2014/07/20
+$_lang['clientconfig.create_groups_first'] = 'Erstellen Sie zuerst eine Gruppe';
+$_lang['clientconfig.create_groups_first.desc'] = 'Entschuldigung, aber bevor Sie Einstellungen hinzufügen können, muss mindestens eine Gruppe existieren. Ohne Gruppen können dem Kunden keine Einstellungen angezeigt werden.';
+
+$_lang['clientconfig.export_settings'] = 'Einstellungen exportieren';
+$_lang['clientconfig.export_settings.confirm'] = 'Wenn Sie unten auf "Ja" klicken, wird eine XML-Datei generiert und heruntergeladen, die alle ClientConfig-Einstellungen enthält. Sind Sie sicher, dass Sie fortfahren möchten?';
+$_lang['clientconfig.import_settings'] = 'Einstellungen importieren';
+$_lang['clientconfig.import_settings.desc'] = 'Wenn Sie eine XML-Datei hochladen und den richtigen Importmodus wählen, können Sie zuvor oder aus einer anderen Installation exportierte Einstellungen importieren. <b>Hinweis:</b> Einstellungen enthalten Verweise auf Gruppen über ihre ID; wenn Sie Einstellungen importieren, müssen Sie vermutlich auch die zugehörigen Gruppen importieren.';
+
+$_lang['clientconfig.export_groups'] = 'Gruppen exportieren';
+$_lang['clientconfig.export_groups.confirm'] = 'Wenn Sie unten auf "Ja" klicken, wird eine XML-Datei generiert und heruntergeladen, die alle ClientConfig-Gruppen enthält. Sind Sie sicher, dass Sie fortfahren möchten?';
+$_lang['clientconfig.import_groups'] = 'Gruppen importieren';
+$_lang['clientconfig.import_groups.desc'] = 'Wenn Sie eine XML-Datei hochladen und den richtigen Importmodus wählen, können Sie zuvor oder aus einer anderen Installation exportierte Gruppen importieren.';
+
+$_lang['clientconfig.import_file'] = 'Zu importierende Datei';
+$_lang['clientconfig.import_mode'] = 'Import-Modus';
+$_lang['clientconfig.import_mode.insert'] = 'Einfügen: bestehende [[+what]] beibehalten und neue Daten hinzufügen';
+$_lang['clientconfig.import_mode.overwrite'] = 'Überschreiben: bestehende [[+what]] beibehalten, aber überschreiben, wenn sie dieselbe ID haben';
+$_lang['clientconfig.import_mode.replace'] = 'Ersetzen: zunächst alle bestehenden [[+what]] löschen, dann die neuen Daten importieren';
+$_lang['clientconfig.start_import'] = 'Import starten';
+$_lang['clientconfig.error.xml_not_loaded'] = 'Es wurde keine gültige XML-Datei hochgeladen.';
+$_lang['clientconfig.error.not_an_export'] = 'Die hochgeladene Datei ist keine gültige Export-Datei für ClientConfig.';
+$_lang['clientconfig.error.importing_row'] = 'Etwas ging schief beim Speichern einer Zeile der Export-Datei: ';
+
+// New 2017-01-31
+$_lang['clientconfig.xtype.password'] = 'Passwort';
+$_lang['clientconfig.xtype.file'] = 'Datei';
+$_lang['clientconfig.source'] = 'Medienquelle';
+$_lang['clientconfig.source.desc'] = 'Die Medienquelle, die für den Datei-Browser verwendet werden soll.';
+
+// New 2017-09-13
+$_lang['clientconfig.choose_context'] = 'Kontext wählen';
+$_lang['clientconfig.global_values'] = 'Global';
+$_lang['clientconfig.config_for_context'] = 'Konfiguration für [[+context]]';
+$_lang['clientconfig.categories'] = 'Kategorien';
+$_lang['clientconfig.process_options'] = 'Tags in Optionen verarbeiten';
