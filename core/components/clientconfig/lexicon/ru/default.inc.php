@@ -28,6 +28,7 @@ $_lang['clientconfig'] = 'Конфигурация';
 $_lang['clientconfig.desc'] = 'Установка и обновление конфигурации сайта.';
 $_lang['clientconfig.add_setting'] = 'Добавить настройку';
 $_lang['clientconfig.update_setting'] = 'Обновить настройку';
+$_lang['clientconfig.duplicate_setting'] = 'Копировать настройку';
 $_lang['clientconfig.remove_setting'] = 'Удалить настройку';
 $_lang['clientconfig.remove_setting.confirm'] = 'Вы уверены, что хотите удалить этот параметр?';
 $_lang['clientconfig.add_group'] = 'Добавить группу';
