@@ -163,7 +163,6 @@ Ext.extend(ClientConfig.grid.Settings,MODx.grid.Grid,{
     duplicateSetting: function() {
         var record = this.menu.record;
         record.id = 0;
-        record.key = record.key + '_duplicate';
         var win = MODx.load({
             xtype: 'clientconfig-window-setting',
             record: record,

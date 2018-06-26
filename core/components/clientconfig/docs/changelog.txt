@@ -1,3 +1,6 @@
+- Don't add _duplicate to the key when duplicating a setting [#142]
+- Updated German [#141] and Russian [#145] translations
+
 ++ ClientConfig 2.0.0-rc1
 ++ Released on 2017-10-04
 +++++++++++++++++++++++++
