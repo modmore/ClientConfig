@@ -98,3 +98,15 @@ $_lang['clientconfig.error.xml_not_loaded'] = 'Geen geschikt XML bestand geüplo
 $_lang['clientconfig.error.not_an_export'] = 'Het geüploade bestand is geen geschikte ClientConfig export.';
 $_lang['clientconfig.error.importing_row'] = 'Er ging iets mis met het importeren van de rij: ';
 
+// New 2017-01-31
+$_lang['clientconfig.xtype.password'] = 'Wachtwoord';
+$_lang['clientconfig.xtype.file'] = 'Bestand';
+$_lang['clientconfig.source'] = 'Media bron';
+$_lang['clientconfig.source.desc'] = 'De media bron om te gebruiken voor het selecteren van bestanden.';
+
+// New 2017-09-13
+$_lang['clientconfig.choose_context'] = 'Kies Context';
+$_lang['clientconfig.global_values'] = 'Globaal';
+$_lang['clientconfig.config_for_context'] = 'Configuratie voor [[+context]]';
+$_lang['clientconfig.categories'] = 'Categoriën';
+$_lang['clientconfig.process_options'] = 'Verwerk tags in de opties';
