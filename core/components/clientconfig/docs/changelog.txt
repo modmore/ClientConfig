@@ -1,3 +1,6 @@
+++ ClientConfig 2.0.0-pl
+++ Released on 2018-06-26
++++++++++++++++++++++++++
 - Don't add _duplicate to the key when duplicating a setting [#142]
 - Updated German [#141], Russian [#145] and Dutch translations
 
