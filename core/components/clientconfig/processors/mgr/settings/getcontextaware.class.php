@@ -33,11 +33,18 @@ class cgSettingsGetContextAwareProcessor extends modProcessor {
             /** @var cgContextValue $cg */
             $key = $cv->get('setting_key');
             $value = $cv->get('value');
+            // Set is media to false
+            $isMedia = false;
             switch ($cv->get('setting_xtype')) {
                 case 'checkbox':
                 case 'xcheckbox':
                     $value = (bool)$value;
                     break;
+                // If this looks like a media type, set isMedia to true
+                case 'modx-panel-tv-image':
+                case 'modx-panel-tv-file':
+                	$isMedia = true;
+					break;
             }
 
             if ($value === '') {
@@ -45,6 +52,13 @@ class cgSettingsGetContextAwareProcessor extends modProcessor {
             }
 
             $values[$key] = $value;
+            
+            /* If this is a media type, set additional named placeholders so
+               .setValues() populates the values on context change */
+			if($isMedia) {
+				$values['tv'.$key] = $value;
+				$values['tvbrowser'.$key] = $value;
+			}
         }
 
         return $this->success('', $values);
