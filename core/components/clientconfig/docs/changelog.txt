@@ -1,4 +1,5 @@
 - Update menu to no longer rely on modAction, instead using namespace routing [#158, #139]
+- Fix image/file fields not refreshing when switching context [#147, #155]
 
 ++ ClientConfig 2.0.0-pl
 ++ Released on 2018-06-26
