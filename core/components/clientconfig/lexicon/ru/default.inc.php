@@ -105,3 +105,10 @@ $_lang['clientconfig.xtype.password'] = 'Пароль';
 $_lang['clientconfig.xtype.file'] = 'Файл';
 $_lang['clientconfig.source'] = 'Источник файлов';
 $_lang['clientconfig.source.desc'] = 'Источник файлов для диспетчера файлов.';
+
+// New 2017-09-13
+$_lang['clientconfig.choose_context'] = 'Выберите контекст';
+$_lang['clientconfig.global_values'] = 'Глобальные';
+$_lang['clientconfig.config_for_context'] = 'Конфигурация для [[+context]]';
+$_lang['clientconfig.categories'] = 'Категории';
+$_lang['clientconfig.process_options'] = 'Обрабатывать теги в параметрах';
