@@ -124,7 +124,7 @@ $modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($plugins).' plugins.'); flu
 unset($plugins,$plugin,$attributes);
 
 /* Add actions */
-require_once ($sources['data'].'transport.actions.php');
+require_once ($sources['data'].'transport.menus.php');
 $modx->log(modX::LOG_LEVEL_INFO,'Packaged in actions');
 
 $attr = array(

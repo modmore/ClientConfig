@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(__DIR__) . '/index.class.php';
 /**
  * The name of the controller is based on the path (home) and the
  * namespace (clientconfig). This home controller is the main client view.

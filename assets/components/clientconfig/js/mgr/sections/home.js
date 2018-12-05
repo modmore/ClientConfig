@@ -343,7 +343,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
 
     openAdminPanel: function() {
         if (ClientConfig.isAdmin) {
-            MODx.loadPage(MODx.request.a, 'action=admin');
+            MODx.loadPage('?a=admin&namespace=clientconfig');
         }
     }
 });

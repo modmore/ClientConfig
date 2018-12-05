@@ -95,31 +95,17 @@ if ($vcPlugin) {
     }
 }
 
-if (!createObject('modAction', array(
+if (!createObject('modMenu', array(
+    'text' => 'clientconfig',
+    'parent' => 'components',
+    'description' => 'clientconfig.desc',
+    'menuindex' => '0',
+    'action' => 'home',
     'namespace' => 'clientconfig',
-    'parent' => '0',
-    'controller' => 'index',
-    'haslayout' => '1',
-    'lang_topics' => 'clientconfig:default',
-    'permissions' => ''
-), 'namespace', false)) {
-    echo "Error creating action.\n";
-}
-$action = $modx->getObject('modAction', array(
-    'namespace' => 'clientconfig'
-));
-
-if ($action) {
-    if (!createObject('modMenu', array(
-        'text' => 'clientconfig',
-        'parent' => 'components',
-        'description' => 'clientconfig.desc',
-        'icon' => '',
-        'menuindex' => '10',
-        'action' => $action->get('id')
-    ), 'text', false)) {
-        echo "Error creating menu.\n";
-    }
+    'params' => '',
+    'handler' => '',
+), 'text', true)) {
+    echo "Error creating menu.\n";
 }
 
 //$settings = include dirname(dirname(__FILE__)).'/_build/data/settings.php';

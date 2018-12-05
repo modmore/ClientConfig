@@ -59,7 +59,7 @@ ClientConfig.page.Admin = function(config) {
 };
 Ext.extend(ClientConfig.page.Admin,MODx.Component,{
     toClientView: function() {
-        MODx.loadPage(MODx.request.a);
+        MODx.loadPage('?a=home&namespace=clientconfig');
     }
 });
 Ext.reg('clientconfig-page-admin',ClientConfig.page.Admin);
