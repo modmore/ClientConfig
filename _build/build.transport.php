@@ -111,7 +111,7 @@ $attributes= array(
     xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
         'PluginEvents' => array(
             xPDOTransport::PRESERVE_KEYS => true,
-            xPDOTransport::UPDATE_OBJECT => true,
+            xPDOTransport::UPDATE_OBJECT => false,
             xPDOTransport::UNIQUE_KEY => array('pluginid','event'),
         ),
     ),
