@@ -107,4 +107,4 @@ $_lang['clientconfig.choose_context'] = 'Kontext wählen';
 $_lang['clientconfig.global_values'] = 'Global';
 $_lang['clientconfig.config_for_context'] = 'Konfiguration für [[+context]]';
 $_lang['clientconfig.categories'] = 'Kategorien';
-$_lang['clientconfig.process_options'] = 'Tags in Optionen verarbeiten';
+$_lang['clientconfig.process_options'] = 'MODX-Syntax in Optionen auswerten';
