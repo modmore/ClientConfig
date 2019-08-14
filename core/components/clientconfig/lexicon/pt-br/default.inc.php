@@ -23,8 +23,6 @@
  * 
  */
 
-include_once(dirname(dirname(__FILE__)).'/en/default.inc.php'); // fallback for missing defaults or new additions
-
 $_lang['clientconfig'] = 'Configuração';
 $_lang['clientconfig.desc'] = 'Definir e atualizar a configuração do site.';
 $_lang['clientconfig.add_setting'] = 'Adicionar Configuraçãoo';
