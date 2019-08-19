@@ -109,7 +109,9 @@ class ClientConfig {
                         if ($isMedia) {
                             $value = $setting->prefixSourceUrl($value);
                         }
-                        $settings['contexts'][$cKey][$setting->get('key')] = $value;
+                        if (!empty($value)) {
+                            $settings['contexts'][$cKey][$setting->get('key')] = $value;
+                        }
                     }
                 }
             }

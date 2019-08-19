@@ -1,4 +1,9 @@
+ClientConfig 2.2.0-pl
+---------------------
+Released on 2019-08-19
+
 - Fix media source path being included for empty values [#152]
+- When context values are empty, it will now fall back to the global value
 
 ClientConfig 2.1.0-pl
 ---------------------
