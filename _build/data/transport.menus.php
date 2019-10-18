@@ -10,6 +10,7 @@ $menu->fromArray(array(
     'namespace' => 'clientconfig',
     'params' => '',
     'handler' => '',
+    'icon' => '<i class="icon icon-wrench"></i>',
 ),'',true,true);
 
 $vehicle = $builder->createVehicle($menu,array (
