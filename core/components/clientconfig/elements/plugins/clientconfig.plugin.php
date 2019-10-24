@@ -35,6 +35,7 @@ $eventName = $modx->event->name;
 switch($eventName) {
     case 'OnMODXInit':
     case 'OnHandleRequest':
+    case 'pdoToolsOnFenomInit':
         /* Grab the class */
         $path = $modx->getOption('clientconfig.core_path', null, $modx->getOption('core_path') . 'components/clientconfig/');
         $path .= 'model/clientconfig/';
