@@ -37,6 +37,7 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['textfield', _('clientconfig.xtype.textfield')],
                 ['textarea', _('clientconfig.xtype.textarea')],
                 ['richtext', _('clientconfig.xtype.richtext')],
+                ['code', _('clientconfig.xtype.code')],
                 ['modx-panel-tv-image', _('clientconfig.xtype.image')],
                 ['modx-panel-tv-file', _('clientconfig.xtype.file')],
                 ['numberfield', _('clientconfig.xtype.numberfield')],

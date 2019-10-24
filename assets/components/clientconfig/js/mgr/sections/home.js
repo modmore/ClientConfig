@@ -80,7 +80,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             if (hash.length > 0) {
                 var id = 'clientconfig-home-tab-' + hash,
                     tabPanel = Ext.getCmp('clientconfig-page-home-tabs');
-                if (tabPanel && tabPanel.items.keys.indexOf(id) !== false) {
+                if (tabPanel && tabPanel.items.keys.indexOf(id) !== -1) {
                     tabPanel.setActiveTab(id);
                 }
             }
@@ -105,11 +105,15 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     id: 'clientconfig-' + value.key.replace('.','-')
                 };
 
-                if (['textarea'].indexOf(field.xtype) !== -1) {
+                if (['textarea', 'code'].indexOf(field.xtype) !== -1) {
                     field.anchor = '90%';
                     field.grow = true;
                     field.growMin = 150;
                     field.growMax = 800;
+                }
+                if (field.xtype === 'code') {
+                    field.height = 150;
+                    field.xtype = Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea';
                 }
 
                 if (field.xtype == 'richtext') {
@@ -177,7 +181,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 // Remove all extra definitions for the line divider
                 if (field.xtype === 'clientconfig-line') {
                     field = {
-                        xtype: 'clientconfig-line',
+                        xtype: 'clientconfig-line'
                     }
                 }
 
