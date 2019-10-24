@@ -1,3 +1,7 @@
+ClientConfig 2.3.0-pl
+---------------------
+Released on 2019-10-24
+
 - Add icon to the menu item (when moved to the top navigation) [#175]
 - Make placeholders available for inherited fenom templates [#173, #174]
 - Make textarea fields bigger and automatically growing with the content [#172]
