@@ -4,6 +4,7 @@
 - Allow a hash in the url containing the ID of a group to automatically open to that tab [#169]
 - Add a line/divider field type to create simple sections [#149]
 - Add a code field type (requires Ace editor) for things like custom CSS or other markup [#144]
+- Add an email field type which validates the value to be an email address [#65]
 - Include OnHandleRequest plugin event (alongside OnMODXInit), to make ClientConfig play nicer with various context routing and other solutions that don't use OnMODXInit [#140]
 
 ClientConfig 2.2.0-pl

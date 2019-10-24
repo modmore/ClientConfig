@@ -151,6 +151,10 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.xtype = 'textfield';
                     field.inputType = 'password';
                 }
+                if (field.xtype === 'email') {
+                    field.xtype = 'textfield';
+                    field.vtype = 'email';
+                }
 
                 if (field.xtype == 'modx-combo') {
                     var options = value.options.split('||');

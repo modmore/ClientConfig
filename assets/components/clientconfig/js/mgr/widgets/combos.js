@@ -42,6 +42,7 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['modx-panel-tv-file', _('clientconfig.xtype.file')],
                 ['numberfield', _('clientconfig.xtype.numberfield')],
                 ['colorpickerfield', _('clientconfig.xtype.colorpalette')],
+                ['email', _('clientconfig.xtype.email')],
                 ['xcheckbox', _('clientconfig.xtype.xcheckbox')],
                 ['datefield', _('clientconfig.xtype.datefield')],
                 ['timefield', _('clientconfig.xtype.timefield')],

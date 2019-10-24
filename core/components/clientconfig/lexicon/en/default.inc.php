@@ -112,3 +112,4 @@ $_lang['clientconfig.process_options'] = 'Process tags in options';
 // New 2019-10-24
 $_lang['clientconfig.xtype.line'] = 'Line (divider)';
 $_lang['clientconfig.xtype.code'] = 'Code (requires Ace editor installed)';
+$_lang['clientconfig.xtype.email'] = 'Email';
