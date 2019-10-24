@@ -122,7 +122,24 @@ ClientConfig.window.Setting = function(config) {
                 }]
             }]
         }],
-        keys: [] //prevent enter in textarea from firing submit
+        keys: [], //prevent enter in textarea from firing submit
+        buttons: [{
+            text: _('cancel'),
+            scope: this,
+            handler: function() { this.hide(); }
+        },'-',{
+            text: _('save'),
+            scope: this,
+            handler: function () {
+                this.submit(false);
+            },
+            cls: 'primary-button'
+        }, {
+            text: _('save_and_close'),
+            scope: this,
+            handler: this.submit,
+            cls: 'primary-button'
+        }]
     });
     ClientConfig.window.Setting.superclass.constructor.call(this,config);
 };
