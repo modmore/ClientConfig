@@ -95,10 +95,14 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 };
 
                 if (['textarea'].indexOf(field.xtype) !== -1) {
-                    field.anchor = '100%';
+                    field.anchor = '90%';
+                    field.grow = true;
+                    field.growMin = 150;
+                    field.growMax = 800;
                 }
 
                 if (field.xtype == 'richtext') {
+                    field.anchor = '90%';
                     field.xtype = 'textarea';
                     rtes.push(field.id);
                 }
