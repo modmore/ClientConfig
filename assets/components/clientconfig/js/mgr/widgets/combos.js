@@ -46,7 +46,8 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['timefield', _('clientconfig.xtype.timefield')],
                 ['password', _('clientconfig.xtype.password')],
                 ['modx-combo', _('clientconfig.xtype.combobox')],
-                ['googlefontlist', _('clientconfig.xtype.googlefonts')]
+                ['googlefontlist', _('clientconfig.xtype.googlefonts')],
+                ['clientconfig-line', _('clientconfig.xtype.line')]
             ]
         }),
         hiddenName: config.name || 'xtype',
@@ -104,3 +105,9 @@ ClientConfig.combo.ContextList = function(config) {
 };
 Ext.extend(ClientConfig.combo.ContextList, MODx.combo.ComboBox);
 Ext.reg('clientconfig-combo-contexts',ClientConfig.combo.ContextList);
+
+
+ClientConfig.ux.Line = Ext.extend(Ext.Component, {
+    autoEl: 'hr'
+});
+Ext.reg('clientconfig-line', ClientConfig.ux.Line);

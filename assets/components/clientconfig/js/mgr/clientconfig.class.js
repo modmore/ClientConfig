@@ -3,7 +3,7 @@ var ClientConfig = function(config) {
     ClientConfig.superclass.constructor.call(this,config);
 };
 Ext.extend(ClientConfig,Ext.Component,{
-    page:{},window:{},grid:{},tree:{},panel:{},tabs:{},combo:{},
+    page:{},window:{},grid:{},tree:{},panel:{},tabs:{},combo:{},ux: {},
     config: {
         connector_url: ''
     },

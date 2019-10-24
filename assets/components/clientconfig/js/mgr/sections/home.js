@@ -174,6 +174,12 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.mode = 'local';
                 }
 
+                // Remove all extra definitions for the line divider
+                if (field.xtype === 'clientconfig-line') {
+                    field = {
+                        xtype: 'clientconfig-line',
+                    }
+                }
 
                 fields.push(field);
 
