@@ -44,6 +44,7 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['colorpickerfield', _('clientconfig.xtype.colorpalette')],
                 ['email', _('clientconfig.xtype.email')],
                 ['xcheckbox', _('clientconfig.xtype.xcheckbox')],
+                ['multi-checkbox', _('clientconfig.xtype.multi-checkbox')],
                 ['datefield', _('clientconfig.xtype.datefield')],
                 ['timefield', _('clientconfig.xtype.timefield')],
                 ['password', _('clientconfig.xtype.password')],

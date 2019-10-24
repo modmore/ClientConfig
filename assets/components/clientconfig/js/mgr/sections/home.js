@@ -128,6 +128,30 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.value = 1;
                     field.checked = (value.value);
                 }
+                if (field.xtype === 'multi-checkbox') {
+                    field.xtype = 'checkboxgroup';
+                    field.columns = 1;
+                    field.items = [{xtype: 'checkbox', boxLabel: 'foo', 'name': 'foo'}];
+
+                    var options = value.options.split('||');
+                    Ext.each(options, function(option, index) {
+                        option = option.split('==');
+                        if (option[1]) {
+                            field.items.push({
+                                boxLabel: option[0],
+                                value: option[1],
+                                name: field.name + '[]'
+                            })
+                        } else {
+                            field.items.push({
+                                boxLabel: option[0],
+                                value: option[0],
+                                name: field.name + '[]'
+                            })
+                        }
+                    });
+                    console.log(field);
+                }
 
                 if (field.xtype == 'datefield') {
                     field.format = MODx.config.manager_date_format;
