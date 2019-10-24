@@ -1,3 +1,5 @@
+- Add icon to the menu item (when moved to the top navigation) [#175]
+
 ClientConfig 2.2.0-pl
 ---------------------
 Released on 2019-08-19
