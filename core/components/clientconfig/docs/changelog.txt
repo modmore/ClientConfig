@@ -1,4 +1,5 @@
 - Add icon to the menu item (when moved to the top navigation) [#175]
+- Make placeholders available for inherited fenom templates [#173, #174]
 
 ClientConfig 2.2.0-pl
 ---------------------
