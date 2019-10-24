@@ -35,6 +35,7 @@ ClientConfig.page.Home = function(config) {
                     },
                     items: this.getTabs(),
                     stateful: true,
+                    id: 'clientconfig-page-home-tabs',
                     stateId: 'clientconfig-page-home',
                     stateEvents: ['tabchange'],
                     getState: function () {
@@ -74,6 +75,16 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 contextSelector.setValue(ClientConfig.initialContext.key);
                 contextSelector.fireEvent('select', contextSelector);
             }
+
+            var hash = window.location.hash.substr(1);
+            if (hash.length > 0) {
+                var id = 'clientconfig-home-tab-' + hash,
+                    tabPanel = Ext.getCmp('clientconfig-page-home-tabs');
+                if (tabPanel && tabPanel.items.keys.indexOf(id) !== false) {
+                    tabPanel.setActiveTab(id);
+                }
+            }
+
         }, 150)
     },
     getTabs: function() {
@@ -179,7 +190,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
             /* Only create the tab if there are fields in it. */
             if (fields.length >= 1) {
                 var tab = {
-                    id: 'clientconfig-home-tab-'+tabData.id,
+                    id: 'clientconfig-home-tab-' + tabData.id,
                     title: tabData.label,
                     items: [],
                     cls: 'tvs-wrapper'

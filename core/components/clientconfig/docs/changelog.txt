@@ -1,6 +1,7 @@
 - Add icon to the menu item (when moved to the top navigation) [#175]
 - Make placeholders available for inherited fenom templates [#173, #174]
 - Make textarea fields bigger and automatically growing with the content [#172]
+- Allow a hash in the url containing the ID of a group to automatically open to that tab [#169]
 
 ClientConfig 2.2.0-pl
 ---------------------
