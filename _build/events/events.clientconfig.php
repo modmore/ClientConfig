@@ -4,6 +4,7 @@ $events = array();
 
 $e = array(
     'OnMODXInit',
+    'OnHandleRequest',
     'pdoToolsOnFenomInit',
 );
 
