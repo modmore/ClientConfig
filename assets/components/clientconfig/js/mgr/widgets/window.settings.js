@@ -1,7 +1,7 @@
 ClientConfig.window.Setting = function(config) {
     config = config || {};
-    config.id = config.id || Ext.id(),
-    Ext.applyIf(config,{
+    config.id = config.id || Ext.id();
+    Ext.applyIf(config, {
         title: (config.isUpdate) ?
             _('clientconfig.update_setting') :
             (config.isDuplicate) ? _('clientconfig.duplicate_setting') : _('clientconfig.add_setting'),
@@ -24,13 +24,13 @@ ClientConfig.window.Setting = function(config) {
                 items: [{
                     xtype: 'textfield',
                     name: 'key',
-                    fieldLabel: _('clientconfig.key') + '*',
+                    fieldLabel: _('clientconfig.key') + ClientConfig.reqAsterisk,
                     allowBlank: false,
                     anchor: '100%'
                 },{
                     xtype: 'textfield',
                     name: 'label',
-                    fieldLabel: _('clientconfig.label') + '*',
+                    fieldLabel: _('clientconfig.label') + ClientConfig.reqAsterisk,
                     allowBlank: false,
                     anchor: '100%'
                 },{
@@ -66,12 +66,12 @@ ClientConfig.window.Setting = function(config) {
                 items: [{
                     xtype: 'clientconfig-combo-fieldtypes',
                     name: 'xtype',
-                    fieldLabel: _('clientconfig.xtype') + '*',
+                    fieldLabel: _('clientconfig.xtype') + ClientConfig.reqAsterisk,
                     allowBlank: false,
                     anchor: '100%',
                     listeners: {
                         select: {fn: function(field, record) {
-                            if (record.data.xtype == 'modx-combo') {
+                            if (record.data.xtype === 'modx-combo') {
                                 Ext.getCmp(config.id + '-options').show();
                                 Ext.getCmp(config.id + '-process_options').show();
                             } else {

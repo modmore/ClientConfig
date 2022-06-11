@@ -17,12 +17,17 @@ abstract class ClientConfigManagerController extends modExtraManagerController {
         $path = $this->modx->getOption('clientconfig.core_path', null, $this->modx->getOption('core_path') . 'components/clientconfig/') . 'model/clientconfig/';
         $this->clientconfig =& $this->modx->getService('clientconfig', 'ClientConfig', $path);
 
+        // MODX 3.x automatically adds asterisks to required fields, MODX 2.x doesn't.
+        $modxVersion = $this->modx->getVersionData();
+        $reqAsterisk = version_compare($modxVersion['full_version'], '3.0.0-dev', '>=') ? '' : '*';
+        
         /* Add the main javascript class and our configuration */
         $this->addJavascript($this->clientconfig->config['jsUrl'].'mgr/clientconfig.class.js');
         $this->addCss($this->clientconfig->config['cssUrl'].'mgr/clientconfig.css');
         $this->addHtml('<script type="text/javascript">
         Ext.onReady(function() {
             ClientConfig.config = '.$this->modx->toJSON($this->clientconfig->config).';
+            ClientConfig.reqAsterisk = "' . $reqAsterisk . '";
         });
         </script>');
     }

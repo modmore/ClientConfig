@@ -97,8 +97,8 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 var field = {
                     name: value.key,
                     xtype: value.xtype,
-                    fieldLabel: value.label + ((value.is_required) ? '*' : ''),
-                    value: (value.value != '') ? value.value : value.default,
+                    fieldLabel: value.label + ((value.is_required) ? ClientConfig.reqAsterisk : ''),
+                    value: (value.value !== '') ? value.value : value.default,
                     description: (ClientConfig.isAdmin) ? '<b>[[++' + value.key + ']]</b>' : undefined,
                     allowBlank: !value.is_required,
                     anchor: '60%',
@@ -116,24 +116,24 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.xtype = Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea';
                 }
 
-                if (field.xtype == 'richtext') {
+                if (field.xtype === 'richtext') {
                     field.anchor = '90%';
                     field.xtype = 'textarea';
                     rtes.push(field.id);
                 }
 
-                if ((field.xtype == 'checkbox') || (field.xtype == 'xcheckbox')) {
+                if ((field.xtype === 'checkbox') || (field.xtype === 'xcheckbox')) {
                     field.boxLabel = field.fieldLabel;
                     field.fieldLabel = null;
                     field.value = 1;
                     field.checked = (value.value);
                 }
 
-                if (field.xtype == 'datefield') {
+                if (field.xtype === 'datefield') {
                     field.format = MODx.config.manager_date_format;
                 }
 
-                if (field.xtype == 'timefield') {
+                if (field.xtype === 'timefield') {
                     field.format = MODx.config.manager_time_format;
                 }
 
@@ -143,11 +143,11 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.relativeValue = (value.value != '') ? value.value : value.default;
                 }
 
-                if (field.xtype == 'colorpickerfield') {
+                if (field.xtype === 'colorpickerfield') {
                     field.cls = 'x-colorpicker';
                 }
 
-                if (field.xtype == 'password') {
+                if (field.xtype === 'password') {
                     field.xtype = 'textfield';
                     field.inputType = 'password';
                 }
@@ -156,7 +156,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.vtype = 'email';
                 }
 
-                if (field.xtype == 'modx-combo') {
+                if (field.xtype === 'modx-combo') {
                     var options = value.options.split('||');
                     var data = [];
                     Ext.each(options, function(option, index) {
@@ -209,7 +209,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     items: [],
                     cls: 'tvs-wrapper'
                 };
-                if (tabData.description != '') {
+                if (tabData.description !== '') {
                     tab.items.push({
                         bodyCssClass: 'panel-desc',
                         cls: ' ',
