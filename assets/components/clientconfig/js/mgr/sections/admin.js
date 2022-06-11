@@ -18,6 +18,7 @@ ClientConfig.page.Admin = function(config) {
                 defaults: {
                     border: false,
                     autoHeight: true,
+                    layout: 'anchor',
                     defaults: {
                         border: false
                     }
