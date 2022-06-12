@@ -1,7 +1,5 @@
 <?php
 
-use MODX\Revolution\modContext;
-
 require_once dirname(__DIR__) . '/index.class.php';
 /**
  * The name of the controller is based on the path (home) and the
@@ -60,7 +58,7 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
         if (array_key_exists('context', $scriptProperties) && $this->modx->getOption('clientconfig.context_aware')) {
             $key = $scriptProperties['context'];
             $context = $this->modx->getObject('modContext', ['key' => $key]);
-            if ($context instanceof modContext) {
+            if ($context instanceof \modContext || $context instanceof \MODX\Revolution\modContext) {
 
                 $this->addHtml('<script type="text/javascript">
                     Ext.onReady(function() {
