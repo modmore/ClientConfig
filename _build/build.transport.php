@@ -63,7 +63,8 @@ $sources= array (
 $modx->loadClass('transport.modPackageBuilder','',false, true);
 
 // Be sure to use MODX 2.x to build the package for cross compatability. If built with 3.x, the installer will only work on 3.x.
-$builder = class_exists(modPackageBuilder::class) ? new modPackageBuilder($modx) : new \modPackageBuilder($modx);
+$builder = class_exists(\MODX\Revolution\Transport\modPackageBuilder::class) 
+    ? new \MODX\Revolution\Transport\modPackageBuilder($modx) : new \modPackageBuilder($modx);
 
 $builder->directory = $targetDirectory;
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
