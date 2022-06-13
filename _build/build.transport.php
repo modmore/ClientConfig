@@ -1,5 +1,7 @@
 <?php
 
+use MODX\Revolution\Transport\modPackageBuilder;
+
 /**
  * @param string $filename The name of the file.
  * @return string The file's content
@@ -23,7 +25,7 @@ if (!defined('MOREPROVIDER_BUILD')) {
     /* define version */
     define('PKG_NAME','ClientConfig');
     define('PKG_NAME_LOWER',strtolower(PKG_NAME));
-    define('PKG_VERSION','2.3.0');
+    define('PKG_VERSION','2.3.1');
     define('PKG_RELEASE','pl');
 
     /* load modx */
@@ -61,7 +63,7 @@ $sources= array (
 );
 
 $modx->loadClass('transport.modPackageBuilder','',false, true);
-$builder = new modPackageBuilder($modx);
+$builder = class_exists(modPackageBuilder::class) ? new modPackageBuilder($modx) : new \modPackageBuilder($modx);
 $builder->directory = $targetDirectory;
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
 $builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/','{assets_path}components/'.PKG_NAME_LOWER.'/');

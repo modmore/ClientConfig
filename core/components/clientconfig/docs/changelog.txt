@@ -1,6 +1,6 @@
 ClientConfig 2.3.1-pl
 ---------------------
-Released on 2022-
+Released on 2022-06-13
 
 - Fix "Choose Context" combobox not loading in MODX 3.x [#193]  
 - Fix double asterisks being displayed on required fields in MODX 3.x [#189]
