@@ -1,7 +1,5 @@
 <?php
 
-use MODX\Revolution\Transport\modPackageBuilder;
-
 /**
  * @param string $filename The name of the file.
  * @return string The file's content
@@ -63,7 +61,10 @@ $sources= array (
 );
 
 $modx->loadClass('transport.modPackageBuilder','',false, true);
+
+// Be sure to use MODX 2.x to build the package for cross compatability. If built with 3.x, the installer will only work on 3.x.
 $builder = class_exists(modPackageBuilder::class) ? new modPackageBuilder($modx) : new \modPackageBuilder($modx);
+
 $builder->directory = $targetDirectory;
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
 $builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/','{assets_path}components/'.PKG_NAME_LOWER.'/');
