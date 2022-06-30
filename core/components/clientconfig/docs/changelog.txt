@@ -1,3 +1,9 @@
+ClientConfig 2.3.2-pl
+---------------------
+Released on 2022-07-
+
+- Fix strict type check in plugin for MODX 3.x [#195]
+
 ClientConfig 2.3.1-pl
 ---------------------
 Released on 2022-06-13

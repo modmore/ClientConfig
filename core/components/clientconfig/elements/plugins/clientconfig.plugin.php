@@ -43,7 +43,8 @@ switch($eventName) {
 
         /* If we got the class (gotta be careful of failed migrations), grab settings and go! */
         if ($clientConfig instanceof ClientConfig) {
-            $contextKey = $modx->context instanceof modContext ? $modx->context->get('key') : 'web';
+            $contextKey = $modx->context instanceof modContext || $modx->context instanceof \MODX\Revolution\modContext
+                ? $modx->context->get('key') : 'web';
             $settings = $clientConfig->getSettings($contextKey);
 
             /* Make settings available as [[++tags]] */
