@@ -1,8 +1,9 @@
 ClientConfig 2.3.2-pl
 ---------------------
-Released on 2022-07-
+Released on 2022-07-15
 
 - Fix strict type check in plugin for MODX 3.x [#195]
+- Lower priority of onHandleRequest event on install so context mode works reliably out of the box with routing plugins. [#196]
 
 ClientConfig 2.3.1-pl
 ---------------------
