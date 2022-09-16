@@ -90,7 +90,8 @@ ClientConfig.combo.ContextList = function(config) {
         baseParams: {
             action: 'mgr/contexts/getlist',
             exclude: 'mgr',
-            combo: true
+            combo: true,
+            sort: '`rank`',
         },
         fields: ['key','name'],
         hiddenName: config.name || 'context',
