@@ -36,6 +36,15 @@ switch($eventName) {
     case 'OnMODXInit':
     case 'OnHandleRequest':
     case 'pdoToolsOnFenomInit':
+        // Measure to guard against pdoTools fenom parser loop bug: https://github.com/modmore/ClientConfig/issues/192
+        // Here we only allow the pdoToolsOnFenomInit event to trigger the first time.
+        if ($eventName === 'pdoToolsOnFenomInit') {
+            if ($modx->getOption('clientconfig.fenom_initialized')) {
+                return;
+            }
+            $modx->setOption('clientconfig.fenom_initialized', true);
+        }
+
         /* Grab the class */
         $path = $modx->getOption('clientconfig.core_path', null, $modx->getOption('core_path') . 'components/clientconfig/');
         $path .= 'model/clientconfig/';
