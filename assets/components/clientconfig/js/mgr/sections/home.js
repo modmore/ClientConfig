@@ -111,6 +111,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.growMin = 150;
                     field.growMax = 800;
                 }
+
                 if (field.xtype === 'code') {
                     field.height = 150;
                     field.xtype = Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea';
@@ -141,6 +142,20 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.tv = value.key;
                     field.source = value.source || MODx.config.default_media_source;
                     field.relativeValue = (value.value != '') ? value.value : value.default;
+                    if (ClientConfig.isAdmin) {
+                        field.listeners = {
+                            render: function(fld) {
+                                new Ext.ToolTip({
+                                    target: fld.label.dom,
+                                    html: field.description
+                                });
+                                new Ext.ToolTip({
+                                    target: fld.getEl(),
+                                    html: field.description
+                                });
+                            }
+                        }
+                    }
                 }
 
                 if (field.xtype === 'colorpickerfield') {
@@ -151,6 +166,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.xtype = 'textfield';
                     field.inputType = 'password';
                 }
+
                 if (field.xtype === 'email') {
                     field.xtype = 'textfield';
                     field.vtype = 'email';
@@ -335,7 +351,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
         if (fp && fp.getForm()) {
             var values = fp.getForm().getValues();
 
-            // Fix name of image tv
+            // Fix name of image & file tv
             var imagePickers = fp.find('xtype', 'modx-panel-tv-image');
             Ext.each(imagePickers, function(imagePicker){
                 values[imagePicker.name] = values['tv' + imagePicker.name];
