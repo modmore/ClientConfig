@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @var modX $modx
+ * @var array $options
+ */
 switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_INSTALL:
     case xPDOTransport::ACTION_UPGRADE:
@@ -9,6 +12,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         $contextChecked = $isContextAware ? 'checked="checked"' : '';
 
         return <<<HTML
+<input type="hidden" name="clientconfig_setup_options" value="1">
 <p>ClientConfig 2.0 comes in two different flavours: global, and multi context mode. </p>
 <br>
 <ul style="list-style: disc; padding-left: 2em; padding-bottom: 1em;">
