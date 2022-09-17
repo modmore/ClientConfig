@@ -1,7 +1,10 @@
 ClientConfig 2.3.3-pl
 ---------------------
-Released on 2022-09-
+Released on 2022-09-17
 
+- Guard against pdoToolsOnFenomInit event from triggering more than once causing a fatal loop [#198]
+- Fix contexts dropdown not displaying in the same order as the resource tree. Now sorts by rank rather than key. [1eceff9]
+- Add tooltips showing placeholder syntax to image and file settings. [#183]
 - Fix context aware mode being disabled when upgrading remotely. [#177]
 
 ClientConfig 2.3.2-pl
