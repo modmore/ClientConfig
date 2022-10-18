@@ -68,11 +68,11 @@ class cgSettingSaveProcessor extends modProcessor {
         }
 
         // Invoke events and clear the cache
-        $this->modx->invokeEvent('ClientConfig_ConfigChange');
         $this->modx->getCacheManager()->delete('clientconfig',array(xPDO::OPT_CACHE_KEY => 'system_settings'));
         if ($this->modx->getOption('clientconfig.clear_cache', null, true)) {
             $this->modx->getCacheManager()->delete('',array(xPDO::OPT_CACHE_KEY => 'resource'));
         }
+        $this->modx->invokeEvent('ClientConfig_ConfigChange');
 
         // Return a response
         if ($this->hasErrors()) {
