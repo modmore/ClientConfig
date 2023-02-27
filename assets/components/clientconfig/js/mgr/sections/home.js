@@ -130,6 +130,32 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                     field.checked = (value.value);
                 }
 
+                if ((field.xtype === 'radiogroup') || (field.xtype === 'xradiogroup')) {
+		    field.xtype = 'radiogroup';
+		    field.columns = 4;
+                    field.items = [];
+
+                    var options = value.options.split('||');
+                    Ext.each(options, function(option) {
+                        option = option.split('==');
+                        if (option[1]) {
+                            field.items.push({
+                                boxLabel: option[0],
+                                inputValue: option[1],
+                                checked: option[1] === field.value ? true : false,
+                                name: field.name
+                            })
+                        } else {
+                            field.items.push({
+                                boxLabel: option[0],
+                                inputValue: option[0],
+                                checked: option[0] === field.value ? true : false,
+                                name: field.name
+                            })
+                        }
+                    });
+                }
+
                 if (field.xtype === 'datefield') {
                     field.format = MODx.config.manager_date_format;
                 }
