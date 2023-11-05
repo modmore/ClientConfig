@@ -24,10 +24,17 @@ Ext.extend(ClientConfig,Ext.Component,{
             ) {
                 CKEDITOR.instances[rte].destroy()
             }
+            // Redactor v2
             else if (window.$red) {
                 var editor = $red('#' + rte);
                 if (editor && editor.redactor) {
                     editor.redactor('core.destroy');
+                }
+            }
+            // Redactor v3
+            else if (window.Redactor) {
+                if (window.Redactor('#' + rte)) {
+                    $R('#' + rte, 'destroy');
                 }
             }
         }
