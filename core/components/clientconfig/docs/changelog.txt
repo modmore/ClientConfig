@@ -1,3 +1,11 @@
+ClientConfig 2.4.0-pl
+----------------------
+Released on 2023-11-07
+
+- Fix GoogleFontList on MODX3 [#204, #205]
+- Change when ClientConfig_ConfigChange event is run: the cache will now be cleared first [#200]
+- Fix Redactor not updating value on context switch [#199, #208]
+
 ClientConfig 2.3.3-pl
 ---------------------
 Released on 2022-09-17
