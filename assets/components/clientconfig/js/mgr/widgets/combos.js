@@ -43,6 +43,7 @@ ClientConfig.combo.FieldTypes = function(config) {
                 ['numberfield', _('clientconfig.xtype.numberfield')],
                 ['colorpickerfield', _('clientconfig.xtype.colorpalette')],
                 ['email', _('clientconfig.xtype.email')],
+                ['xradiogroup', _('clientconfig.xtype.radiogroup')],
                 ['xcheckbox', _('clientconfig.xtype.xcheckbox')],
                 ['datefield', _('clientconfig.xtype.datefield')],
                 ['timefield', _('clientconfig.xtype.timefield')],
