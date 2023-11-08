@@ -32,6 +32,11 @@ class cgSettingSaveProcessor extends modProcessor {
                 continue;
             }
 
+            // Fix save value for Ace setting
+            if ($setting->get('xtype') == 'code' && $this->modx->getOption('which_element_editor') == 'Ace') {
+                $value = $value[1];
+            }
+
             if (trim($value) === '' && $setting->get('is_required') &&
                 !in_array($setting->get('xtype'), array('checkbox', 'xcheckbox'), true)) {
                 $this->addFieldError($key, $setting->get('label') . ': ' . $this->modx->lexicon('clientconfig.field_is_required'));
