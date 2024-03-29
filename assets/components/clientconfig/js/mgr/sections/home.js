@@ -155,6 +155,27 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                                 });
                             }
                         }
+                        if (field.xtype === 'modx-panel-tv-image') {
+                            field.listeners.afterrender = function(data) {
+                                setTimeout(() => {
+                                    const el = Ext.getCmp(field.id + '-preview');
+                                    if (Ext.isEmpty(data.value)) {
+                                        el.update('');
+                                    } else {
+                                        el.update('<img src="'+MODx.config.connectors_url+'system/phpthumb.php?w=400&h=400&aoe=0&far=0&f=png&src=/'+data.value+'&wctx=web&source='+field.source+'&version=00000000" alt="" />');
+
+                                    }
+                                },0);
+                            };
+                            field.listeners.select = function(data) {
+                                const el = Ext.getCmp(field.id + '-preview');
+                                if (Ext.isEmpty(data.url)) {
+                                    el.update('');
+                                } else {
+                                    el.update('<img src="'+MODx.config.connectors_url+'system/phpthumb.php?w=400&h=400&aoe=0&far=0&f=png&src=/'+data.url+'&wctx=web&source='+field.source+'&version=00000000" alt="" />');
+                                }
+                            };
+                        }
                     }
                 }
 
@@ -206,6 +227,15 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 }
 
                 fields.push(field);
+
+                if (field.xtype === 'modx-panel-tv-image') {
+                    fields.push({
+                        anchor: '100%',
+                        html: '',
+                        bodyCssClass: 'modx-tv-image-preview',
+                        id: field.id + '-preview',
+                    });
+                }
 
                 if (value.description && value.description.length > 0) {
                     var fieldDescription = {
