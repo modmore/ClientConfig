@@ -162,7 +162,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                                     if (Ext.isEmpty(data.value)) {
                                         el.update('');
                                     } else {
-                                        el.update('<img src="'+MODx.config.connectors_url+'system/phpthumb.php?w=400&h=400&aoe=0&far=0&f=png&src=/'+data.value+'&wctx=web&source='+field.source+'&version=00000000" alt="" />');
+                                        el.update('<img src="'+MODx.config.connectors_url+'system/phpthumb.php?w=400&h=400&aoe=0&far=0&f=png&src='+data.value+'&wctx=web&source='+field.source+'&version=00000000" alt="" />');
 
                                     }
                                 },0);
@@ -172,7 +172,7 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                                 if (Ext.isEmpty(data.url)) {
                                     el.update('');
                                 } else {
-                                    el.update('<img src="'+MODx.config.connectors_url+'system/phpthumb.php?w=400&h=400&aoe=0&far=0&f=png&src=/'+data.url+'&wctx=web&source='+field.source+'&version=00000000" alt="" />');
+                                    el.update('<img src="'+MODx.config.connectors_url+'system/phpthumb.php?w=400&h=400&aoe=0&far=0&f=png&src='+data.url+'&wctx=web&source='+field.source+'&version=00000000" alt="" />');
                                 }
                             };
                         }
