@@ -64,7 +64,7 @@ class ClientConfig {
         $modelPath = $this->config['modelPath'];
         $this->modx->addPackage('clientconfig',$modelPath);
         $this->modx->lexicon->load('clientconfig:default');
-        
+
         $this->debug = (bool)$this->modx->getOption('clientconfig.debug',null,false);
     }
 
@@ -115,8 +115,10 @@ class ClientConfig {
                     }
                 }
             }
-            /* Write to cache again */
-            $this->modx->cacheManager->set('clientconfig', $settings, 0, $cacheOptions);
+            if($settings) {
+                /* Write to cache again */
+                $this->modx->cacheManager->set('clientconfig', $settings, 0, $cacheOptions);
+            }
         }
 
         if (!is_array($settings)) {
