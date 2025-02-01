@@ -1,3 +1,10 @@
+ClientConfig 2.5.0-pl
+----------------------
+Released on 2025-02-01
+
+- Add image preview for image fields (@Boshnik) [#212]
+- Check if settings exist before saving cache to prevent cache corruption (@Peeet93) [#213]
+
 ClientConfig 2.4.0-pl
 ----------------------
 Released on 2023-11-07
