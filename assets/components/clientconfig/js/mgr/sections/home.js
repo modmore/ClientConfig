@@ -115,6 +115,9 @@ Ext.extend(ClientConfig.page.Home,MODx.Component,{
                 if (field.xtype === 'code') {
                     field.height = 150;
                     field.xtype = Ext.ComponentMgr.isRegistered('modx-texteditor') ? 'modx-texteditor' : 'textarea';
+                    if (MODx.config.which_element_editor == 'Ace') {
+                        Ext.onReady(function() {MODx.ux.Ace.replaceComponent(field.id, 'text/html', 1);});
+                    }
                 }
 
                 if (field.xtype === 'richtext') {
