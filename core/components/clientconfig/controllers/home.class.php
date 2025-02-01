@@ -42,7 +42,7 @@ class ClientConfigHomeManagerController extends ClientConfigManagerController {
                     $googleFontsApiKey = $this->modx->getOption('clientconfig.google_fonts_api_key', null, '');
                     $sa['xtype'] = empty($googleFontsApiKey) ? 'textfield' : $sa['xtype'];
                 }
-                elseif ($sa['xtype'] === 'modx-combo' && $setting->get('process_options')) {
+		elseif ($setting->get('process_options') && in_array($sa['xtype'], ['modx-combo', 'radiogroup', 'xradiogroup'], true)) {
                     $inputOpts = $setting->get('options');
                     $this->modx->getParser();
                     $this->modx->parser->processElementTags('', $inputOpts, true, true);

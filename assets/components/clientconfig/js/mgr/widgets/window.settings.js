@@ -71,7 +71,7 @@ ClientConfig.window.Setting = function(config) {
                     anchor: '100%',
                     listeners: {
                         select: {fn: function(field, record) {
-                            if (record.data.xtype === 'modx-combo') {
+                            if (['modx-combo', 'radiogroup', 'xradiogroup'].indexOf(record.data.xtype) !== -1) {
                                 Ext.getCmp(config.id + '-options').show();
                                 Ext.getCmp(config.id + '-process_options').show();
                             } else {
@@ -97,7 +97,7 @@ ClientConfig.window.Setting = function(config) {
                     fieldLabel: _('clientconfig.options'),
                     description: _('clientconfig.options.desc'),
                     anchor: '100%',
-                    hidden: (config.record && (config.record.xtype === 'modx-combo')) ? false : true
+                    hidden: (config.record && (['modx-combo', 'radiogroup', 'xradiogroup'].indexOf(config.record.xtype) !== -1)) ? false : true
                 },{
                     xtype: 'checkbox',
                     id: config.id + '-process_options',
